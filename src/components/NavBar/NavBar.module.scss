@@ -1,0 +1,19 @@
+
+
+
+@import '../../variables/Variables/Variables.module.scss';
+nav {
+    background-color: $component !important;
+
+    a{
+        color: $white;
+    }
+    h3{
+        color: $white;
+    }
+
+    button{
+        color: white;
+    }
+  
+}
