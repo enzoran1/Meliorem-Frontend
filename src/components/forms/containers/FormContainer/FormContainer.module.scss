@@ -1,0 +1,49 @@
+@import '../../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../../variables/Variables/Variables.module.scss';
+
+
+    
+    
+    .Container__Form{
+        @include D-Flex-SpaceAround-Colums;
+        background-color: $component;
+        width: 320px;
+        
+        padding: 20px;
+        border-radius: 15px;
+        @media (min-width:768px) {
+            width: 420px;
+        }
+        @media (min-width:1200px) {
+            width: 520px;
+            
+        }
+        .Form_Logo{
+            img{
+                width: 80px;
+                height: 60px;
+                margin-bottom: 20px;
+            }
+        }
+        .Form_Title{
+            p{
+                font-weight: bold;
+                color: $white;
+                font-size: 140%;
+                width: 100%;
+                text-align: center;
+                @media (min-width:1200px) {
+                    font-size: 170%;
+                }
+            }
+        }
+        .Form_Input{
+            width: 100%;
+           
+            
+        }
+        .Form_Btn{
+            width: 100%;
+            margin-top: 30px;
+        }
+    }

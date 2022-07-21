@@ -18,6 +18,13 @@
       "withStyle": true,
       "withTest": true
     },
+    "mixins": {
+      "path": "src/mixins",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
     "pages": {
       "path": "src/pages",
       "withLazy": false,
@@ -27,6 +34,13 @@
     },
     "forms": {
       "path": "src/components/forms",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
+    "formsContainer": {
+      "path": "src/components/forms/containers",
       "withLazy": false,
       "withStory": false,
       "withStyle": true,

@@ -1,13 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styles from './InputText.module.scss';
+import styles from './InputDisabel.module.scss';
 
-const InputText = (props) => (
-  <Fragment className={styles.InputText} data-testid="InputText">
+const InputDisabel = (props) => (
+  <Fragment className={styles.InputDisabel} data-testid="InputDisabel">
     <input
-      placeholder={props.placeholder}
       type="text"
-      className="
+      class="
         form-control
         block
         w-full
@@ -16,7 +15,7 @@ const InputText = (props) => (
         text-base
         font-normal
         text-gray-700
-        bg-white bg-clip-padding
+        bg-gray-100 bg-clip-padding
         border border-solid border-gray-300
         rounded
         transition
@@ -24,12 +23,16 @@ const InputText = (props) => (
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
       "
+      id="exampleFormControlInput5"
+      placeholder={props.placeholder}
+      aria-label="Disabled input example"
+      disabled
     />
   </Fragment>
 );
 
-InputText.propTypes = {};
+InputDisabel.propTypes = {};
 
-InputText.defaultProps = {};
+InputDisabel.defaultProps = {};
 
-export default InputText;
+export default InputDisabel;

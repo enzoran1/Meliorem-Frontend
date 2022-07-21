@@ -1,16 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styles from './InputPassword.module.scss';
+import styles from './InputSearch.module.scss';
 
-const InputPassword = (props) => (
-  <Fragment className={styles.InputPassword} data-testid="InputPassword">
-    <input
-      placeholder={props.placeholder}
-      type={props.type}
-      name={props.name}
-      onChange={props.onChange}
-      onBlur={props.onBlur}
-      value={props.value}
+const InputSearch = (props) => (
+  <Fragment className={styles.InputSearch} data-testid="InputSearch">
+       <input
+      type="search"
       class="
         form-control
         block
@@ -28,14 +23,14 @@ const InputPassword = (props) => (
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
       "
-      id="examplePassword0"
-      
+      id="exampleSearch2"
+      placeholder={props.search}
     />
   </Fragment>
 );
 
-InputPassword.propTypes = {};
+InputSearch.propTypes = {};
 
-InputPassword.defaultProps = {};
+InputSearch.defaultProps = {};
 
-export default InputPassword;
+export default InputSearch;

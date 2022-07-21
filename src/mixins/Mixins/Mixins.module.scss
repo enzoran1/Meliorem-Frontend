@@ -1,0 +1,18 @@
+
+@mixin D-Flex-Center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin D-Flex-Center-Colums {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@mixin D-Flex-SpaceAround-Colums {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

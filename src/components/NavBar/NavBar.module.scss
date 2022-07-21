@@ -2,12 +2,21 @@
 
 
 @import '../../variables/Variables/Variables.module.scss';
-nav {
+.NavBar {
     background-color: $component !important;
 
     a{
         color: $white;
+        
     }
+    .NavBar__profil{
+    
+
+        a{
+             color: $black;
+        }
+    }
+  
     h3{
         color: $white;
     }
@@ -17,3 +26,4 @@ nav {
     }
   
 }
+
