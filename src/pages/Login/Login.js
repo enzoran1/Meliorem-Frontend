@@ -3,7 +3,7 @@ import styles from './Login.module.scss';
 import InputEmail from '../../components/forms/inputs/InputEmail/InputEmail';
 
 import InputPassword from '../../components/forms/inputs/InputPassword/InputPassword';
-import Button from '../../components/buttons/Button/Button';
+
 import FormContainer from '../../components/forms/containers/FormContainer/FormContainer';
 
 import { Formik } from 'formik';
@@ -11,6 +11,7 @@ import AlertWarning from '../../components/alerts/AlertWarning/AlertWarning';
 import AlertDanger from '../../components/alerts/AlertDanger/AlertDanger';
 import { login, deleteUser, getUser,getAllUser} from '../../modules/apis/UserAPI';
 import {useNavigate} from 'react-router-dom';
+import ButtonLogin from '../../components/buttons/ButtonLogin/ButtonLogin';
 
 const Login = () => {
   const [error, setError] = useState(<></>);
@@ -89,8 +90,9 @@ const Login = () => {
             </div>
             {errors.password && touched.password && errors.password}
             <div className={styles.Form_Btn}>
-              <Button type="submit" titleBtn="Connexion" disabled={isSubmitting}/>
+              <ButtonLogin type="submit" titleBtn="Connexion" disabled={isSubmitting}/>
               {error}
+            
             </div>
           </FormContainer>
         )}

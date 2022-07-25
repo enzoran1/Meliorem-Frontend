@@ -94,3 +94,41 @@ export function deleteUser(token,id, success,error) {
     }
     );
 }
+
+
+/** 
+ * @param {string} token  
+ * @param {object} user 
+ * @param {function (object) } success 
+ * @param {function (object) } error 
+ * */
+ export function updateUser(token,id, user, success,error) {
+    axios.put(`${BASE_URL}/user/${id}`,user,getTokenHeader(token)).then(response=>{
+      if (success)
+        success(response.data); 
+    }
+    ).catch(err=>{
+      if (error)
+        error(err.response.data);
+    }
+    );
+}
+  
+/** 
+ * @param {string} token 
+ * @param {object} user 
+ * @param {function (object) } success 
+ * @param {function (object) } error 
+ * */    
+  export function createUser(token,user, success,error) {
+    axios.post(`${BASE_URL}/user`,user,getTokenHeader(token)).then(response=>{
+      if (success)
+        success(response.data); 
+    }
+    ).catch(err=>{
+      if (error)
+        error(err.response.data);
+    }
+    );
+  }
+  

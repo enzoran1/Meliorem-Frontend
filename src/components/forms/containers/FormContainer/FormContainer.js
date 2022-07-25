@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styles from './FormContainer.module.scss';
 import LogoMelo from '../../../../images/logos/logomelo.png';
-import Button from '../../../buttons/Button/Button';
 
 const FormContainer = (props) => (
   <Fragment>
