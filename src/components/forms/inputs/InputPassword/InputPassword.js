@@ -1,6 +1,4 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import styles from './InputPassword.module.scss';
 
 const InputPassword = (props) => (
   <Fragment>

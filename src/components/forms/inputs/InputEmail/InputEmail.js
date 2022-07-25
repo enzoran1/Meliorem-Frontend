@@ -1,6 +1,4 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import styles from './InputEmail.module.scss';
 
 const InputEmail = (props) => (
   
