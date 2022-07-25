@@ -4,7 +4,7 @@ import styles from './Variables.module.scss';
 
 const Variables = () => (
   <div className={styles.Variables} data-testid="Variables">
-    Variables Component
+    test
   </div>
 );
 
