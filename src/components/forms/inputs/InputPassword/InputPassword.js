@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './InputPassword.module.scss';
 
 const InputPassword = (props) => (
-  <Fragment className={styles.InputPassword} data-testid="InputPassword">
+  <Fragment>
     <input
       placeholder={props.placeholder}
       type={props.type}
@@ -11,7 +11,7 @@ const InputPassword = (props) => (
       onChange={props.onChange}
       onBlur={props.onBlur}
       value={props.value}
-      class="
+      className="
         form-control
         block
         w-full
@@ -36,6 +36,8 @@ const InputPassword = (props) => (
 
 InputPassword.propTypes = {};
 
-InputPassword.defaultProps = {};
+InputPassword.defaultProps = {
+  placeholder: "Mot de passe"
+};
 
 export default InputPassword;

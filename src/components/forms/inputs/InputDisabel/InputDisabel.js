@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './InputDisabel.module.scss';
 
 const InputDisabel = (props) => (
-  <Fragment className={styles.InputDisabel} data-testid="InputDisabel">
+  <Fragment>
     <input
       type="text"
       class="

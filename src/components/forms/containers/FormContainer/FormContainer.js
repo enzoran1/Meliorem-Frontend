@@ -5,8 +5,8 @@ import LogoMelo from '../../../../images/logos/logomelo.png';
 import Button from '../../../buttons/Button/Button';
 
 const FormContainer = (props) => (
-  <Fragment className={styles.FormContainer} data-testid="FormContainer">
-     <form onSubmit={props.onSubmit} className={styles.Container__Form}>
+  <Fragment>
+     <form onSubmit={props.onSubmit} className={styles.Container__Form} noValidate>
       <div className={styles.Form_Logo}>
           <img src={LogoMelo} alt="" />
       </div>

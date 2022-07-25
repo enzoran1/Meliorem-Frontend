@@ -4,7 +4,7 @@ import styles from './InputEmail.module.scss';
 
 const InputEmail = (props) => (
   
-  <Fragment className={styles.InputEmail} data-testid="InputEmail">
+  <Fragment>
      <input
       placeholder={props.placeholder}
       type={props.type}
@@ -12,7 +12,7 @@ const InputEmail = (props) => (
       onChange={props.onChange}
       onBlur={props.onBlur}
       value={props.value}
-      class="
+      className="
         form-control
         block
         w-full
@@ -36,6 +36,8 @@ const InputEmail = (props) => (
 
 InputEmail.propTypes = {};
 
-InputEmail.defaultProps = {};
+InputEmail.defaultProps = {
+  placeholder:"Email"
+};
 
 export default InputEmail;

@@ -1,0 +1,25 @@
+
+
+
+@import '../../mixins/Mixins/Mixins.module.scss';
+@import '../../variables/Variables/Variables.module.scss';
+
+.Login {
+    @include D-Flex-Center;
+    height: 90vh;
+   .Form__Connexion{
+    
+    width: 100%;
+    input{
+        margin-top: 40px;
+        @media (min-width:1200px) {
+            margin-top: 50px;
+            height: 50px;
+        }
+        
+    }
+   }
+   .Form_Btn{
+    margin-top: 50px;
+   }
+}

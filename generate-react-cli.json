@@ -32,6 +32,20 @@
       "withStyle": true,
       "withTest": true
     },
+    "contexts": {
+      "path": "src/contexts",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
+    "services": {
+      "path": "src/services",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
     "forms": {
       "path": "src/components/forms",
       "withLazy": false,
