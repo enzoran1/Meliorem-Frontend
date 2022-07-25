@@ -1,4 +1,4 @@
-import React , {useState,useContext} from 'react';
+import React , {useState} from 'react';
 import styles from './Login.module.scss';
 import InputEmail from '../../components/forms/inputs/InputEmail/InputEmail';
 
@@ -10,10 +10,11 @@ import { Formik } from 'formik';
 import AlertWarning from '../../components/alerts/AlertWarning/AlertWarning';
 import AlertDanger from '../../components/alerts/AlertDanger/AlertDanger';
 import { login, deleteUser, getUser,getAllUser} from '../../modules/apis/UserAPI';
-
+import {useNavigate} from 'react-router-dom';
 
 const Login = () => {
   const [error, setError] = useState(<></>);
+  const navigate = useNavigate();
 
   
 
@@ -30,7 +31,8 @@ const Login = () => {
     setSubmitting(false);
     console.log(values);
     login(values.email,values.password, (data)=>{
-      console.log(data.token);
+      sessionStorage.setItem('token',data.token);
+      navigate('/');
     }
     )
     // login(values.email,values.password,
