@@ -9,12 +9,7 @@ import FormContainer from "../../components/forms/containers/FormContainer/FormC
 import { Formik } from "formik";
 import AlertWarning from "../../components/alerts/AlertWarning/AlertWarning";
 import AlertDanger from "../../components/alerts/AlertDanger/AlertDanger";
-import {
-  login,
-  deleteUser,
-  getUser,
-  getAllUser,
-} from "../../modules/apis/UserAPI";
+import { login } from "../../modules/apis/UserAPI";
 import { useNavigate } from "react-router-dom";
 import ButtonLogin from "../../components/buttons/ButtonLogin/ButtonLogin";
 
@@ -41,7 +36,7 @@ const Login = () => {
         navigate("/");
       },
       (error) => {
-        if (error.code == 401) {
+        if (error.code === 401) {
           setError(
             <AlertDanger title="Identifiants ou mot de passe invalide" />
           );
