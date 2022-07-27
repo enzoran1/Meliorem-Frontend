@@ -1,3 +1,7 @@
+// Flex global
+
+
+// simple flex
 
 @mixin D-Flex-Center {
     display: flex;
@@ -10,9 +14,168 @@
     justify-content: center;
     align-items: center;
 }
+
+// flex around
+
+@mixin D-Flex-SpaceAround {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 @mixin D-Flex-SpaceAround-Colums {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
+
+// flex between
+
+@mixin D-Flex-SpaceBetween-Colums {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+    
+@mixin D-Flex-SpaceBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// flex Evenly
+
+@mixin D-Flex-SpaceEvenly {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+@mixin D-Flex-SpaceEvenly-Colums {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@mixin D-Flex-SpaceEvenly-Colums-Reverse {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+    
+@mixin D-Flex-SpaceEvenly-Reverse {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+
+
+
+
+
+
+// grid
+
+@mixin grid-columns($columns) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+}
+@mixin grid-rows($rows) {
+    display: grid;
+    grid-template-rows: repeat($rows, 1fr);
+}
+@mixin grid-template($columns, $rows) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    grid-template-rows: repeat($rows, 1fr);
+}
+@mixin grid-template-area($area) {
+    display: grid;
+    grid-template-areas: $area;
+}
+
+
+
+
+
+
+// padding and margin
+
+@mixin p($padding) {
+    padding: $padding;
+}
+@mixin pt($padding) {
+    padding-top: $padding;
+}
+@mixin pb($padding) {
+    padding-bottom: $padding;
+    
+}
+@mixin pl($padding) {
+    padding-left: $padding;
+}
+    
+@mixin m($margin) {
+    margin: $margin;
+}
+@mixin mt($margin) {
+    margin-top: $margin;
+}
+@mixin mb($margin) {
+    margin-bottom: $margin;
+}
+@mixin ml($margin) {
+    margin-left: $margin;
+}
+@mixin mr($margin) {
+    margin-right: $margin;
+}
+
+
+
+
+
+
+
+
+// width and height
+
+@mixin w($width) {
+    width: $width;
+}    
+@mixin h($height) {
+    height: $height;
+}
+@mixin minw($width) {
+    min-width: $width;
+}
+@mixin minh($height) {
+    min-height: $height;
+}
+@mixin maxw($width) {
+    max-width: $width;
+}
+@mixin maxh($height) {
+    max-height: $height;
+}
+@mixin ow($width) {
+    outline-width: $width;
+}
+@mixin oh($height) {
+    outline-height: $height;
+}
+
+// Raduis
+
+@mixin raduis($radius) {
+    border-radius: $radius;
+}
+@mixin default-Radius {
+    border-radius: 13px;
+}
+
+
+    

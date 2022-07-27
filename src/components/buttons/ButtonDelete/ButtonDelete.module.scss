@@ -1,0 +1,22 @@
+@import '../../../variables/Variables/Variables.module.scss';
+@import '../../../mixins/Mixins/Mixins.module.scss';
+
+.ButtonDelete {
+    @include D-Flex-SpaceAround;
+        @include w(105px);
+        @include p(2px);
+        @include pt(5px);
+        @include pb(5px);
+        @include raduis(5px);
+        background-color: $red;
+        cursor: pointer;
+        align-items: center;
+    
+        &:hover {
+            background-color: $red-hover;
+        }
+        span {
+            font-size: 90%;
+            color: $white;
+        }
+}

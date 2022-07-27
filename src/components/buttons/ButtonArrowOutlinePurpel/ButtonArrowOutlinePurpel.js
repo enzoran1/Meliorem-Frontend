@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./ButtonArrowOutlinePurpel.module.scss";
 
-const ButtonArrowOutlinePurpel = () => (
+const ButtonArrowOutlinePurpel = (props) => (
   <div
+    onClick={props.onClick}
     className={styles.ButtonArrowOutlinePurpel}
     data-testid="ButtonArrowOutlinePurpel"
   >

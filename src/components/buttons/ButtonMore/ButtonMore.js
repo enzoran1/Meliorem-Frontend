@@ -2,8 +2,12 @@ import React from "react";
 
 import styles from "./ButtonMore.module.scss";
 
-const ButtonMore = () => (
-  <div className={styles.ButtonMore} data-testid="ButtonMore">
+const ButtonMore = (props) => (
+  <div
+    onClick={props.onClick}
+    className={styles.ButtonMore}
+    data-testid="ButtonMore"
+  >
     <svg
       width="40"
       height="40"

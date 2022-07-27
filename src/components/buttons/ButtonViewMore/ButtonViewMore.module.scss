@@ -1,0 +1,18 @@
+@import '../../../variables/Variables/Variables.module.scss';
+@import'../../../mixins/Mixins/Mixins.module.scss';
+
+.ButtonViewMore {
+    @include D-Flex-SpaceAround;
+        @include w(105px);
+        @include raduis(5px);
+        align-items: center;
+        cursor: pointer;
+    
+    span {
+           
+            color: $white;
+            font-size: 90%;
+        }
+    
+       
+}

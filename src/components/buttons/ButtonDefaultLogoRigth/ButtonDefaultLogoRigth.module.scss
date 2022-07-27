@@ -1,20 +1,24 @@
 @import '../../../variables/Variables/Variables.module.scss';
+@import'../../../mixins/Mixins/Mixins.module.scss';
+
 
 .ButtonDefaultLogoRigth {
-   display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   width: 300px;
-   padding: 10px;
+   @include grid-columns(3);
+   @include w(300px);
+   @include p(10px);
+   @include raduis(5px);
    align-items: center;
-   background-color: $purpel;
-   border-radius: 5px;
+   background-color: $purpel_2;
+   cursor: pointer;
+   &:hover {
+      background-color: $purpel;
+   }
    
 
 
-   a{
+   span{
     grid-column: 2;
-    display: flex;
-    justify-content: center;
+    @include D-Flex-Center;
     color: $white;
    }
    p{

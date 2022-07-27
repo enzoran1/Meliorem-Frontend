@@ -1,14 +1,20 @@
 import React from "react";
+import ButtonArrowOutlineWhite from "../ButtonArrowOutlineWhite/ButtonArrowOutlineWhite";
 import styles from "./ButtonDefaultLogoRigth.module.scss";
 
 const ButtonDefaultLogoRigth = (props) => (
   <div
+    onClick={props.onClick}
+    type="button"
+    data-mdb-ripple="true"
+    data-mdb-ripple-color="light"
     className={styles.ButtonDefaultLogoRigth}
-    data-testid="ButtonDefaultLogoRigth"
-  >
-    <a href="http">{props.title} </a>
+    data-testid="ButtonDefaultLogoRigth">
+    <span>{props.title} </span>
 
-    <p>{props.image}</p>
+    <p>
+      <ButtonArrowOutlineWhite/>
+    </p>
   </div>
 );
 

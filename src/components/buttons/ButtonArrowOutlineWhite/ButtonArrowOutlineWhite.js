@@ -2,8 +2,9 @@ import React from "react";
 
 import styles from "./ButtonArrowOutlineWhite.module.scss";
 
-const ButtonArrowOutlineWhite = () => (
+const ButtonArrowOutlineWhite = (props) => (
   <div
+    onClick={props.onClick}
     className={styles.ButtonArrowOutlineWhite}
     data-testid="ButtonArrowOutlineWhite"
   >

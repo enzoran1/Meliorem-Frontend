@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./ButtonArrowSolid.module.scss";
 
 const ButtonArrowSolid = (props) => (
-  <div className={styles.ButtonArrowSolid}>
+  <div onClick={props.onClick} className={styles.ButtonArrowSolid}>
     <svg
       width="32"
       height="32"
