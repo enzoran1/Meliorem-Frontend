@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import styles from './InputText.module.scss';
+import React, { Fragment } from "react";
+import styles from "./InputText.module.scss";
 
 const InputText = (props) => (
   <Fragment className={styles.InputText} data-testid="InputText">
@@ -27,9 +26,5 @@ const InputText = (props) => (
     />
   </Fragment>
 );
-
-InputText.propTypes = {};
-
-InputText.defaultProps = {};
 
 export default InputText;

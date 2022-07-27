@@ -1,28 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './NavBar.module.scss';
-import { Link, NavLink } from "react-router-dom";
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import LogoMelo from '../../images/logos/logomelo.png'
+import React from "react";
+import styles from "./NavBar.module.scss";
+import { Link } from "react-router-dom";
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import LogoMelo from "../../images/logos/logomelo.png";
 
 const navigation = [
-  { name: 'Cours', to: 'cours', current: true },
-  { name: 'Quizz', to: 'quizz', current: false },
-  { name: 'Dashboard', to: 'dashboard', current: false },
-  { name: 'Contacts', to: 'contacts', current: false },
-  
-  
-]
+  { name: "Cours", to: "cours", current: true },
+  { name: "Quizz", to: "quizz", current: false },
+  { name: "Dashboard", to: "dashboard", current: false },
+  { name: "Contacts", to: "contacts", current: false },
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function NavBar() {
   return (
-    
     <Disclosure as="nav" className={`test ${styles.NavBar}`}>
       {({ open }) => (
         <>
@@ -46,29 +42,29 @@ export default function NavBar() {
                     src={LogoMelo}
                     alt="Workflow"
                   />
-                  <div className='flex items-center'>
-                  <img
-                    className="hidden lg:block h-7 w-auto"
-                    src={LogoMelo}
-                    alt="Workflow"
-                  />
-                 
-                   </div>
+                  <div className="flex items-center">
+                    <img
+                      className="hidden lg:block h-7 w-auto"
+                      src={LogoMelo}
+                      alt="Workflow"
+                    />
+                  </div>
                 </div>
                 <div className="hidden sm:block sm:ml-7">
-               
-                  <div className='flex space-x-4 items-center ' >
-                  <h3 className=' font-bold text-xl mr-3'>Meliorem</h3>
+                  <div className="flex space-x-4 items-center ">
+                    <h3 className=" font-bold text-xl mr-3">Meliorem</h3>
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
                         as="a"
                         to={item.to}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                          item.current
+                            ? "bg-gray-900 text-white"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "px-3 py-2 rounded-md text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </Link>
@@ -76,7 +72,9 @@ export default function NavBar() {
                   </div>
                 </div>
               </div>
-              <div className={`absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0  ${styles.NavBar__profil}`}>
+              <div
+                className={`absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0  ${styles.NavBar__profil}`}
+              >
                 <button
                   type="button"
                   className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
@@ -97,8 +95,7 @@ export default function NavBar() {
                       />
                     </Menu.Button>
                   </div>
-                  <Transition 
-                    
+                  <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"
                     enterFrom="transform opacity-0 scale-95"
@@ -107,12 +104,15 @@ export default function NavBar() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" >
+                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
                           <Link
                             to="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Your Profile
                           </Link>
@@ -122,7 +122,10 @@ export default function NavBar() {
                         {({ active }) => (
                           <Link
                             to="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Settings
                           </Link>
@@ -132,7 +135,10 @@ export default function NavBar() {
                         {({ active }) => (
                           <Link
                             to="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Sign out
                           </Link>
@@ -153,25 +159,20 @@ export default function NavBar() {
                   as="a"
                   to={item.to}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </Link>
               ))}
             </div>
-
-         
           </Disclosure.Panel>
         </>
       )}
     </Disclosure>
-    
-  )
+  );
 }
-
-NavBar.propTypes = {};
-
-NavBar.defaultProps = {};

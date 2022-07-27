@@ -1,9 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './Variables.module.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "./Variables.module.scss";
 
 const Variables = () => (
-
   <div className={styles.Variables} data-testid="Variables">
     test
   </div>

@@ -1,10 +1,9 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import styles from './InputSearch.module.scss';
+import React, { Fragment } from "react";
+import styles from "./InputSearch.module.scss";
 
 const InputSearch = (props) => (
   <Fragment className={styles.InputSearch} data-testid="InputSearch">
-       <input
+    <input
       type="search"
       class="
         form-control
@@ -28,9 +27,5 @@ const InputSearch = (props) => (
     />
   </Fragment>
 );
-
-InputSearch.propTypes = {};
-
-InputSearch.defaultProps = {};
 
 export default InputSearch;

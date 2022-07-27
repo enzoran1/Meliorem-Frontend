@@ -1,6 +1,4 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import styles from './InputDisabel.module.scss';
+import React, { Fragment } from "react";
 
 const InputDisabel = (props) => (
   <Fragment>
@@ -30,9 +28,5 @@ const InputDisabel = (props) => (
     />
   </Fragment>
 );
-
-InputDisabel.propTypes = {};
-
-InputDisabel.defaultProps = {};
 
 export default InputDisabel;

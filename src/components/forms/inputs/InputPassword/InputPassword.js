@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 
 const InputPassword = (props) => (
   <Fragment>
@@ -27,15 +27,12 @@ const InputPassword = (props) => (
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
       "
       id="examplePassword0"
-      
     />
   </Fragment>
 );
 
-InputPassword.propTypes = {};
-
 InputPassword.defaultProps = {
-  placeholder: "Mot de passe"
+  placeholder: "Mot de passe",
 };
 
 export default InputPassword;
