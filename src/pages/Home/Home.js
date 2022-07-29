@@ -12,11 +12,16 @@ import ButtonDefaultLogoRigth from "../../components/buttons/ButtonDefaultLogoRi
 import ButtonViewMore from "../../components/buttons/ButtonViewMore/ButtonViewMore";
 import ButtonEdit from "../../components/buttons/ButtonEdit/ButtonEdit";
 import ButtonDelete from "../../components/buttons/ButtonDelete/ButtonDelete";
+import BadgeFilterSolid from "../../components/badges/BadgeFilterSolid/BadgeFilterSolid";
+import ButtonFilterBorder from "../../components/buttons/ButtonFilterBorder/ButtonFilterBorder";
+import Testprogress from "../../components/quiz/Testprogress/Testprogress";
+import QuizView from "../../components/quiz/QuizView/QuizView";
 
 const Home = () => {
   function handleClick() {
     console.log("clicked");
   }
+
   return (
     <div className={styles.Home} data-testid="Home">
       <AlertDanger title={sessionStorage.getItem("token")} />
@@ -41,6 +46,31 @@ const Home = () => {
       <ButtonEdit onClick={() => handleClick()} />
       <br />
       <ButtonDelete onClick={() => handleClick()} />
+      <br />
+      <ButtonFilterBorder
+        onClick={() => handleClick()}
+        style={{ borderColor: "orange", cursor: "pointer" }}
+        title="mon button"
+      />
+      <br></br>
+      <BadgeFilterSolid
+        onClick={() => handleClick()}
+        style={{ backgroundColor: "orange", cursor: "pointer" }}
+        title="mon badge"
+      />
+
+      <br></br>
+
+      <Testprogress progress="25" />
+      <br />
+      <div className={styles.ContainerQuiz}>
+        <QuizView
+          title="Le titre de mon quiz pour le test template"
+          identity="Carlos Roberto"
+          date="12/12/2020"
+          numberQuestion="10"
+        />
+      </div>
     </div>
   );
 };

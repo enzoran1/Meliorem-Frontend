@@ -1,0 +1,69 @@
+@import '../../../variables/Variables/Variables.module.scss';
+@import '../../../mixins/Mixins/Mixins.module.scss';
+.QuizView {
+    @include w(320px);
+    @include p(10px);
+    @include raduis(10px);
+    background-color: $component;
+
+    .QuizView_Header{
+        @include D-Flex-SpaceBetween;
+        h3{
+            color: $white;
+            @include fz(80%);
+            font-weight: bold;
+
+
+        }
+    }
+    .QuizView_Number_Question{
+        p{
+            color: $purpel_2;
+            @include fz(80%);
+            @include mt(10px);
+            
+        }
+    }
+    .QuizView_Body{
+        @include maxh(185px);
+        overflow: scroll;
+        @include pr(10px);
+        .Body_ProgressBar{
+            @include D-Flex-columns;
+            p{
+                @include mb(10px);
+                @include mt(10px);
+                color: $gray;
+            }
+        }
+    }
+    .Footer{
+       
+        .Footer_Container_Flex{
+            @include D-Flex-SpaceBetween;
+            ;
+            @include mt(30px);
+            .Footer_Content_Right{
+                @include D-Flex-Align;
+                .Footer_Right_Avatar{
+                    @include mr(10px)
+                }
+                .Footer_Right_IdentityAndDate{
+                    h4{
+                        color: $white;
+                        font-weight: bold;
+
+                    }
+                    p{
+                        color: $gray;
+                        @include fz(80%);
+
+                    }
+                }
+            }
+            .Footer_Content_Left{
+                @include mt(10px)
+            }
+        }
+    }
+}

@@ -2,6 +2,17 @@
 
 
 // simple flex
+@mixin D-Flex {
+    display: flex; 
+}
+@mixin D-Flex-Align {
+    display: flex;
+    align-items: center;
+}
+@mixin D-Flex-columns {
+    display: flex;
+    flex-direction: column;
+}
 
 @mixin D-Flex-Center {
     display: flex;
@@ -20,7 +31,7 @@
 @mixin D-Flex-SpaceAround {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+
 }
 @mixin D-Flex-SpaceAround-Colums {
     display: flex;
@@ -41,7 +52,7 @@
 @mixin D-Flex-SpaceBetween {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    
 }
 
 // flex Evenly
@@ -117,6 +128,9 @@
 @mixin pl($padding) {
     padding-left: $padding;
 }
+@mixin pr($padding) {
+    padding-right: $padding;
+}
     
 @mixin m($margin) {
     margin: $margin;
@@ -176,6 +190,15 @@
 @mixin default-Radius {
     border-radius: 13px;
 }
+
+// font-size
+
+@mixin fz($font-size) {
+    font-size: $font-size;
+}
+    
+
+
 
 
     

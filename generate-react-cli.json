@@ -32,6 +32,13 @@
       "withStyle": true,
       "withTest": true
     },
+     "quiz": {
+      "path": "src/components/quiz",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
     "contexts": {
       "path": "src/contexts",
       "withLazy": false,
