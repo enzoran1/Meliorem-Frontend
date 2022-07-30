@@ -1,9 +1,12 @@
 @import '../../../variables/Variables/Variables.module.scss';
 
 .Testprogress {
+    width: 100%;
     .Testprogress__content{
         background-color: $bg;
+        
         .Testprogress__progress{
+            
             background:$purpel;
             color: $white;
 

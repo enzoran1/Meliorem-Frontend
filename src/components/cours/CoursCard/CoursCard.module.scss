@@ -1,47 +1,36 @@
 @import '../../../variables/Variables/Variables.module.scss';
 @import '../../../mixins/Mixins/Mixins.module.scss';
-.QuizView {
+
+.CoursCard {
     @include w(320px);
-    @include p(10px);
+    @include h(420px);
     @include raduis(10px);
     background-color: $component;
-
-    .QuizView_Header{
-        @include D-Flex-SpaceBetween;
+    .CoursCard_Header{
+        object-fit: cover;
+       
+        img{
+            @include raduis(10px 10px 0px 0px);
+            @include w(100%);
+            @include h(200px);
+        }
+    }
+    .CoursCard_Body{
+        @include h(133px);
+        @include p(10px);
         h3{
             color: $white;
-            @include fz(80%);
             font-weight: bold;
+            @include fz(120%);
+            @include mt(20px);
 
-
         }
     }
-    .QuizView_Number_Question{
-        p{
-            color: $purpel_2;
-            @include fz(80%);
-            @include mt(10px);
-            
-        }
-    }
-    .QuizView_Body{
-        @include maxh(185px);
-        overflow: scroll;
-        @include pr(10px);
-        .Body_ProgressBar{
-            @include D-Flex-columns;
-            p{
-                @include mb(10px);
-                @include mt(10px);
-                color: $gray;
-            }
-        }
-    }
-    .Footer{
-       
+    .CoursCard_Footer{
         .Footer_Container_Flex{
+            @include ml(10px);
+            @include mr(10px);
             @include D-Flex-SpaceBetween;
-            
             @include mt(30px);
             .Footer_Content_Right{
                 @include D-Flex-Align;
@@ -52,12 +41,10 @@
                     h4{
                         color: $white;
                         font-weight: bold;
-
                     }
                     p{
                         color: $gray;
                         @include fz(80%);
-
                     }
                 }
             }

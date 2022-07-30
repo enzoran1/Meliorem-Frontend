@@ -16,6 +16,14 @@ import BadgeFilterSolid from "../../components/badges/BadgeFilterSolid/BadgeFilt
 import ButtonFilterBorder from "../../components/buttons/ButtonFilterBorder/ButtonFilterBorder";
 import Testprogress from "../../components/quiz/Testprogress/Testprogress";
 import QuizView from "../../components/quiz/QuizView/QuizView";
+import CoursCard from "../../components/cours/CoursCard/CoursCard";
+import ImageCours from "../../images/image_cours.png";
+
+import CoursCardsProgress from "../../components/cours/CoursCardsProgress/CoursCardsProgress";
+import Gold from "../../components/medialles/Gold/Gold";
+import Silver from "../../components/medialles/Silver/Silver";
+import Bronze from "../../components/medialles/Bronze/Bronze";
+import MedailleView from "../../components/medialles/MedailleView/MedailleView";
 
 const Home = () => {
   function handleClick() {
@@ -58,9 +66,7 @@ const Home = () => {
         style={{ backgroundColor: "orange", cursor: "pointer" }}
         title="mon badge"
       />
-
       <br></br>
-
       <Testprogress progress="25" />
       <br />
       <div className={styles.ContainerQuiz}>
@@ -69,6 +75,45 @@ const Home = () => {
           identity="Carlos Roberto"
           date="12/12/2020"
           numberQuestion="10"
+        />
+      </div>
+      <br />
+      <div className={styles.ContainerQuiz}>
+        <CoursCard
+          title="Le titre de mon cours pour le test template de la mort mec des angular"
+          identity="Carlos Roberto"
+          date="12/12/2020"
+          image={ImageCours}
+        />
+        <br />
+      </div>
+      <br></br>
+      <div className={styles.ContainerQuiz}>
+        <CoursCardsProgress
+          user="Jeremy Bargade"
+          title="Le scss pour les nuls et les trés nuls"
+          date="25/05/2022"
+        />
+      </div>
+      <br />
+      <div className={styles.ContainerQuiz}>
+        <MedailleView
+          progress="44"
+          image={<Gold />}
+          niveau="3"
+          intituler="Les tableaux"
+        />
+        <MedailleView
+          progress="90"
+          image={<Silver />}
+          niveau="3"
+          intituler="Les tableaux"
+        />
+        <MedailleView
+          progress="65"
+          image={<Bronze />}
+          niveau="3"
+          intituler="Les tableaux"
         />
       </div>
     </div>

@@ -1,0 +1,50 @@
+@import "../../../mixins/Mixins/Mixins.module.scss";
+@import "../../../variables/Variables/Variables.module.scss";
+
+.MedailleView {
+    @include w(165px);
+    @include p(10px);
+    background-color: $component;
+    @include raduis(13px);
+   .MedailleView_Header{
+        @include D-Flex-SpaceAround;
+        
+        img{
+            @include ml(10px);
+            @include mr(10px);
+            @include w(15px);
+            @include h(15px);
+            
+            
+
+
+        }
+   }
+   .MedailleView_Footer{
+    @include D-Flex-SpaceBetween;
+    @include mt(20px);
+   
+     .Footer_Right{
+        img {
+            @include w(50px);
+            @include h(40px);
+            
+
+        }
+
+     }
+     .Footer_Left{
+        text-align: center;
+        h3{
+            color: $white;
+            font-weight: bold;
+
+        }
+        p{
+            color: $white;
+            @include fz(80%)
+
+        }
+     }
+   }
+}

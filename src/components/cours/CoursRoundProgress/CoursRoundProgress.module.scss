@@ -1,0 +1,16 @@
+@import '../../../variables/Variables/Variables.module.scss';
+@import '../../../mixins/Mixins/Mixins.module.scss';
+
+.CoursRoundProgress {
+    @include w(60px);
+    @include h(60px);
+    @include raduis(50%);
+    @include D-Flex-Center;
+    border: 5px solid $red;
+    span{
+
+        color: $white;
+        font-weight: bold;
+
+    }
+}

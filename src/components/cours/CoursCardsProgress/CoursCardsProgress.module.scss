@@ -1,0 +1,45 @@
+@import '../../../variables/Variables/Variables.module.scss';
+@import '../../../mixins/Mixins/Mixins.module.scss';
+
+.CoursCardsProgress {
+    @include w(320px);
+    background-color: $component;
+    @include raduis(13px);
+    @include p(10px);
+
+    .CoursCardsProgress_Header{
+        @include D-Flex-SpaceBetween;
+        .Header_Left{
+            h3{
+                color: $white;
+                font-weight: bold;
+
+            }
+            p{
+                color: $purpel;
+                line-height: 17px;
+
+            }
+        }
+        .Header_Right{
+
+
+        }
+    }
+    .CoursCardsProgress_Footer{
+        @include D-Flex-SpaceBetween;
+        align-items: center;
+        @include mt(25px);
+        .Footer_Left{
+            @include D-Flex;
+            p{
+                color: $gray;
+                @include mr(10px);
+
+            }
+        }
+        .Footer_Right{
+            @include mr(13px);
+        }
+    }
+}
