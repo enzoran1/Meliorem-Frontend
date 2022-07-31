@@ -15,7 +15,6 @@ function getTokenHeader(token) {
  * get all the quizs from the server
  */
 export function getAllQuiz(token, success, error) {
-  console.log(token);
   axios
     .get(`${BASE_URL}/quiz`, getTokenHeader(token))
     .then((response) => {
@@ -35,7 +34,6 @@ export function getAllQuiz(token, success, error) {
  * get the quiz with the id from the server
  */
 export function getQuiz(token, id, success, error) {
-  console.log(token);
   axios
     .get(`${BASE_URL}/quiz/${id}`, getTokenHeader(token))
     .then((response) => {
@@ -73,7 +71,7 @@ export function deleteQuiz(token, id, success, error) {
  * */
 export function updateQuiz(token, id, quiz, success, error) {
   axios
-    .put(`${BASE_URL}/quiz/${id}`, quiz, getTokenHeader(token))
+    .patch(`${BASE_URL}/quiz/${id}`, quiz, getTokenHeader(token))
     .then((response) => {
       if (success) success(response.data);
     })
@@ -91,6 +89,17 @@ export function updateQuiz(token, id, quiz, success, error) {
 export function createQuiz(token, quiz, success, error) {
   axios
     .post(`${BASE_URL}/quiz`, quiz, getTokenHeader(token))
+    .then((response) => {
+      if (success) success(response.data);
+    })
+    .catch((err) => {
+      if (error) error(err.response.data);
+    });
+}
+
+export function getQuizPartByQuizId(quizId,token, success, error) {
+  axios
+    .get(`${BASE_URL}/quiz/${quizId}/quiz-part`, getTokenHeader(token))
     .then((response) => {
       if (success) success(response.data);
     })

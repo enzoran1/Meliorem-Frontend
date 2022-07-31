@@ -107,7 +107,7 @@ export function deleteUser(token, id, success, error) {
  * */
 export function updateUser(token, id, user, success, error) {
   axios
-    .put(`${BASE_URL}/user/${id}`, user, getTokenHeader(token))
+    .patch(`${BASE_URL}/user/${id}`, user, getTokenHeader(token))
     .then((response) => {
       if (success) success(response.data);
     })
