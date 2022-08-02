@@ -1,0 +1,73 @@
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+.ClassementUserCard {
+        @include w(330px);
+        @include raduis(13px);
+        @include p(10px);
+    
+        background-color: $component;
+     
+       
+
+    .ClassementUserCard_Header{
+        @include D-Flex-SpaceBetween;
+        .Header_Left{
+            @include D-Flex-SpaceAround;
+
+
+            .Header_Left_Image {
+                @include mr(5px)
+                
+            }
+            
+            .Header_Left_Identity {
+                h3 {
+                    color: $white;
+                    font-weight: bold
+                }
+            
+                p {
+                    color: $purpel;
+                    @include fz(80%)
+                }
+            }
+
+        }
+        .Header_Right{
+            img{
+                @include w(40px);
+                @include h(40px);
+
+            }
+        }
+       
+    }
+    .ClassementUserCard_Footer{
+        @include D-Flex-SpaceBetween;
+        align-items: center;
+        .Footer_Left{
+            @include mt(20px);
+            @include D-Flex-columns;
+            p{
+                color: $white;
+                font-weight: bold;
+                @include fz(80%);
+                @include mb(5px)
+
+            }
+            .Footer_Left_Medailles{
+                @include D-Flex;
+                img{
+                   @include w(40px) ;
+                   @include h(40px) ;
+                    @include mr(10px);
+                }
+
+            }
+
+        }
+        .Footer_Right{
+            @include mt(50px);
+        }
+    }
+}

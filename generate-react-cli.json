@@ -108,6 +108,13 @@
       "withStory": false,
       "withStyle": true,
       "withTest": true
+    },
+     "classement": {
+      "path": "src/components/classement",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
     }
   }
 }

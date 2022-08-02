@@ -1,0 +1,56 @@
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+
+.BadgesSucess {
+    @include w(330px);
+    background-color: $component;
+    @include p(10px);
+    .BadgesSucess_Header{
+        @include D-Flex-SpaceBetween;
+        .Header_Right{
+            @include D-Flex;
+            align-items: center;
+            img {
+                @include w(40px);
+                @include h(40px);
+                @include mr(10px)
+            
+            }
+            
+            p {
+                color: $white;
+                font-weight: bold;
+            }
+
+        }
+        .Header_Left{
+
+
+            img{
+
+            }
+
+        }
+    }
+    .BadgesSucess_Footer{
+        @include D-Flex-SpaceBetween;
+        @include mt(30px);
+        align-items: center;
+        .Footer_Right{
+           p{
+            color: $gray;
+           }
+
+        }
+        .Footer_Left{
+            @include mt(15px);
+            svg{
+                @include w(30px);
+                @include h(30px);
+
+            }
+
+
+        }
+    }
+}
