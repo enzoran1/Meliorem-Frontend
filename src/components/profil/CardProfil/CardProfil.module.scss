@@ -1,0 +1,55 @@
+@import '../../../variables/Variables/Variables.module.scss';
+@import '../../../mixins/Mixins/Mixins.module.scss';
+
+.CardProfil {
+    @include w(330px);
+    @include p(20px);
+    background-color: $component;
+    @include raduis(13px);
+    @include D-Flex-SpaceAround-Colums;
+    .CardProfil_Content_Top{
+        img{
+            @include w(150px);
+            @include h(150px);
+            @include raduis(50%);
+            object-fit: cover;
+
+        }
+    }
+    .CardProfil_Content_Bottom{
+        @include mt(20px);
+        @include D-Flex-Center-Colums;
+        @include w(100%);
+        h3{
+            color: $white;
+            font-weight: bold;
+            @include fz(130%);
+
+        }
+        p{
+            color: $gray;
+            @include mt(10px);
+            @include mb(10px);
+            
+
+        }
+        span{
+            color: $purpel;
+
+
+        }
+        .Bottom_image{
+            @include w(100%);
+            @include D-Flex-SpaceAround;
+            @include mt(40px);
+            img{
+                @include w(30px);
+                @include h(30px);
+                cursor: pointer;
+               
+
+            }
+        }
+
+    }
+}

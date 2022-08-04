@@ -32,6 +32,13 @@ import Badges2 from "../../images/classement/badge2.png";
 import Badges3 from "../../images/classement/badge3.png";
 import Badges4 from "../../images/classement/badge4.png";
 import BadgesSucess from "../../components/badges/BadgesSucess/BadgesSucess";
+import CardProfil from "../../components/profil/CardProfil/CardProfil";
+import imageprofil from "../../images/profil/image_profil.jpg";
+import reseau1 from "../../images/profil/insta.png";
+import reseau2 from "../../images/profil/facebook.png";
+import reseau3 from "../../images/profil/twitter.png";
+import reseau4 from "../../images/profil/twitch.png";
+import Reaseaux from "../../components/profil/Reaseaux/Reaseaux";
 
 const Home = () => {
   function handleClick() {
@@ -141,6 +148,21 @@ const Home = () => {
       <BadgesSucess
         description="la description du badges sucess frfr rfrg fr rffre frf"
         title="Le titre"
+      />
+
+      <br />
+
+      <CardProfil
+        nom="Jean didier"
+        classe="Developpeur full stack"
+        email=" monemail@gmail.com"
+        image={imageprofil}
+        imageFooters={[
+          <Reaseaux onClick={() => handleClick()} image={reseau1} />,
+          <Reaseaux onClick={() => handleClick()} image={reseau2} />,
+          <Reaseaux onClick={() => handleClick()} image={reseau3} />,
+          <Reaseaux onClick={() => handleClick()} image={reseau4} />,
+        ]}
       />
     </div>
   );
