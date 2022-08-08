@@ -5,6 +5,7 @@
     @include w(330px);
     background-color: $component;
     @include p(10px);
+    @include raduis(13px);
     .BadgesSucess_Header{
         @include D-Flex-SpaceBetween;
         .Header_Right{

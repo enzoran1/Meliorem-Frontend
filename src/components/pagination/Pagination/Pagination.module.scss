@@ -1,0 +1,33 @@
+@import "../../../variables/Variables/Variables.module.scss";
+
+.Pagination {
+   
+    a{
+        background-color: $component;
+        color: $white;
+        &:hover{
+            background-color: $purpel;
+            color: $white;
+        }
+    }
+    span{
+        background-color: $component;
+        color: $white;
+        
+    }
+    .Chevron{
+      
+       
+        a{
+            background-color: $component;
+            color: $purpel;
+            height: 40px;
+            
+        }
+        span{
+            background-color: $component;
+            color: $purpel;
+           
+        }
+    }
+}

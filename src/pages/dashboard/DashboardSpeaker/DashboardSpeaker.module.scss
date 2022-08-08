@@ -1,0 +1,140 @@
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+
+.DashboardSpeaker {
+    @media screen and (min-width: $screen-xxxl) {
+        @include D-Flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .DashboardSpeaker__container {
+        @include grid-columns(1);
+        justify-items: center;
+
+        @media screen and (min-width: $screen-sm) {
+            @include grid-columns(2);
+        }
+
+        @media screen and (min-width: $screen-lg) {
+            @include grid-columns(3);
+            @include mt(40px);
+        }
+
+        @media screen and (min-width: $screen-xxxl) {
+            @include w(1800px);
+        }
+
+
+
+    }
+
+    .DashboardSpeaker_Classement {
+        .Classement_Header {
+            p {
+                color: $gray;
+                @include mt(30px);
+                @include mb(20px);
+
+                @media screen and (min-width: $screen-lg) {
+                    @include mt(0px);
+
+                }
+            }
+
+        }
+
+        .Classement_Body {
+            @include grid-columns(1);
+            row-gap: 20px;
+
+        }
+
+        .Classement_Footer {
+            @include D-Flex;
+            justify-content: flex-end;
+            @include mt(20px)
+        }
+    }
+
+    .DashboardSpeaker_Medailles {
+        .Medailles_Header {
+            @include D-Flex-SpaceBetween;
+            @include mt(40px);
+            @include mb(40px);
+
+            .Medailles_Header_Number {
+                @include D-Flex-Center-Colums;
+
+                img {
+                    @include w(50px);
+                    @include h(40px);
+                    @include ml(30px);
+                    @include mr(30px);
+                    @include mb(10px);
+
+
+                }
+
+                p {
+                    text-align: center;
+                    font-weight: bold;
+                    color: $white;
+                    background-color: $component;
+                    @include p(2px);
+                    @include pl(25px);
+                    @include pr(25px);
+                    @include raduis(13px)
+                }
+            }
+
+        }
+
+        .Medailles_Body {
+            @include grid-columns(2);
+            gap: 10px;
+            row-gap: 20px;
+
+            @media screen and (min-width: $screen-lg) {
+                gap: 30px;
+            }
+
+            @media screen and (min-width: $screen-xl) {
+                @include grid-columns(3);
+            }
+
+        }
+
+        .Medailles_Footer {
+            @include D-Flex;
+            justify-content: flex-end;
+            @include mt(20px);
+            @include mb(20px);
+
+        }
+    }
+
+    .DashboardSpeaker_Badges {
+        .Badges_Header {
+            p {
+                color: $gray;
+                @include mb(20px);
+            }
+
+        }
+
+        .Badges_Body {
+            @include grid-columns(1);
+            row-gap: 20px;
+
+        }
+
+        .Badges_Footer {
+            @include D-Flex;
+            justify-content: flex-end;
+            @include mt(20px);
+            @include mb(20px);
+
+        }
+    }
+}

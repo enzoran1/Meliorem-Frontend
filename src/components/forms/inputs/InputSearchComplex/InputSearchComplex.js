@@ -1,11 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 import styles from "./InputSearchComplex.module.scss";
 
 const InputSearchComplex = () => (
-  <Fragment
-    className={styles.InputSearchComplex}
-    data-testid="InputSearchComplex"
-  >
+  <div className={styles.InputSearchComplex} data-testid="InputSearchComplex">
     <div className="input-group relative flex flex-wrap items-stretch w-full mb-4">
       <input
         type="search"
@@ -15,7 +12,7 @@ const InputSearchComplex = () => (
         aria-describedby="button-addon2"
       />
       <button
-        className="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+        className="btn inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-70   focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out flex items-center"
         type="button"
         id="button-addon2"
       >
@@ -36,7 +33,7 @@ const InputSearchComplex = () => (
         </svg>
       </button>
     </div>
-  </Fragment>
+  </div>
 );
 
 export default InputSearchComplex;

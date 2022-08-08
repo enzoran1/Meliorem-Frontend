@@ -1,1 +1,12 @@
-.InputSearchComplex {}
+@import "../../../../variables/Variables/Variables.module.scss";
+
+.InputSearchComplex {
+    button{
+        background-color: $purpel_2;
+        transition: background-color 0.3s ease-in-out;
+        &:hover{
+            background-color: $purpel;
+            transition: background-color 0.3s ease-in-out;
+        }
+    }
+}

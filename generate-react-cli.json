@@ -116,6 +116,34 @@
       "withStyle": true,
       "withTest": true
     },
+      "dashboard": {
+      "path": "src/pages/dashboard",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
+      "QuizPage": {
+      "path": "src/pages/quiz",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
+     "coursPage": {
+      "path": "src/pages/cours",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
+      "pagination": {
+      "path": "src/components/pagination",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
      "classement": {
       "path": "src/components/classement",
       "withLazy": false,
