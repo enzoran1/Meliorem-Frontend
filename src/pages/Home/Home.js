@@ -39,6 +39,8 @@ import reseau2 from "../../images/profil/facebook.png";
 import reseau3 from "../../images/profil/twitter.png";
 import reseau4 from "../../images/profil/twitch.png";
 import Reaseaux from "../../components/profil/Reaseaux/Reaseaux";
+import CardSuperAdmin from "../../components/CardSuperAdmin/CardSuperAdmin";
+import LogoContact from "../../images/superAdmin/contact.svg";
 
 const Home = () => {
   function handleClick() {
@@ -62,7 +64,7 @@ const Home = () => {
       <br />
       <ButtonPencils onClick={() => handleClick()} />
       <br />
-      <ButtonDefaultLogoRigth onClick={() => handleClick()} title="Suivant" />
+      <ButtonDefaultLogoRigth title="Suivant" />
       <br />
       <ButtonViewMore onClick={() => handleClick()} />
       <br></br>
@@ -164,6 +166,8 @@ const Home = () => {
           <Reaseaux onClick={() => handleClick()} image={reseau4} />,
         ]}
       />
+      <br />
+      <CardSuperAdmin title="Contact" image={LogoContact} />
     </div>
   );
 };

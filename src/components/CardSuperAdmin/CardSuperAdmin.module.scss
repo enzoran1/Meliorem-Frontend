@@ -1,0 +1,21 @@
+@import "../../variables/Variables/Variables.module.scss";
+@import "../../mixins/Mixins/Mixins.module.scss";
+
+.CardSuperAdmin {
+    @include w(320px);
+    @include h(320px);
+    
+    background-color: $component;
+    @include D-Flex-SpaceAround-Colums;
+    @include raduis(13px);
+    h3{
+        color: $white;
+        font-weight: bold;
+        @include fz(150%)
+    }
+    img{
+        @include w(80px);
+        @include h(80px);
+        
+    }
+}
