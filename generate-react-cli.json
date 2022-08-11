@@ -39,6 +39,13 @@
       "withStyle": true,
       "withTest": true
     },
+    "tables": {
+      "path": "src/components/tables",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
      "cours": {
       "path": "src/components/cours",
       "withLazy": false,

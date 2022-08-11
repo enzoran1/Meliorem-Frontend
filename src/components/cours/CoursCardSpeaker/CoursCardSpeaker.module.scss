@@ -1,0 +1,50 @@
+@import "../../../mixins/Mixins/Mixins.module.scss";
+@import "../../../variables/Variables/Variables.module.scss";
+
+.CoursCardSpeaker {
+    @include w(330px);
+    @include h(100px);
+    @include p(10px);
+    background-color: $component;
+    @include raduis(13px);
+    @include D-Flex-SpaceBetween-Colums;
+
+    .CoursCardSpeaker_Header{
+        @include D-Flex-SpaceBetween;
+        @include w(100%);
+        p{
+            color: $white;
+            font-weight: bold;
+            @include fz(90%);
+
+        }
+        span{
+            @include w(80px);
+
+
+        }
+
+    }
+    .CoursCardSpeaker_Footer{
+        @include D-Flex-SpaceBetween;
+        @include w(100%);
+        align-items: center;
+        .Footer_Left{
+            @include D-Flex;
+            p{
+                color: $gray;
+                @include mr(10px);
+
+            }
+            span{
+
+            }
+
+        }
+        .Footer_Right{
+
+        }
+
+    }
+
+}

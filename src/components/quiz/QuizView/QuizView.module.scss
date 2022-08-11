@@ -12,6 +12,7 @@
             color: $white;
             @include fz(80%);
             font-weight: bold;
+            margin-right: 5px;
 
 
         }
@@ -26,8 +27,11 @@
     }
     .QuizView_Body{
         @include maxh(185px);
-        overflow: scroll;
+    
+        overflow-x: hidden;
+        overflow-y: scroll;
         @include pr(10px);
+        
         .Body_ProgressBar{
             @include D-Flex-columns;
             p{
@@ -36,6 +40,21 @@
                 color: $gray;
             }
         }
+    }
+    .QuizView_Body::-webkit-scrollbar-track{
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            background-color: invisible;
+
+    }
+    .QuizView_Body::-webkit-scrollbar{
+        width: 5px;
+        background-color: invisible;
+    }
+    .QuizView_Body::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        background-color: rgb(98, 98, 98);
+        
     }
     .Footer{
        

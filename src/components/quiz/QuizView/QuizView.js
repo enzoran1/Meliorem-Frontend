@@ -11,67 +11,57 @@ const QuizView = (props) => {
     <div className={styles.QuizView} data-testid="QuizView">
       <div className={styles.QuizView_Header}>
         <h3> {props.title} </h3>
-        <BadgeFilterSolid
-          style={{ backgroundColor: "orange", cursor: "pointer" }}
-          title = "Intermediate"
-        />
+        <BadgeFilterSolid style={props.styleBadge} title={props.titleBadge} />
       </div>
       <div className={styles.QuizView_Number_Question}>
-        <p>
-          Questions : {props.numberQuestion}
-        </p>
+        <p>Questions : {props.numberQuestion}</p>
       </div>
       <div className={styles.QuizView_Body}>
-
         <div className={styles.Body_ProgressBar}>
           <p>
             <QuizTitleProgress title="Les tableaux" />
           </p>
-          <Testprogress progress = "70"/>
+          <Testprogress progress="70" />
         </div>
 
         <div className={styles.Body_ProgressBar}>
           <p>
             <QuizTitleProgress title="Les tableaux" />
           </p>
-          <Testprogress progress = "50"/>
+          <Testprogress progress="50" />
         </div>
 
         <div className={styles.Body_ProgressBar}>
           <p>
             <QuizTitleProgress title="Les tableaux" />
           </p>
-          <Testprogress progress = "30"/>
+          <Testprogress progress="30" />
         </div>
 
         <div className={styles.Body_ProgressBar}>
           <p>
             <QuizTitleProgress title="Les tableaux" />
           </p>
-          <Testprogress progress = "25"/>
+          <Testprogress progress="25" />
         </div>
-        
       </div>
 
       <div className={styles.Footer}>
-
         <div className={styles.Footer_Container_Flex}>
           <div className={styles.Footer_Content_Right}>
             <div className={styles.Footer_Right_Avatar}>
-              <QuizAvatar/>
+              <QuizAvatar />
             </div>
             <div className={styles.Footer_Right_IdentityAndDate}>
               <h4>{props.identity}</h4>
-              <p>{ props.date }</p>
+              <p>{props.date}</p>
             </div>
           </div>
           <div className={styles.Footer_Content_Left}>
-              <ButtonArrowSolid/>
+            <ButtonArrowSolid />
           </div>
         </div>
-
       </div>
-
     </div>
   );
 };

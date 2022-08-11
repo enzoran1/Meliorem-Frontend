@@ -1,1 +1,100 @@
-.QuizSpeaker {}
+@import "../../../mixins/Mixins/Mixins.module.scss";
+@import "../../../variables/Variables/Variables.module.scss";
+.QuizSpeaker {
+    @include D-Flex-Center-Colums;
+   .QuizSpeaker_Container{
+    @include p(10px);
+    @include w(100%);
+    @include mt(30px);
+    @include grid-columns(1);
+    justify-items: center;
+    @media (min-width: $screen-md) {
+        @include grid-columns(2);
+    }
+    @media (min-width: 1360px) {
+        @include grid-columns(3);
+    }
+    @media (min-width: $screen-xxxl) {
+        @include w($screen-xxxl);
+    }
+
+   
+    .QuizSpeaker_Header{
+       
+        @include mb(50px);
+        .Header_Top{
+            @include mb(20px);
+            p{
+                color: $gray;
+            }
+
+        }
+        .Header_Center{
+            @include grid-columns(1);
+            row-gap: 20px;
+
+        }
+        .Header_Bottom{
+            @include D-Flex;
+            justify-content: flex-end;
+            @include mt(20px);
+
+        } 
+        
+         
+        
+
+
+    }
+    .QuizSpeaker_Body{
+        @include mb(50px);
+        .Body_Top{
+            @include mb(20px);
+            
+                p {
+                    color: $gray;
+                }
+
+        }
+        .Body_Center{
+            @include grid-columns(1);
+            row-gap: 20px; 
+            
+            @media (min-width: $screen-md) {
+                    @include grid-columns(2);
+                    @include w(100%);
+                    column-gap: 20px;
+                }
+                @media (min-width: 1360px) {
+                    
+                    column-gap: 30px;
+                }
+                @media (min-width: $screen-xxxl) {
+
+                    column-gap: 50px;
+                }
+        }
+        .Body_Bottom{
+            @include D-Flex;
+            justify-content: flex-end;
+            @include mt(20px);
+        }
+       
+        
+
+    }
+    .QuizSpeaker_Footer{
+        @extend .QuizSpeaker_Header;
+        .Footer_Top{
+            @extend .Header_Top;
+        }
+        .Footer_Center{
+            @extend .Header_Center;
+        }
+        .Footer_Bottom{
+            @extend .Header_Bottom;
+        }
+
+    }
+  }
+}
