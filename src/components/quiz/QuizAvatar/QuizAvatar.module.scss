@@ -1,1 +1,11 @@
-.QuizAvatar {}
+@import '../../../variables/Variables/Variables.module.scss';
+@import '../../../mixins/Mixins/Mixins.module.scss';
+
+.QuizAvatar {
+    img{
+        @include w(48px);
+        @include h(48px);
+        object-fit: cover;
+        
+    }
+}

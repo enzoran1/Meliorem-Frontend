@@ -144,6 +144,13 @@
       "withStyle": true,
       "withTest": true
     },
+     "ContactPage": {
+      "path": "src/pages/contact",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
       "pagination": {
       "path": "src/components/pagination",
       "withLazy": false,

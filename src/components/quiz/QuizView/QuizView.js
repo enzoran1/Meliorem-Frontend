@@ -50,7 +50,7 @@ const QuizView = (props) => {
         <div className={styles.Footer_Container_Flex}>
           <div className={styles.Footer_Content_Right}>
             <div className={styles.Footer_Right_Avatar}>
-              <QuizAvatar />
+              <QuizAvatar avatar={props.avatar} />
             </div>
             <div className={styles.Footer_Right_IdentityAndDate}>
               <h4>{props.identity}</h4>

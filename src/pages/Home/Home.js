@@ -42,6 +42,7 @@ import Reaseaux from "../../components/profil/Reaseaux/Reaseaux";
 import CardSuperAdmin from "../../components/CardSuperAdmin/CardSuperAdmin";
 import LogoContact from "../../images/superAdmin/contact.svg";
 import TableAdmin from "../../components/tables/TableAdmin/TableAdmin";
+import QuizAvatar from "../../components/quiz/QuizAvatar/QuizAvatar";
 
 const Home = () => {
   function handleClick() {
@@ -173,6 +174,9 @@ const Home = () => {
       <TableAdmin />
 
       <br />
+      <div className={styles.testavatar}>
+        <QuizAvatar />
+      </div>
     </div>
   );
 };

@@ -1,0 +1,57 @@
+@import "../../mixins/Mixins/Mixins.module.scss";
+@import "../../variables/Variables/Variables.module.scss";
+
+.CardContact {
+    @include w(330px);
+    background-color: $component;
+    @include raduis(13px);
+    @include D-Flex-SpaceAround-Colums;
+    justify-content: center;
+    @include p(10px);
+    .CardContact_Header{
+        img{
+            @include w(150px);
+            @include h(150px);
+
+        }
+
+    }
+    .CardContact_Body{
+        @include D-Flex-SpaceAround-Colums;
+        
+        h3{
+            color: $white;
+            @include fz(130%);
+            font-weight: bold;
+            @include mt(20px);
+
+        }
+        p{
+            color: $purpel;
+            @include mb(15px);
+            
+
+        }
+        span{
+            color: $gray;
+            @include mb(5px);
+            
+
+        }
+
+    }
+    .CardContact_Footer{
+        @include D-Flex-SpaceAround;
+        @include w(100%);
+        @include mt(20px);
+        @include mb(20px);
+       
+        a{
+            
+            img{
+
+            }
+        }
+
+    }
+}
