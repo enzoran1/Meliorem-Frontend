@@ -1,1 +1,209 @@
-.CoursSpeaker {}
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+
+.CoursSpeaker {
+    @include D-Flex-Center-Colums;
+    @include mb(30px);
+
+    .CoursSpeaker_Search {
+        @include D-Flex-Center-Colums;
+        @include w(100%);
+        @include mb(20px);
+        @include p(10px);
+
+        .Search_Top {
+            @include w(100%);
+            @include mt(30px);
+
+            @media screen and (min-width: $screen-lg) {
+                @include w($screen-lg);
+
+            }
+
+        }
+
+        .Search_Bottom {
+            @include grid-columns(3);
+            justify-items: center;
+            row-gap: 10px;
+            @include w(100%);
+
+            @media screen and (min-width: $screen-sm) {
+                @include grid-columns(6);
+
+            }
+
+            @media screen and (min-width: $screen-md) {
+                @include grid-columns(8);
+
+            }
+
+            @media screen and (min-width: $screen-lg) {
+                @include grid-columns(9);
+                @include w($screen-lg);
+
+
+            }
+
+            span {
+                width: 100px;
+            }
+
+        }
+    }
+
+    .CoursSpeaker_Container {
+        @include grid-columns(1);
+        justify-items: center;
+
+        @media screen and (min-width: $screen-xxl) {
+            @include grid-columns(3);
+            align-items: flex-start;
+
+        }
+
+        @media screen and (min-width: $screen-xxxl) {
+            @include w($screen-xxxl);
+
+        }
+
+
+
+        .Container_Header {
+            @include D-Flex-Center-Colums;
+
+            .Header_Top {
+                @include D-Flex;
+                justify-content: flex-start;
+                @include w(100%);
+
+                p {
+                    color: $gray;
+                    @include mb(10px);
+                }
+
+            }
+
+            .Header_Center {
+                @include grid-columns(1);
+                row-gap: 15px;
+
+                @media screen and (min-width: $screen-sm) {
+                    @include grid-columns(2);
+                    column-gap: 40px;
+
+                }
+
+                @media screen and (min-width: $screen-md) {
+                    column-gap: 130px;
+
+                }
+
+                @media screen and (min-width: $screen-lg) {
+
+                    @include grid-columns(3);
+
+                }
+
+                @media screen and (min-width: $screen-xxl) {
+                    @include grid-columns(1);
+                    column-gap: 0px;
+
+                }
+
+            }
+
+            .Header_Bottom {
+                @include D-Flex;
+                justify-content: flex-end;
+                @include w(100%);
+                @include mt(10px);
+
+
+            }
+        }
+
+        .Container_Body {
+            @include grid-columns(1);
+            justify-items: center;
+
+            .Body_Top {
+                @include D-Flex;
+                justify-content: flex-start;
+                @include w(100%);
+
+                @include mt(10px);
+
+                p {
+                    color: $gray;
+                    @include mb(10px);
+                    width: 100%;
+                }
+
+            }
+
+            .Body_Center {
+                @include grid-columns(1);
+                row-gap: 20px;
+
+                @media screen and (min-width: $screen-sm) {
+                    @include grid-columns(2);
+                    column-gap: 40px;
+                }
+
+                @media screen and (min-width: $screen-md) {
+                    column-gap: 130px;
+
+                }
+
+                @media screen and (min-width: $screen-lg) {
+                    @include grid-columns(3);
+
+                }
+
+                @media screen and (min-width: $screen-xxl) {
+                    column-gap: 30px;
+                    @include grid-columns(2);
+
+                }
+
+                @media screen and (min-width: $screen-xxxl) {
+                    column-gap: 50px;
+
+
+
+                }
+
+
+            }
+
+            .Body_Bottom {
+                @include mt(20px);
+                @include mb(20px);
+
+            }
+
+        }
+
+        .Container_Footer {
+            @extend .Container_Header;
+
+            .Footer_Top {
+                @extend .Header_Top;
+
+            }
+
+            .Footer_Center {
+                @extend .Header_Center;
+
+
+
+            }
+
+            .Footer_Bottom {
+                @extend .Header_Bottom;
+
+            }
+        }
+    }
+}

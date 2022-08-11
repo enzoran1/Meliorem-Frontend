@@ -3,6 +3,7 @@
 
 .CoursStudent {
     @include D-Flex-Center-Colums;
+    @include mb(30px);
     .CoursStudent_Search{
         @include D-Flex-Center-Colums;
         @include w(100%);
@@ -10,7 +11,7 @@
         @include p(10px);
         .Search_Top{
             @include w(100%);
-            @include mt(50px);
+            @include mt(30px);
             
             @media screen and (min-width: $screen-lg) {
                     @include w($screen-lg);

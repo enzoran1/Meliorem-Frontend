@@ -11,12 +11,12 @@ const Cours = () => {
    * ROLE_SPEAKER
    * ROLE_SUPERADMIN
    */
-  const [role, setRole] = React.useState("ROLE_STUDENT");
+  const [role] = React.useState("ROLE_SPEAKER");
 
-  if (role == "ROLE_ADMINISTRATION") return <CoursAdministration />;
-  else if (role == "ROLE_STUDENT") return <CoursStudent />;
-  else if (role == "ROLE_SPEAKER") return <CoursSpeaker />;
-  else if (role == "ROLE_SUPERADMIN") return <CoursAdministrator />;
+  if (role === "ROLE_ADMINISTRATION") return <CoursAdministration />;
+  else if (role === "ROLE_STUDENT") return <CoursStudent />;
+  else if (role === "ROLE_SPEAKER") return <CoursSpeaker />;
+  else if (role === "ROLE_SUPERADMIN") return <CoursAdministrator />;
 };
 Cours.propTypes = {};
 
