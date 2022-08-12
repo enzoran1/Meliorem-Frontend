@@ -7,6 +7,8 @@ import Dashboard from "./pages/dashboard/Dashboard/Dashboard";
 import Cours from "./pages/cours/Cours/Cours";
 import Quiz from "./pages/quiz/Quiz/Quiz";
 import Contact from "./pages/contact/Contact/Contact";
+import ListeBadges from "./pages/listeBadges/ListeBadges/ListeBadges";
+import ListeUtilisateurs from "./pages/listeUtilisateurs/ListeUtilisateurs/ListeUtilisateurs";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/cours" element={<Cours />} />
         <Route path="/quizz" element={<Quiz />} />
         <Route path="/contacts" element={<Contact />} />
+        <Route path="/liste-badges" element={<ListeBadges />} />
+        <Route path="/liste-utilisateurs" element={<ListeUtilisateurs />} />
       </Routes>
     </div>
   );

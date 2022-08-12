@@ -1,0 +1,80 @@
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+
+
+.ListeUtilisateursAutres {
+    @include D-Flex-Center;
+    flex-direction: column;
+    .ListeUtilisateursAutres_Header {
+            @include p(10px);
+            @include mt(30px);
+            @include D-Flex-columns;
+    
+            @media screen and (min-width: $screen-lg) {
+                width: $screen-lg;
+            }
+    
+            .FlexCenter {
+                @include D-Flex-Center;
+    
+                .Header_Filter {
+                    @include grid-columns(2);
+                    justify-items: center;
+                    gap: 15px;
+                    @include w(100%);
+    
+                    @media screen and (min-width: $screen-sm) {
+                        @include grid-columns(3);
+                        @include w(100%);
+                    }
+    
+                    @media screen and (min-width: $screen-md) {
+                        @include w(1024px);
+    
+                    }
+    
+                }
+            }
+    
+        }
+    
+        .ListeUtilisateursAutres_Body {
+            @include grid-columns(1);
+            @include mt(30px);
+            @include w(100%);
+            justify-items: center;
+            gap: 20px;
+    
+            @media screen and (min-width: $screen-sm) {
+                @include grid-columns(2);
+            }
+    
+            @media screen and (min-width: $screen-md) {
+                @include grid-columns(3);
+            }
+    
+            @media screen and (min-width: $screen-xxxl) {
+                width: $screen-xxxl;
+            }
+        }
+    
+        .ListeUtilisateursAutres_Footer {
+            @extend .ListeUtilisateursAutres_Body;
+            @include mt(30px);
+    
+            @media screen and (min-width: $screen-xl) {
+                @include grid-columns(4);
+                @include mt(70px);
+                @include mb(70px);
+                gap: 30px;
+    
+    
+    
+            }
+        }
+    
+        .ListeUtilisateursAutres_Pagination {
+            @include mt(30px);
+            @include mb(30px);
+        }
+}

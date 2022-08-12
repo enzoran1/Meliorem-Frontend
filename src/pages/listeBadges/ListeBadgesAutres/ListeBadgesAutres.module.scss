@@ -1,0 +1,76 @@
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+
+.ListeBadgesAutres {
+    @include D-Flex-Center-Colums;
+    .ListeBadgesAutre_Search {
+            @include p(10px);
+            @include w(100%);
+            @include grid-columns(1);
+            justify-items: center;
+    
+            @media screen and (min-width: $screen-xl) {
+                @include w($screen-xl);
+    
+            }
+    
+    
+            .Search_Top {
+                @include w(100%);
+                @include mt(20px);
+    
+    
+            }
+    
+            .Search_Bottom {
+                @include grid-columns(3);
+                justify-items: center;
+                @include w(330px);
+                @include mt(20px);
+                @include mb(20px);
+                span {
+                        @include w(100px);
+                        @include fz(60%);
+                
+                    }
+    
+                @media screen and (min-width: $screen-sm) {
+                    @include w($screen-sm);
+                    @include mb(40px);
+    
+    
+                    span {
+                        @include w(200px);
+                        @include fz(120%);
+                    }
+    
+                }
+    
+    
+    
+            }
+        }
+    .ListeBadgesAutre_Container{
+        @include grid-columns(1);
+        justify-items: center;
+        row-gap: 20px;
+        @include w(100%);
+        @media screen and (min-width: $screen-sm) {
+            @include grid-columns(2);
+        }
+        @media screen and (min-width: $screen-md) {
+            @include grid-columns(3);
+        }
+        @media screen and (min-width: $screen-xl) {
+            @include grid-columns(4);
+        }
+        @media screen and (min-width: $screen-xxxl) {
+            @include grid-columns(5);
+            @include w($screen-xxxl);
+        }
+    }
+    .ListeBadgesAutre_Pagination{
+        @include mt(20px);
+        @include mb(20px);
+    }
+}

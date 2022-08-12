@@ -15,163 +15,176 @@ import MedailleView from "../../../components/medialles/MedailleView/MedailleVie
 import BadgesSucess from "../../../components/badges/BadgesSucess/BadgesSucess";
 import SilverClass from "../../../components/medialles/SilverClass/SilverClass";
 import BronzeClass from "../../../components/medialles/BronzeClass/BronzeClass";
+import Trophy from "../../../components/medialles/Trophy/Trophy";
 
-const DashboardSpeaker = () => (
-  <div className={styles.DashboardSpeaker} data-testid="DashboardSpeaker">
-    <div className={styles.DashboardSpeaker__container}>
-      <div className={styles.DashboardSpeaker_Classement}>
-        <div className={styles.Classement_Header}>
-          <p>Classement</p>
-        </div>
-        <div className={styles.Classement_Body}>
-          <ClassementUserCard
-            promotion="Developpeur full stack"
-            name="Jean didier"
-            medaille={<GoldClass />}
-            imageFooters={[
-              <ClassementBadges image={Badges1} />,
-              <ClassementBadges image={Badges2} />,
-              <ClassementBadges image={Badges3} />,
-              <ClassementBadges image={Badges4} />,
-            ]}
-          />
-          <ClassementUserCard
-            promotion="Developpeur full stack"
-            name="Jean didier"
-            medaille={<SilverClass />}
-            imageFooters={[
-              <ClassementBadges image={Badges1} />,
-              <ClassementBadges image={Badges2} />,
-              <ClassementBadges image={Badges3} />,
-              <ClassementBadges image={Badges4} />,
-            ]}
-          />
-          <ClassementUserCard
-            promotion="Developpeur full stack"
-            name="Jean didier"
-            medaille={<BronzeClass />}
-            imageFooters={[
-              <ClassementBadges image={Badges1} />,
-              <ClassementBadges image={Badges2} />,
-              <ClassementBadges image={Badges3} />,
-              <ClassementBadges image={Badges4} />,
-            ]}
-          />
-        </div>
-        <div className={styles.Classement_Footer}>
-          <ButtonViewMore />
-        </div>
-      </div>
-
-      <div className={styles.DashboardSpeaker_Medailles}>
-        <div className={styles.Medailles_Header}>
-          <div className={styles.Medailles_Header_Number}>
-            <Gold />
-            <p>1</p>
+const DashboardSpeaker = () => {
+  function redirectListeBadges() {
+    window.location.href = "/liste-badges";
+  }
+  function redirectListeUtilisateur() {
+    window.location.href = "/liste-utilisateurs";
+  }
+  return (
+    <div className={styles.DashboardSpeaker} data-testid="DashboardSpeaker">
+      <div className={styles.DashboardSpeaker__container}>
+        <div className={styles.DashboardSpeaker_Classement}>
+          <div className={styles.Classement_Header}>
+            <p>Classement</p>
           </div>
-          <div className={styles.Medailles_Header_Number}>
-            <Silver />
-            <p>2</p>
+          <div className={styles.Classement_Body}>
+            <ClassementUserCard
+              promotion="Developpeur full stack"
+              name="Jean didier"
+              medaille={<GoldClass />}
+              imageFooters={[
+                <ClassementBadges image={Badges1} />,
+                <ClassementBadges image={Badges2} />,
+                <ClassementBadges image={Badges3} />,
+                <ClassementBadges image={Badges4} />,
+              ]}
+            />
+            <ClassementUserCard
+              promotion="Developpeur full stack"
+              name="Jean didier"
+              medaille={<SilverClass />}
+              imageFooters={[
+                <ClassementBadges image={Badges1} />,
+                <ClassementBadges image={Badges2} />,
+                <ClassementBadges image={Badges3} />,
+                <ClassementBadges image={Badges4} />,
+              ]}
+            />
+            <ClassementUserCard
+              promotion="Developpeur full stack"
+              name="Jean didier"
+              medaille={<BronzeClass />}
+              imageFooters={[
+                <ClassementBadges image={Badges1} />,
+                <ClassementBadges image={Badges2} />,
+                <ClassementBadges image={Badges3} />,
+                <ClassementBadges image={Badges4} />,
+              ]}
+            />
           </div>
-          <div className={styles.Medailles_Header_Number}>
-            <Bronze />
-            <p>3</p>
+          <div className={styles.Classement_Footer}>
+            <ButtonViewMore onClick={redirectListeUtilisateur} />
           </div>
         </div>
-        <div className={styles.Medailles_Body}>
-          <MedailleView
-            progress="44"
-            image={<Gold />}
-            niveau="3"
-            intituler="Les tableaux"
-          />
-          <MedailleView
-            progress="90"
-            image={<Silver />}
-            niveau="3"
-            intituler="Les tableaux"
-          />
-          <MedailleView
-            progress="65"
-            image={<Bronze />}
-            niveau="3"
-            intituler="Les tableaux"
-          />
-          <MedailleView
-            progress="90"
-            image={<Silver />}
-            niveau="3"
-            intituler="Les tableaux"
-          />
-          <MedailleView
-            progress="90"
-            image={<Silver />}
-            niveau="3"
-            intituler="Les tableaux"
-          />
-          <MedailleView
-            progress="65"
-            image={<Bronze />}
-            niveau="3"
-            intituler="Les tableaux"
-          />
-          <MedailleView
-            progress="44"
-            image={<Gold />}
-            niveau="3"
-            intituler="Les tableaux"
-          />
-          <MedailleView
-            progress="65"
-            image={<Bronze />}
-            niveau="3"
-            intituler="Les tableaux"
-          />
-          <MedailleView
-            progress="44"
-            image={<Gold />}
-            niveau="3"
-            intituler="Les tableaux"
-          />
-        </div>
-        <div className={styles.Medailles_Footer}>
-          <ButtonViewMore />
-        </div>
-      </div>
 
-      <div className={styles.DashboardSpeaker_Badges}>
-        <div className={styles.Badges_Header}>
-          <p>Badges</p>
+        <div className={styles.DashboardSpeaker_Medailles}>
+          <div className={styles.Medailles_Header}>
+            <div className={styles.Medailles_Header_Number}>
+              <Gold />
+              <p>1</p>
+            </div>
+            <div className={styles.Medailles_Header_Number}>
+              <Silver />
+              <p>2</p>
+            </div>
+            <div className={styles.Medailles_Header_Number}>
+              <Bronze />
+              <p>3</p>
+            </div>
+          </div>
+          <div className={styles.Medailles_Body}>
+            <MedailleView
+              progress="44"
+              image={<Gold />}
+              niveau="3"
+              intituler="Les tableaux"
+            />
+            <MedailleView
+              progress="90"
+              image={<Silver />}
+              niveau="3"
+              intituler="Les tableaux"
+            />
+            <MedailleView
+              progress="65"
+              image={<Bronze />}
+              niveau="3"
+              intituler="Les tableaux"
+            />
+            <MedailleView
+              progress="90"
+              image={<Silver />}
+              niveau="3"
+              intituler="Les tableaux"
+            />
+            <MedailleView
+              progress="90"
+              image={<Silver />}
+              niveau="3"
+              intituler="Les tableaux"
+            />
+            <MedailleView
+              progress="65"
+              image={<Bronze />}
+              niveau="3"
+              intituler="Les tableaux"
+            />
+            <MedailleView
+              progress="44"
+              image={<Gold />}
+              niveau="3"
+              intituler="Les tableaux"
+            />
+            <MedailleView
+              progress="65"
+              image={<Bronze />}
+              niveau="3"
+              intituler="Les tableaux"
+            />
+            <MedailleView
+              progress="44"
+              image={<Gold />}
+              niveau="3"
+              intituler="Les tableaux"
+            />
+          </div>
+          <div className={styles.Medailles_Footer}>
+            <ButtonViewMore />
+          </div>
         </div>
-        <div className={styles.Badges_Body}>
-          <BadgesSucess
-            description="la description du badges sucess frfr rfrg fr rffre frf"
-            title="Le titre"
-            image={Badges1}
-          />
-          <BadgesSucess
-            description="la description du badges sucess frfr rfrg fr rffre frf"
-            title="Le titre"
-            image={Badges2}
-          />
-          <BadgesSucess
-            description="la description du badges sucess frfr rfrg fr rffre frf"
-            title="Le titre"
-            image={Badges3}
-          />
-          <BadgesSucess
-            description="la description du badges sucess frfr rfrg fr rffre frf"
-            title="Le titre"
-            image={Badges4}
-          />
-        </div>
-        <div className={styles.Badges_Footer}>
-          <ButtonViewMore />
+
+        <div className={styles.DashboardSpeaker_Badges}>
+          <div className={styles.Badges_Header}>
+            <p>Badges</p>
+          </div>
+          <div className={styles.Badges_Body}>
+            <BadgesSucess
+              description="la description du badges sucess frfr rfrg fr rffre frf"
+              title="Le titre"
+              image={Badges1}
+              trophy={<Trophy />}
+            />
+            <BadgesSucess
+              description="la description du badges sucess frfr rfrg fr rffre frf"
+              title="Le titre"
+              image={Badges2}
+              trophy={<Trophy />}
+            />
+            <BadgesSucess
+              description="la description du badges sucess frfr rfrg fr rffre frf"
+              title="Le titre"
+              image={Badges3}
+              trophy={<Trophy />}
+            />
+            <BadgesSucess
+              description="la description du badges sucess frfr rfrg fr rffre frf"
+              title="Le titre"
+              image={Badges4}
+              trophy={<Trophy />}
+            />
+          </div>
+          <div className={styles.Badges_Footer}>
+            <ButtonViewMore onClick={redirectListeBadges} />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 DashboardSpeaker.propTypes = {};
 

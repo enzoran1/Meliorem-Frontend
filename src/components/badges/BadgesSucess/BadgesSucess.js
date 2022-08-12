@@ -3,7 +3,6 @@ import ButtonArrowOutlineWhite from "../../buttons/ButtonArrowOutlineWhite/Butto
 import ClassementBadges from "../../classement/ClassementBadges/ClassementBadges";
 
 import styles from "./BadgesSucess.module.scss";
-import Trophy from "../../medialles/Trophy/Trophy";
 
 const BadgesSucess = (props) => (
   <div className={styles.BadgesSucess} data-testid="BadgesSucess">
@@ -12,9 +11,7 @@ const BadgesSucess = (props) => (
         <ClassementBadges image={props.image} />
         <p>{props.title}</p>
       </div>
-      <div className={styles.Header_Left}>
-        <Trophy />
-      </div>
+      <div className={styles.Header_Left}>{props.trophy}</div>
     </div>
     <div className={styles.BadgesSucess_Footer}>
       <div className={styles.Footer_Right}>

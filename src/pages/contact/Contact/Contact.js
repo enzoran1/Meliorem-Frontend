@@ -6,10 +6,11 @@ const Contact = () => {
   /*
    * ROLE_SUPERADMIN
    */
-  const [role] = React.useState("ROLE_AUTRE");
+  const [role] = React.useState("ROLE_STUDENT");
 
   if (role === "ROLE_ADMINISTRATION") return <ContactAdmin />;
-  else if (role === "ROLE_AUTRE") return <ContactAutre />;
+  else if (role === "ROLE_STUDENT" || role === "ROLE_SPEAKER")
+    return <ContactAutre />;
 };
 
 Contact.propTypes = {};

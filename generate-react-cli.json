@@ -151,8 +151,29 @@
       "withStyle": true,
       "withTest": true
     },
+     "ListeBadges": {
+      "path": "src/pages/listeBadges",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
+      "ListeUtilisateurs": {
+      "path": "src/pages/listeUtilisateurs",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
       "pagination": {
       "path": "src/components/pagination",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
+     "modal": {
+      "path": "src/components/modals",
       "withLazy": false,
       "withStory": false,
       "withStyle": true,

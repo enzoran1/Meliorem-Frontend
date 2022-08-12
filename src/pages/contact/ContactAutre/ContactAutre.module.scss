@@ -28,6 +28,11 @@
             @include w(330px);
             @include mt(20px);
             @include mb(20px);
+            span{
+                @include w(100px);
+                @include fz(60%);
+            
+            }
             @media screen and (min-width: $screen-sm) {
                 @include w($screen-sm);
                 @include mb(40px);

@@ -43,20 +43,22 @@ import CardSuperAdmin from "../../components/CardSuperAdmin/CardSuperAdmin";
 import LogoContact from "../../images/superAdmin/contact.svg";
 import TableAdmin from "../../components/tables/TableAdmin/TableAdmin";
 import QuizAvatar from "../../components/quiz/QuizAvatar/QuizAvatar";
+import Modal from "../../components/modal/Modal/Modal";
 
 const Home = () => {
   function handleClick() {
     console.log("clicked");
   }
+  // function click redirect to profil page
 
   return (
     <div className={styles.Home} data-testid="Home">
       <AlertDanger title={sessionStorage.getItem("token")} />
       <ButtonArrowSolid onClick={() => handleClick()} />
       <br />
-      <ButtonArrowOutlineWhite onClick={() => handleClick()} />
+      <ButtonArrowOutlineWhite onClick={<Modal useState={true} />} />
       <br />
-      <ButtonArrowOutlinePurpel onClick={() => handleClick()} />
+      <ButtonArrowOutlinePurpel />
       <br />
       <ButtonMore onClick={() => handleClick()} />
       <br />
