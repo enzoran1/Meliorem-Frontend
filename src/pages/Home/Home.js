@@ -44,6 +44,8 @@ import LogoContact from "../../images/superAdmin/contact.svg";
 import TableAdmin from "../../components/tables/TableAdmin/TableAdmin";
 import QuizAvatar from "../../components/quiz/QuizAvatar/QuizAvatar";
 import Modal from "../../components/modal/Modal/Modal";
+import QuizCardCrud from "../../components/quiz/QuizCardCrud/QuizCardCrud";
+import ButtonActivity from "../../components/buttons/ButtonActivity/ButtonActivity";
 
 const Home = () => {
   function handleClick() {
@@ -179,6 +181,20 @@ const Home = () => {
       <div className={styles.testavatar}>
         <QuizAvatar />
       </div>
+      <QuizCardCrud
+        title=" le titre de mon quiz"
+        badges={
+          <BadgeFilterSolid
+            style={{ backgroundColor: "orange", cursor: "pointer" }}
+            title="en cours"
+          />
+        }
+        description="la description de mon quiz"
+        date="12/12/2020"
+        btnActivity={<ButtonActivity />}
+        btnDelete={<ButtonDelete onClick={() => handleClick()} />}
+        btnEdit={<ButtonEdit onClick={() => handleClick()} />}
+      />
     </div>
   );
 };

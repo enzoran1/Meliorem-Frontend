@@ -7,6 +7,7 @@ import Pagination from "../../../components/pagination/Pagination/Pagination";
 import InputSearchComplex from "../../../components/forms/inputs/InputSearchComplex/InputSearchComplex";
 import BadgeFilterSolid from "../../../components/badges/BadgeFilterSolid/BadgeFilterSolid";
 import CoursCardSpeaker from "../../../components/cours/CoursCardSpeaker/CoursCardSpeaker";
+import { Link } from "react-router-dom";
 
 const CoursSpeaker = () => (
   <div className={styles.CoursSpeaker} data-testid="CoursSpeaker">
@@ -93,7 +94,9 @@ const CoursSpeaker = () => (
           />
         </div>
         <div className={styles.Header_Bottom}>
-          <ButtonViewMore />
+          <Link to="/liste-cours-intervenant">
+            <ButtonViewMore />
+          </Link>
         </div>
       </div>
       <div className={styles.Container_Body}>
@@ -169,7 +172,9 @@ const CoursSpeaker = () => (
           />
         </div>
         <div className={styles.Footer_Bottom}>
-          <ButtonViewMore />
+          <Link to="/liste-cours-intervenant">
+            <ButtonViewMore />
+          </Link>
         </div>
       </div>
     </div>

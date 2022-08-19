@@ -1,0 +1,83 @@
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+
+
+.GlobalyQuiz {
+    padding: 10px;
+    @include D-Flex-Center-Colums;
+    .GlobalyQuiz_Header {
+            @include mt(20px);
+            @include D-Flex-Center-Colums;
+            @include w(100%);
+    
+            @media (min-width: $screen-lg) {
+                @include w($screen-lg);
+            }
+    
+    
+            .Header_Filter {
+                @include mt(15px);
+                @include grid-columns(3);
+                justify-items: center;
+                @include w(100%);
+                row-gap: 20px;
+    
+                @media (min-width: $screen-sm) {
+                    @include grid-columns(5);
+                }
+    
+                @media (min-width: $screen-md) {
+                    @include grid-columns(6);
+                }
+    
+                @media (min-width: $screen-lg) {
+                    @include grid-columns(8);
+                    @include w($screen-lg);
+                }
+    
+                span {
+                    @include w(100px);
+    
+    
+                }
+            }
+    
+        }
+    
+        .GlobalyQuiz_Body {
+            @include mt(30px);
+            @include mb(30px);
+            @include grid-columns(1);
+            @include w(100%);
+            justify-items: center;
+            row-gap: 25px;
+    
+            @media (min-width: $screen-sm) {
+                @include grid-columns(2);
+            }
+    
+            @media (min-width: $screen-md) {
+                @include grid-columns(3);
+            }
+    
+            @media (min-width: $screen-lg) {
+                @include grid-columns(3);
+    
+    
+            }
+    
+            @media (min-width: $screen-xxl) {
+                @include grid-columns(4);
+    
+            }
+    
+            @media (min-width: $screen-xxxl) {
+                @include grid-columns(5);
+                @include w($screen-xxxl);
+    
+            }
+    
+        }
+    
+        .GlobalyQuiz_Footer {}
+}

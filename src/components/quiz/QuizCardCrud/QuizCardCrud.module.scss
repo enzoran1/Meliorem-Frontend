@@ -1,0 +1,78 @@
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+
+.QuizCardCrud {
+    @include D-Flex-SpaceAround;
+    flex-direction: column;
+    @include w(330px);
+    @include h(230px);
+    background-color: $component;
+    @include p(10px);
+    @include raduis(13px);
+    .QuizCardCrud_Header{
+        @include D-Flex-SpaceBetween;
+        @include w(100%);
+        @include mb(15px);
+        h3{
+            color: $white;
+            font-weight: bold;
+            @include fz(90%);
+
+
+        }
+        span{
+            @include w(80px);
+
+        }
+    }
+    .QuizCardCrud_Body{
+        @include D-Flex-columns;
+        @include mb(10px);
+        p{
+            color:$white;
+            @include fz(90%);
+            @include mb(10px);
+
+        }
+        span{
+            color:$gray;
+            @include fz(90%);
+            @include mb(10px);
+
+        }
+    }
+    .QuizCardCrud_Footer{
+        @include grid-columns(2);
+
+        .Footer_Left{
+            button {
+                    @include w(90px);
+                    font-size: 80%;
+                }
+            
+                p {
+                    svg {
+                        @include w(10px);
+                        @include h(10px);
+                    }
+                }
+           
+        }
+        .Footer_Right{
+            @include D-Flex;
+            button{
+                @include w(90px);
+                font-size: 80%;
+                @include mr(5px);
+            }
+            p{
+                svg{
+                    @include w(10px);
+                        @include h(10px);
+                }
+            }
+
+        }
+
+    }
+}

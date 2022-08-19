@@ -17,15 +17,9 @@ import BadgesSucess from "../../../components/badges/BadgesSucess/BadgesSucess";
 import SilverClass from "../../../components/medialles/SilverClass/SilverClass";
 import BronzeClass from "../../../components/medialles/BronzeClass/BronzeClass";
 import Trophy from "../../../components/medialles/Trophy/Trophy";
+import { Link } from "react-router-dom";
 
 const DashboardStudent = () => {
-  const redirectTo = () => {
-    window.location.href = "/liste-badges";
-  };
-  function redirectListeUtilisateur() {
-    window.location.href = "/liste-utilisateurs";
-  }
-
   return (
     <div className={styles.DashboardStudent} data-testid="DashboardStudent">
       <div className={styles.DashboardStudent__container}>
@@ -69,7 +63,9 @@ const DashboardStudent = () => {
             />
           </div>
           <div className={styles.Classement_Footer}>
-            <ButtonViewMore onClick={redirectListeUtilisateur} />
+            <Link to="/liste-utilisateurs">
+              <ButtonViewMore />
+            </Link>
           </div>
         </div>
 
@@ -180,7 +176,9 @@ const DashboardStudent = () => {
             />
           </div>
           <div className={styles.Badges_Footer}>
-            <ButtonViewMore onClick={redirectTo} />
+            <Link to="/liste-badges">
+              <ButtonViewMore />
+            </Link>
           </div>
         </div>
       </div>

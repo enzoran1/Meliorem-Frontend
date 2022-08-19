@@ -9,6 +9,9 @@ import Quiz from "./pages/quiz/Quiz/Quiz";
 import Contact from "./pages/contact/Contact/Contact";
 import ListeBadges from "./pages/listeBadges/ListeBadges/ListeBadges";
 import ListeUtilisateurs from "./pages/listeUtilisateurs/ListeUtilisateurs/ListeUtilisateurs";
+import ListeQuiz from "./pages/quizSpeakerCrud/ListeQuiz/ListeQuiz";
+import GlobalyQuiz from "./pages/quizSpeaker/GlobalyQuiz/GlobalyQuiz";
+import ListeCours from "./pages/coursSpeaker/ListeCours/ListeCours";
 
 function App() {
   return (
@@ -23,6 +26,12 @@ function App() {
         <Route path="/contacts" element={<Contact />} />
         <Route path="/liste-badges" element={<ListeBadges />} />
         <Route path="/liste-utilisateurs" element={<ListeUtilisateurs />} />
+        <Route path="/liste-quiz-intervenant" element={<ListeQuiz />} />
+        <Route path="/liste-cours-intervenant" element={<ListeCours />} />
+        <Route
+          path="/liste-quiz-globaly-intervenant"
+          element={<GlobalyQuiz />}
+        />
       </Routes>
     </div>
   );

@@ -1,0 +1,23 @@
+@import '../../../variables/Variables/Variables.module.scss';
+@import '../../../mixins/Mixins/Mixins.module.scss';
+
+.ButtonActivity {
+    @include D-Flex-SpaceAround;
+    @include w(105px);
+    @include p(2px);
+    @include pt(5px);
+    @include pb(5px);
+    @include raduis(5px);
+    background-color: $gray;
+    cursor: pointer;
+    align-items: center;
+
+    &:hover {
+        background-color: $gray-hover;
+    }
+
+    span {
+        font-size: 90%;
+        color: $white;
+    }
+}

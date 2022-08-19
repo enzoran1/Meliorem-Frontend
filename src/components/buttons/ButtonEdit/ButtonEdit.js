@@ -3,7 +3,7 @@ import styles from "./ButtonEdit.module.scss";
 import ButtonPencils from "../ButtonPencils/ButtonPencils";
 
 const ButtonEdit = (props) => (
-  <div
+  <button
     onClick={props.onClick}
     className={styles.ButtonEdit}
     data-testid="ButtonEdit"
@@ -12,7 +12,7 @@ const ButtonEdit = (props) => (
     <p>
       <ButtonPencils color="white" />
     </p>
-  </div>
+  </button>
 );
 
 ButtonEdit.defaultProps = {

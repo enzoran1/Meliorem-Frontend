@@ -3,7 +3,7 @@ import styles from "./ButtonDelete.module.scss";
 import ButtonCross from "../ButtonCross/ButtonCross";
 
 const ButtonDelete = (props) => (
-  <div
+  <button
     onClick={props.onClick}
     className={styles.ButtonDelete}
     data-testid="ButtonDelete"
@@ -12,7 +12,7 @@ const ButtonDelete = (props) => (
     <p>
       <ButtonCross color="white" />
     </p>
-  </div>
+  </button>
 );
 
 ButtonDelete.defaultProps = {

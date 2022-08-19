@@ -165,6 +165,20 @@
       "withStyle": true,
       "withTest": true
     },
+     "quizSpeaker": {
+      "path": "src/pages/quizSpeaker",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
+    "coursSpeaker": {
+      "path": "src/pages/coursSpeaker",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
       "pagination": {
       "path": "src/components/pagination",
       "withLazy": false,
