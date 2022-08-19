@@ -9,9 +9,9 @@ import Quiz from "./pages/quiz/Quiz/Quiz";
 import Contact from "./pages/contact/Contact/Contact";
 import ListeBadges from "./pages/listeBadges/ListeBadges/ListeBadges";
 import ListeUtilisateurs from "./pages/listeUtilisateurs/ListeUtilisateurs/ListeUtilisateurs";
-import ListeQuiz from "./pages/quizSpeakerCrud/ListeQuiz/ListeQuiz";
 import GlobalyQuiz from "./pages/quizSpeaker/GlobalyQuiz/GlobalyQuiz";
 import ListeCours from "./pages/coursSpeaker/ListeCours/ListeCours";
+import ListeQuiz from "./pages/quizSpeaker/ListeQuiz/ListeQuiz";
 
 function App() {
   return (
