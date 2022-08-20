@@ -179,6 +179,13 @@
       "withStyle": true,
       "withTest": true
     },
+    "coursStudent": {
+      "path": "src/pages/coursStudent",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
       "pagination": {
       "path": "src/components/pagination",
       "withLazy": false,
