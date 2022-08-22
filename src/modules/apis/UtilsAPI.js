@@ -1,14 +1,22 @@
 import axios from "axios";
 
-const BASE_URL = "https://localhost:8000/api";
+export const BASE_URL = "https://localhost:8000/api";
 
-function getTokenHeader(token) {
+export function getTokenHeader(token) {
   return {headers:{Authorization: `Bearer ${token}`}};
 }
 
-export function getAllContactType(token, success, error) {
+/**
+ * @param {*} url  (without slash)
+ * @param {*} token 
+ * @param {*} success 
+ * @param {*} error 
+ * @example
+ * get("users", token, success, error)
+ */
+export function getAll(url,token, success, error) {
     axios
-        .get(`${BASE_URL}/type-contact`, getTokenHeader(token))
+        .get(`${BASE_URL}/${url}`, getTokenHeader(token))
         .then((response) => {
         if (success) success(response.data);
         })
@@ -17,9 +25,9 @@ export function getAllContactType(token, success, error) {
         });
     }
 
-export function getContactType(token, id, success, error) {
+export function get(url,token, id, success, error) {
     axios
-        .get(`${BASE_URL}/type-contact/${id}`, getTokenHeader(token))
+        .get(`${BASE_URL}/${url}/${id}`, getTokenHeader(token))
         .then((response) => {
         if (success) success(response.data);
         })
@@ -28,9 +36,9 @@ export function getContactType(token, id, success, error) {
         });
     }
 
-export function deleteContactType(token, id, success, error) {
+export function post(url,token, data, success, error) {
     axios
-        .delete(`${BASE_URL}/type-contact/${id}`, getTokenHeader(token))
+        .post(`${BASE_URL}/${url}`, data, getTokenHeader(token))
         .then((response) => {
         if (success) success(response.data);
         })
@@ -38,9 +46,10 @@ export function deleteContactType(token, id, success, error) {
         if (error) error(err.response.data);
         });
     }
-export function createContactType(token, data, success, error) {
+
+export function patch(url,token, id, data, success, error) {
     axios
-        .post(`${BASE_URL}/type-contact`, data, getTokenHeader(token))
+        .patch(`${BASE_URL}/${url}/${id}`, data, getTokenHeader(token))
         .then((response) => {
         if (success) success(response.data);
         })
@@ -48,9 +57,10 @@ export function createContactType(token, data, success, error) {
         if (error) error(err.response.data);
         });
     }
-export function updateContactType(token, data, success, error) {
+
+export function remove(url,token, id, success, error) {
     axios
-        .patch(`${BASE_URL}/type-contact/${data.id}`, data, getTokenHeader(token))
+        .delete(`${BASE_URL}/${url}/${id}`, getTokenHeader(token))
         .then((response) => {
         if (success) success(response.data);
         })
