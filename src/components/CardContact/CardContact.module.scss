@@ -24,6 +24,9 @@
             @include fz(130%);
             font-weight: bold;
             @include mt(20px);
+           text-align: center;
+           @include mt(10px);
+           @include mb(10px);
 
         }
         p{

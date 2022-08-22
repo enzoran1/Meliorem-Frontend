@@ -10,8 +10,8 @@
         @include grid-columns(1);
         justify-items: center;
 
-        @media screen and (min-width: $screen-xl) {
-            @include w($screen-xl);
+        @media screen and (min-width: $screen-sm) {
+            @include w($screen-sm);
             
         }
 
