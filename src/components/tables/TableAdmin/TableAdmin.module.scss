@@ -1,1 +1,31 @@
-.TableAdmin {}
+@import "../../../mixins/Mixins/Mixins.module.scss";
+@import "../../../variables/Variables/Variables.module.scss";
+
+.TableAdmin {
+    tr{
+        background-color: $component;
+        color: $white;
+        th{
+        
+            
+        }
+        
+        td{
+            border-color: transparent;
+        
+
+        }
+    }
+.TableAdmin_Container{
+
+    .TableAdmin_Thead{
+    .TableAdmin_Search{
+        @include D-Flex;
+        justify-content: flex-end;
+      
+        
+
+    }
+        }
+        }
+}

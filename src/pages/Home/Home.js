@@ -175,7 +175,6 @@ const Home = () => {
       <br />
       <CardSuperAdmin title="Contact" image={LogoContact} />
       <br />
-      <TableAdmin />
 
       <br />
       <div className={styles.testavatar}>

@@ -10,7 +10,7 @@ const Quiz = () => {
    * ROLE_SPEAKER
    * ROLE_SUPERADMIN
    */
-  const [role] = React.useState("ROLE_STUDENT");
+  const [role] = React.useState("ROLE_SPEAKER");
 
   if (role === "ROLE_SUPERADMIN") return <QuizAdministrator />;
   else if (role === "ROLE_STUDENT") return <QuizStudent />;

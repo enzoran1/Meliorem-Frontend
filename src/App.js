@@ -33,7 +33,12 @@ function App() {
           path="/liste-quiz-globaly-intervenant"
           element={<GlobalyQuiz />}
         />
+        <Route
+          path="/formulaire-quiz-intervenant"
+          element={<ListeCoursStudent />}
+        />
         <Route path="/liste-cours-etudiant" element={<ListeCoursStudent />} />
+        <Route path="/:entity/view/:id" element={<ListeBadges />} />
       </Routes>
     </div>
   );

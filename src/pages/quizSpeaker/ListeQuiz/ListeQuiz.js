@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import BadgeFilterSolid from "../../../components/badges/BadgeFilterSolid/BadgeFilterSolid";
 import ButtonActivity from "../../../components/buttons/ButtonActivity/ButtonActivity";
 import ButtonDelete from "../../../components/buttons/ButtonDelete/ButtonDelete";
@@ -244,10 +245,12 @@ const ListeQuiz = () => (
       </div>
     </div>
     <div className={styles.BtnFixed}>
-      <ButtonFixedRigth
-        bgBtn="#ffffff"
-        style={{ backgroundColor: "#4F46E5" }}
-      />
+      <Link to="/formulaire-quiz-intervenant">
+        <ButtonFixedRigth
+          bgBtn="#ffffff"
+          style={{ backgroundColor: "#4F46E5" }}
+        />
+      </Link>
     </div>
   </Fragment>
 );

@@ -1,0 +1,20 @@
+@import "../../../mixins/Mixins/Mixins.module.scss";
+@import "../../../variables/Variables/Variables.module.scss";
+
+.Btn{
+    @include D-Flex;
+    justify-content: flex-end;
+
+    .Btn_1{
+        @include mr(5px);
+        @include ml(5px);
+    }
+        .Btn_2 {
+            @include mr(5px);
+            @include ml(5px);
+        }
+}
+
+.Table_Td{
+    cursor: pointer;
+}
