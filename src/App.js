@@ -13,6 +13,7 @@ import GlobalyQuiz from "./pages/quizSpeaker/GlobalyQuiz/GlobalyQuiz";
 import ListeCours from "./pages/coursSpeaker/ListeCours/ListeCours";
 import ListeQuiz from "./pages/quizSpeaker/ListeQuiz/ListeQuiz";
 import ListeCoursStudent from "./pages/coursStudent/ListeCoursStudent/ListeCoursStudent";
+import EntityView from "./pages/EntityView/EntityView";
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
           element={<ListeCoursStudent />}
         />
         <Route path="/liste-cours-etudiant" element={<ListeCoursStudent />} />
-        <Route path="/:entity/view/:id" element={<ListeBadges />} />
+        <Route path="/:entity/view/:id" element={<EntityView />} />
       </Routes>
     </div>
   );
