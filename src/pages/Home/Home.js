@@ -46,12 +46,12 @@ import QuizAvatar from "../../components/quiz/QuizAvatar/QuizAvatar";
 import Modal from "../../components/modal/Modal/Modal";
 import QuizCardCrud from "../../components/quiz/QuizCardCrud/QuizCardCrud";
 import ButtonActivity from "../../components/buttons/ButtonActivity/ButtonActivity";
+import paginations from "../../modules/Paginations";
 
 const Home = () => {
   function handleClick() {
     console.log("clicked");
   }
-  // function click redirect to profil page
 
   return (
     <div className={styles.Home} data-testid="Home">
