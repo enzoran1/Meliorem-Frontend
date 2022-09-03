@@ -68,3 +68,17 @@ export function remove(url, token, id, success, error) {
       if (error) error(err.response.data);
     });
 }
+
+export function getAllWithPage(url, token, elementCount, actualPage, success, error) {
+  axios
+    .get(
+      `${BASE_URL}/${url}/${elementCount}/${actualPage}`,
+      getTokenHeader(token)
+    )
+    .then((response) => {
+      if (success) success(response.data);
+    }).catch((err) => {
+      if (error) error(err);
+    }
+    );
+}

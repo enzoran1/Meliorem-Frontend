@@ -4,6 +4,10 @@ export const getAllSpeaker = (token,success,error) => {
     return UtilsAPI.getAll('speaker',token,success,error);
 }
 
+export const getAllWithPageSpeaker = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('speaker',token,elementCount,actualPage,success,error);
+}
+
 export const getSpeaker = (speakerId,token,success,error) => {
     return UtilsAPI.get('speaker',token,speakerId,success,error);
 }

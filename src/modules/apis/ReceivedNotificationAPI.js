@@ -4,6 +4,10 @@ export const getAllReceivedNotification = (token,success,error) => {
     return UtilsAPI.getAll('received-notification',token,success,error);
 }
 
+export const getAllWithPageReceivedNotification = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('received-notification',token,elementCount,actualPage,success,error);
+}
+
 export const getReceivedNotification = (receivedNotificationId,token,success,error) => {
     return UtilsAPI.get('received-notification',token,receivedNotificationId,success,error);
 }

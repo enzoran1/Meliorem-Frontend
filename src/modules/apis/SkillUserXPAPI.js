@@ -4,6 +4,10 @@ export const getAllSkillUserXP = (token,success,error) => {
     return UtilsAPI.getAll('skill-user-xp',token,success,error);
 }
 
+export const getAllWithPageSkillUserXP = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('skill-user-xp',token,elementCount,actualPage,success,error);
+}
+
 export const getSkillUserXP = (skillUserXPId,token,success,error) => {
     return UtilsAPI.get('skill-user-xp',token,skillUserXPId,success,error);
 }

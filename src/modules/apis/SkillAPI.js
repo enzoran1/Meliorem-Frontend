@@ -4,6 +4,10 @@ export const getAllSkill = (token,success,error) => {
     return UtilsAPI.getAll('skill',token,success,error);
 }
 
+export const getAllWithPageSkill = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('skill',token,elementCount,actualPage,success,error);
+}
+
 export const getSkill = (skillId,token,success,error) => {
     return UtilsAPI.get('skill',token,skillId,success,error);
 }

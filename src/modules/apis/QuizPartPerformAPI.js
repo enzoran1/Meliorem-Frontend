@@ -4,6 +4,10 @@ export const getAllQuizPartPerform = (token,success,error) => {
     return UtilsAPI.getAll('quiz-part-perform',token,success,error);
 }
 
+export const getAllWithPageQuizPartPerform = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('quiz-part-perform',token,elementCount,actualPage,success,error);
+}
+
 export const getQuizPartPerform = (quizPartPerformId,token,success,error) => {
     return UtilsAPI.get('quiz-part-perform',token,quizPartPerformId,success,error);
 }

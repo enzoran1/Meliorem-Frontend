@@ -4,6 +4,10 @@ export const getAllBadge = (token,success,error) => {
     return UtilsAPI.getAll('badge',token,success,error);
 }
 
+export const getAllWithPageBadge = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('badge',token,elementCount,actualPage,success,error);
+}
+
 export const getBadge = (badgeId,token,success,error) => {
     return UtilsAPI.get('badge',token,badgeId,success,error);
 }

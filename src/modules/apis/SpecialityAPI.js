@@ -4,6 +4,10 @@ export const getAllSpeciality = (token,success,error) => {
     return UtilsAPI.getAll('speciality',token,success,error);
 }
 
+export const getAllWithPageSpeciality = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('speciality',token,elementCount,actualPage,success,error);
+}
+
 export const getSpeciality = (specialityId,token,success,error) => {
     return UtilsAPI.get('speciality',token,specialityId,success,error);
 }

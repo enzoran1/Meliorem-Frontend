@@ -4,6 +4,10 @@ export const getAllFavoriteCourse = (token,success,error) => {
     return UtilsAPI.getAll('favorite-course',token,success,error);
 }
 
+export const getAllWithPageFavoriteCourse = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('favorite-course',token,elementCount,actualPage,success,error);
+}
+
 export const getFavoriteCourse = (favoriteCourseId,token,success,error) => {
     return UtilsAPI.get('favorite-course',token,favoriteCourseId,success,error);
 }

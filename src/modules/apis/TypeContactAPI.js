@@ -4,6 +4,10 @@ export const getAllTypeContact = (token,success,error) => {
     return UtilsAPI.getAll('type-contact',token,success,error);
 }
 
+export const getAllWithPageTypeContact = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('type-contact',token,elementCount,actualPage,success,error);
+}
+
 export const getTypeContact = (typeContactId,token,success,error) => {
     return UtilsAPI.get('type-contact',token,typeContactId,success,error);
 }

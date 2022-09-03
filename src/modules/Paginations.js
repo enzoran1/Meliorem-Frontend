@@ -18,12 +18,10 @@ export default function paginations(actualPage, maxPage, range) {
     let start = actualPage - range;
     let end = actualPage + range;
     // start pagination
-    if (start === 2 || start === 3) {
+    if (start === 2) {
         pagination.push(1);
-        if (start === 3)
-            pagination.push(2);
     }
-    else if (start > 3) {
+    else if (start > 2) {
         pagination.push(1);
         pagination.push("...");
     }
@@ -34,12 +32,10 @@ export default function paginations(actualPage, maxPage, range) {
             pagination.push(i);
     // end pagination
     if (end > maxPage) end = maxPage;
-    if (end >= maxPage-2) {
-        if (end === maxPage-2)
-            pagination.push(maxPage-1);
+    else if (end === maxPage-1){
         pagination.push(maxPage);
     }
-    else{
+    else if (end <= maxPage-1){
         pagination.push("...");
         pagination.push(maxPage);
     }

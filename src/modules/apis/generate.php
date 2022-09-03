@@ -23,7 +23,7 @@ $apis = [
     ["name" => "Speciality" , "api" => "speciality"],
     ["name" => "Student" , "api" => "student"],
     ["name" => "TypeContact" , "api" => "type-contact"],
-    ["name" => "User" , "api" => "user"],
+    //["name" => "User" , "api" => "user"], ATTENTION A LUI
 ];
 
 foreach ($apis as $api)
@@ -39,6 +39,10 @@ import * as UtilsAPI from './UtilsAPI';
 
 export const getAll$name = (token,success,error) => {
     return UtilsAPI.getAll('$api',token,success,error);
+}
+
+export const getAllWithPage$name = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('$api',token,elementCount,actualPage,success,error);
 }
 
 export const get$name = ($camelCaseNameId,token,success,error) => {

@@ -4,6 +4,10 @@ export const getAllCourse = (token,success,error) => {
     return UtilsAPI.getAll('course',token,success,error);
 }
 
+export const getAllWithPageCourse = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('course',token,elementCount,actualPage,success,error);
+}
+
 export const getCourse = (courseId,token,success,error) => {
     return UtilsAPI.get('course',token,courseId,success,error);
 }

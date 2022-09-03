@@ -4,6 +4,10 @@ export const getAllNotification = (token,success,error) => {
     return UtilsAPI.getAll('notification',token,success,error);
 }
 
+export const getAllWithPageNotification = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('notification',token,elementCount,actualPage,success,error);
+}
+
 export const getNotification = (notificationId,token,success,error) => {
     return UtilsAPI.get('notification',token,notificationId,success,error);
 }

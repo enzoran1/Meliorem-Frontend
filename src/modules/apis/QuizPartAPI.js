@@ -4,6 +4,10 @@ export const getAllQuizPart = (token,success,error) => {
     return UtilsAPI.getAll('quiz-part',token,success,error);
 }
 
+export const getAllWithPageQuizPart = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('quiz-part',token,elementCount,actualPage,success,error);
+}
+
 export const getQuizPart = (quizPartId,token,success,error) => {
     return UtilsAPI.get('quiz-part',token,quizPartId,success,error);
 }

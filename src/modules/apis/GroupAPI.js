@@ -4,6 +4,10 @@ export const getAllGroup = (token,success,error) => {
     return UtilsAPI.getAll('group',token,success,error);
 }
 
+export const getAllWithPageGroup = (token,elementCount,actualPage,success,error) => {
+    return UtilsAPI.getAllWithPage('group',token,elementCount,actualPage,success,error);
+}
+
 export const getGroup = (groupId,token,success,error) => {
     return UtilsAPI.get('group',token,groupId,success,error);
 }
