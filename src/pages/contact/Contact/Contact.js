@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import ContactAdmin from "../ContactAdmin/ContactAdmin";
 import ContactAutre from "../ContactAutre/ContactAutre";
-import { getMyUser } from "../../../modules/apis/UserAPI";
 
 const Contact = () => {
-  const [role, setRole] = React.useState(["ROLE_SUPERADMIN"]);
-  const navigate = useNavigate();
-
-  /*useEffect(() => {
+  const [role /*, setRole*/] = React.useState(["ROLE_SUPERADMIN"]);
+  /* useEffect(() => {
     getMyUser(
       sessionStorage.getItem("token"),
       (user) => {

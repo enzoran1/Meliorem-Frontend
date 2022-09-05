@@ -17,7 +17,7 @@ const TableBody = (props) => {
     }
     if (props.onClickDelete) {
       buttons.push(
-        <div className={styles.Btn_2}>
+        <div className={styles.Btn_2} key={1}>
           <ButtonDelete onClick={props.onClickDelete} />
         </div>
       );
@@ -26,7 +26,7 @@ const TableBody = (props) => {
   }
 
   return (
-    <tr>
+    <tr className={styles.Table_Tr}>
       <td class="px-6 py-4 whitespace-no-wrap border-b ">
         <input
           class="form-checkbox h-4 w-4  transition duration-150 ease-in-out"
@@ -37,9 +37,9 @@ const TableBody = (props) => {
         <td
           onClick={props.onClickView}
           key={index}
-          class={`px-6 py-4 whitespace-no-wrap border-b ${styles.Table_Td}`}
+          className={`px-6 py-4 whitespace-no-wrap border-b ${styles.Table_Td}`}
         >
-          <div class="text-sm leading-5">{attribute}</div>
+          <div className="text-sm leading-5">{attribute}</div>
         </td>
       ))}
 

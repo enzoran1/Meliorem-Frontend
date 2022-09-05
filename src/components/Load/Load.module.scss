@@ -1,0 +1,23 @@
+@import "../../variables/Variables/Variables.module.scss";
+@import "../../mixins/Mixins/Mixins.module.scss";
+
+.Load {
+    @include D-Flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+
+
+    .Load_Spinner{
+        @include D-Flex;
+        justify-content: center;
+        align-items: center;
+        color: $purpel_2;
+        width: 100px;
+        height: 100px;
+        img{
+            width: 50px;
+            height: 40px;
+        }
+    }
+}

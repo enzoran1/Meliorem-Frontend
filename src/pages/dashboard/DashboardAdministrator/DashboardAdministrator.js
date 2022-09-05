@@ -8,6 +8,7 @@ import LogoUser from "../../../images/superAdmin/user.svg";
 import LogoBadge from "../../../images/superAdmin/badge.svg";
 import LogoCours from "../../../images/superAdmin/cours.svg";
 import LogoMultiUser from "../../../images/superAdmin/multiUser.svg";
+import { Link } from "react-router-dom";
 
 const DashboardAdministrator = () => (
   <div
@@ -15,12 +16,24 @@ const DashboardAdministrator = () => (
     data-testid="DashboardAdministrator"
   >
     <div className={styles.DashboardAdministrator_GridContainer}>
-    <CardSuperAdmin title="Contact" image={LogoContact} />
-    <CardSuperAdmin title="Quiz" image={LogoInterogation} />
-    <CardSuperAdmin title="Utilisateurs" image={LogoUser} />
-    <CardSuperAdmin title="Badges" image={LogoBadge} />
-    <CardSuperAdmin title="Cours" image={LogoCours} />
-    <CardSuperAdmin title="Classes" image={LogoMultiUser} />
+      <Link to="/contacts">
+        <CardSuperAdmin title="Contact" image={LogoContact} />
+      </Link>
+      <Link to="/quizz">
+        <CardSuperAdmin title="Quiz" image={LogoInterogation} />
+      </Link>
+      <Link to="/users">
+        <CardSuperAdmin title="Utilisateurs" image={LogoUser} />
+      </Link>
+      <Link to="/badges-admin">
+        <CardSuperAdmin title="Badges" image={LogoBadge} />
+      </Link>
+      <Link to="/cours">
+        <CardSuperAdmin title="Cours" image={LogoCours} />
+      </Link>
+      <Link to="/groups">
+        <CardSuperAdmin title="Classes" image={LogoMultiUser} />
+      </Link>
     </div>
   </div>
 );

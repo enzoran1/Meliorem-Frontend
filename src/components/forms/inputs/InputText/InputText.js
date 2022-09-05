@@ -5,7 +5,9 @@ const InputText = (props) => (
   <Fragment className={styles.InputText} data-testid="InputText">
     <input
       placeholder={props.placeholder}
-      type="text"
+      type={props.type}
+      defaultValue={props.value}
+      onChange={props.onChange}
       className="
         form-control
         block

@@ -1,1 +1,38 @@
-.CrudView {}
+@import "../../mixins/Mixins/Mixins.module.scss";
+@import "../../variables/Variables/Variables.module.scss";
+
+
+.CrudView {
+    @include D-Flex;
+    justify-content: center;
+    ul{
+        @include grid-columns(1);
+        justify-items: center;
+        @include w(100%);
+        row-gap: 20px;
+        @include mb(20px);
+
+        @include mt(20px);
+        @media (min-width:($screen-sm) ) {
+            @include grid-columns(2);
+        
+            
+        }
+        @media (min-width : $screen-md){
+            @include grid-columns(3);
+            row-gap: 30px;
+            @include w($screen-md)
+        }
+        
+
+       
+        li{
+            @include w(330px);
+            @include p(10px);
+            background-color: $component;
+            @include raduis(13px);
+            color: $white;
+           
+        }
+    }
+}

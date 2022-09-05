@@ -13,7 +13,7 @@ const FormContainer = (props) => (
         <img src={LogoMelo} alt="" />
       </div>
       <div className={styles.Form_Title}>
-        <p>Formulaire de connexion</p>
+        <p>{props.titleForm}</p>
       </div>
       <div className={styles.Form_Input}>{props.children}</div>
       <div className={styles.Form_Btn}></div>

@@ -1,16 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.cf56bdd2.css",
-    "main.js": "/static/js/main.98386ba4.js",
+    "main.css": "/static/css/main.4b06b6fe.css",
+    "main.js": "/static/js/main.73a95899.js",
     "static/js/787.1c43806f.chunk.js": "/static/js/787.1c43806f.chunk.js",
+    "static/media/image_cours.png": "/static/media/image_cours.c8ba679af8355fa52b63.png",
     "static/media/logomelo.png": "/static/media/logomelo.584c6990daa3c18cf661.png",
+    "static/media/image_profil.jpg": "/static/media/image_profil.37c82e99ea96620fd382.jpg",
+    "static/media/insta.png": "/static/media/insta.16883c31b1427e3b96d0.png",
+    "static/media/Gold.png": "/static/media/Gold.50d780a3d95b2a6c7b90.png",
+    "static/media/Bronze.png": "/static/media/Bronze.edcb634969c2da93dbd6.png",
+    "static/media/Silver.png": "/static/media/Silver.68b23b3f7b40016f1a41.png",
+    "static/media/facebook.png": "/static/media/facebook.76dec58ca80f4690922b.png",
+    "static/media/badge.svg": "/static/media/badge.5067fad9f6e3f6d6228c065cee6d14dd.svg",
+    "static/media/interogation.svg": "/static/media/interogation.51f99d4fa1288af9170f5dfc4aabdd8e.svg",
+    "static/media/multiUser.svg": "/static/media/multiUser.55ca048ff92d0135d4958eb6eef8b08f.svg",
+    "static/media/cours.svg": "/static/media/cours.4ca9f46d5f824557f150faea95ad2dde.svg",
+    "static/media/user.svg": "/static/media/user.97d6ff4bdb5c441935dd3f4b68dc57ca.svg",
     "index.html": "/index.html",
-    "main.cf56bdd2.css.map": "/static/css/main.cf56bdd2.css.map",
-    "main.98386ba4.js.map": "/static/js/main.98386ba4.js.map",
+    "static/media/contact.svg": "/static/media/contact.ce2d9a5491528af952b4694eb55b7d8f.svg",
+    "main.4b06b6fe.css.map": "/static/css/main.4b06b6fe.css.map",
+    "main.73a95899.js.map": "/static/js/main.73a95899.js.map",
     "787.1c43806f.chunk.js.map": "/static/js/787.1c43806f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf56bdd2.css",
-    "static/js/main.98386ba4.js"
+    "static/css/main.4b06b6fe.css",
+    "static/js/main.73a95899.js"
   ]
 }

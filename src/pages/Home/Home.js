@@ -41,12 +41,11 @@ import reseau4 from "../../images/profil/twitch.png";
 import Reaseaux from "../../components/profil/Reaseaux/Reaseaux";
 import CardSuperAdmin from "../../components/CardSuperAdmin/CardSuperAdmin";
 import LogoContact from "../../images/superAdmin/contact.svg";
-import TableAdmin from "../../components/tables/TableAdmin/TableAdmin";
 import QuizAvatar from "../../components/quiz/QuizAvatar/QuizAvatar";
 import Modal from "../../components/modal/Modal/Modal";
 import QuizCardCrud from "../../components/quiz/QuizCardCrud/QuizCardCrud";
 import ButtonActivity from "../../components/buttons/ButtonActivity/ButtonActivity";
-import paginations from "../../modules/Paginations";
+import ContactsEdit from "../adminPages/formsCrud/Contacts/ContactsEdit";
 
 const Home = () => {
   function handleClick() {
@@ -194,6 +193,8 @@ const Home = () => {
         btnDelete={<ButtonDelete onClick={() => handleClick()} />}
         btnEdit={<ButtonEdit onClick={() => handleClick()} />}
       />
+      <br />
+      <ContactsEdit />
     </div>
   );
 };

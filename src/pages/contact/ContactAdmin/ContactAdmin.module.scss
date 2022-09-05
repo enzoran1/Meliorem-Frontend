@@ -1,6 +1,9 @@
 .ContactAdmin {
-   
-    
-    width: 100%;
+    margin-bottom: 40px; 
     margin-top: 40px;
+    .Pagination_Container{
+        display: flex;
+        justify-content: center;
+        
+    }
 }

@@ -14,7 +14,10 @@
             @include ml(5px);
         }
 }
+.Table_Tr{
+ overflow-x: scroll;
 
 .Table_Td{
     cursor: pointer;
+}
 }

@@ -1,0 +1,21 @@
+@import "../../mixins/Mixins/Mixins.module.scss";
+@import "../../variables/Variables/Variables.module.scss";
+.CrudEdit {
+    @include D-Flex;
+    justify-content: center;
+    align-items: center;
+    @include mt(40px);
+
+    input{
+        @include mt(30px);
+        @include mb(30px);
+    }
+   button {
+    @include w(100%);
+    @include D-Flex;
+    justify-content: center;
+    @include mt(30px);
+   
+   }
+
+}

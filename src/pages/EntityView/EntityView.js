@@ -4,7 +4,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import CrudView from "../../components/CrudView/CrudView";
 import { getContact } from "../../modules/apis/ContactAPI";
 import { getCourse } from "../../modules/apis/CourseAPI";
+import { getQuiz } from "../../modules/apis/QuizAPI";
 import BadgeFilterSolid from "../../components/badges/BadgeFilterSolid/BadgeFilterSolid";
+import Load from "../../components/Load/Load";
+import { getUser } from "../../modules/apis/UserAPI";
+import { getGroup } from "../../modules/apis/GroupAPI";
+import { getBadge } from "../../modules/apis/BadgeAPI";
 
 const EntityView = () => {
   const navigation = useNavigate();
@@ -59,6 +64,43 @@ const EntityView = () => {
           },
         ]);
       });
+    } else if (entity === "quiz") {
+      getQuiz(id, sessionStorage.getItem("token"), (quiz) => {
+        setData([
+          { id: "id intervenant", value: quiz.speakerId },
+          { id: "nom intervenant", value: quiz.speakerName },
+
+          { id: "Id quiz", value: quiz.id },
+          { id: "Titre", value: quiz.title },
+          { id: "Description", value: quiz.description },
+          { id: "Date de création", value: quiz.publishDate },
+          { id: "Date dernière edition", value: quiz.lastEditDate },
+        ]);
+      });
+    } else if (entity === "users") {
+      getUser(id, sessionStorage.getItem("token"), (users) => {
+        setData([
+          { id: "id user", value: users.id },
+          { id: "prenom user", value: users.firstname },
+          { id: "nom user", value: users.name },
+          { id: "Date de création", value: "date de création" },
+        ]);
+      });
+    } else if (entity === "group") {
+      getGroup(id, sessionStorage.getItem("token"), (group) => {
+        setData([
+          { id: "id user", value: group.id },
+          { id: "nom", value: group.name },
+        ]);
+      });
+    } else if (entity === "badges") {
+      getBadge(id, sessionStorage.getItem("token"), (badges) => {
+        setData([
+          { id: "id user", value: badges.id },
+          { id: "nom", value: badges.name },
+          { id: "description", value: badges.description },
+        ]);
+      });
     } else {
       navigation("/");
     }
@@ -67,7 +109,11 @@ const EntityView = () => {
   if (data && data.length > 0) {
     return <CrudView data={data} />;
   } else {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Load />
+      </div>
+    );
   }
 };
 

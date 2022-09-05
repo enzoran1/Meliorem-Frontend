@@ -14,6 +14,10 @@ import ListeCours from "./pages/coursSpeaker/ListeCours/ListeCours";
 import ListeQuiz from "./pages/quizSpeaker/ListeQuiz/ListeQuiz";
 import ListeCoursStudent from "./pages/coursStudent/ListeCoursStudent/ListeCoursStudent";
 import EntityView from "./pages/EntityView/EntityView";
+import Users from "./pages/adminPages/Users/Users";
+import Group from "./pages/adminPages/Group/Group";
+import BadgesAdmin from "./pages/adminPages/BadgesAdmin/BadgesAdmin";
+import CrudEdit from "./components/CrudEdit/CrudEdit";
 
 function App() {
   return (
@@ -26,6 +30,10 @@ function App() {
         <Route path="/cours" element={<Cours />} />
         <Route path="/quizz" element={<Quiz />} />
         <Route path="/contacts" element={<Contact />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/groups" element={<Group />} />
+        <Route path="/badges-admin" element={<BadgesAdmin />} />
+
         <Route path="/liste-badges" element={<ListeBadges />} />
         <Route path="/liste-utilisateurs" element={<ListeUtilisateurs />} />
         <Route path="/liste-quiz-intervenant" element={<ListeQuiz />} />
@@ -40,6 +48,7 @@ function App() {
         />
         <Route path="/liste-cours-etudiant" element={<ListeCoursStudent />} />
         <Route path="/:entity/view/:id" element={<EntityView />} />
+        <Route path="/:entity/edit/:id" element={<CrudEdit />} />
       </Routes>
     </div>
   );

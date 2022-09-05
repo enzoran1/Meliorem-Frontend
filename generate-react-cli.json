@@ -206,6 +206,22 @@
       "withStory": false,
       "withStyle": true,
       "withTest": true
+    },
+    "AdminPage": {
+      "path": "src/pages/adminPages",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
+    },
+    "AdminFormCrud": {
+      "path": "src/pages/adminPages/formsCrud",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": true
     }
+
+
   }
 }
