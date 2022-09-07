@@ -1,7 +1,7 @@
 import * as UtilsAPI from './UtilsAPI';
 import axios from 'axios';
-
-export const BASE_URL = "https://localhost:8000/api";
+import config from '../../config'
+export const BASE_URL = config.backURL;
 
 export const getAllUser = (token,success,error) => {
     return UtilsAPI.getAll('user',token,success,error);

@@ -47,7 +47,7 @@ const ContactAdmin = (props) => {
 
   let pagination = (
     <Pagination
-      data={paginations(page, totalPage, 2)}
+      data={paginations(page, totalPage, 1)}
       onChangePage={onChangePage}
       actualPage={page}
     />

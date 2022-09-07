@@ -1,19 +1,31 @@
 import React from "react";
 import styles from "./BadgesAdmin.module.scss";
 import { useNavigate } from "react-router-dom";
-import { getAllBadge, removeBadge } from "../../../modules/apis/BadgeAPI";
+import {  getAllWithPageBadge, removeBadge } from "../../../modules/apis/BadgeAPI";
 import TableBody from "../../../components/tables/TableBody/TableBody";
 import TableAdmin from "../../../components/tables/TableAdmin/TableAdmin";
+import Pagination from "../../../components/pagination/Pagination/Pagination";
+import Load from "../../../components/Load/Load";
+import paginations from "../../../modules/Paginations";
 
 const BadgesAdmin = () => {
   const [badges, setBadges] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [page, setPage] = React.useState(1);
+  const [totalPage, setTotalPage] = React.useState(0);
   const navigate = useNavigate();
 
   function refreshBadges() {
-    getAllBadge(
+    setIsLoading(true);
+    getAllWithPageBadge(
       sessionStorage.getItem("token"),
+      5,
+      page,
       (badgesFetched) => {
-        setBadges(badgesFetched);
+        setIsLoading(false);
+        setBadges(badgesFetched.data);
+        setTotalPage(badgesFetched.totalPage);
+        
       },
       (error) => {
         console.error(error);
@@ -21,26 +33,41 @@ const BadgesAdmin = () => {
     );
   }
 
+  function onChangePage(page) {
+    setPage(page);
+  }
+
   React.useEffect(() => {
     refreshBadges();
-  }, []);
+     // eslint-disable-next-line
+  }, [page]);
+
+  let pagination = (
+    <Pagination
+      data={paginations(page, totalPage, 2)}
+      onChangePage={onChangePage}
+      actualPage={page}
+    />
+  );
+
+  if (isLoading) return <Load />;
 
   return (
     <div className={styles.BadgesAdmin} data-testid="BadgesAdmin">
-      <TableAdmin titles={["id", "Nom", "Description", "Nombre"]}>
+      <TableAdmin titles={["id", "Nom", "Description"]}>
         {badges.map((badges, index) => (
           <TableBody
             onClickView={() => {
               navigate(`/badges-admin/view/${badges.id}`);
             }}
+            onClickEdit={() => navigate(`/badges/edit/${badges.id}`)}
             onClickDelete={() => {
               removeBadge(
                 sessionStorage.getItem("token"),
                 badges.id,
-                (response) => {
-                  refreshBadges();
-                  console.log(response);
-                }
+                (response) => refreshBadges(this),
+                (error) => console.error(error)
+                
               );
             }}
             key={index}
@@ -48,6 +75,7 @@ const BadgesAdmin = () => {
           />
         ))}
       </TableAdmin>
+      <div className={styles.Pagination_Container}>{pagination}</div>
     </div>
   );
 };

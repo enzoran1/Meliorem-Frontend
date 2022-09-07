@@ -1,6 +1,6 @@
 import axios from "axios";
-
-export const BASE_URL = "https://localhost:8000/api";
+import config from '../../config.js'
+export const BASE_URL = config.backURL;
 
 export function getTokenHeader(token) {
   return { headers: { Authorization: `Bearer ${token}` } };

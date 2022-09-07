@@ -9,6 +9,8 @@ const Load = () => (
       role="status"
     >
       <img src={LogoMelio} alt="" />
+  
+
     </div>
   </div>
 );

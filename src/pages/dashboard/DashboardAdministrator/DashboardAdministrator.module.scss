@@ -3,7 +3,8 @@
 
 .DashboardAdministrator {
 
-    @include h(90vh);
+    margin-top: 30px;
+    margin-bottom: 30px;
     @media screen and (min-width: $screen-lg) {
             @include D-Flex-Center;
     

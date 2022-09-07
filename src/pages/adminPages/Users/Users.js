@@ -1,19 +1,34 @@
 import React from "react";
 import styles from "./Users.module.scss";
 import { useNavigate } from "react-router-dom";
-import { getAllUser, removeUser } from "../../../modules/apis/UserAPI";
+import { getAllWithPageUser, removeUser } from "../../../modules/apis/UserAPI";
 import TableAdmin from "../../../components/tables/TableAdmin/TableAdmin";
 import TableBody from "../../../components/tables/TableBody/TableBody";
+import Pagination from "../../../components/pagination/Pagination/Pagination";
+import Load from "../../../components/Load/Load";
+import paginations from "../../../modules/Paginations";
 
 const Users = () => {
   const [users, setUsers] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [page, setPage] = React.useState(1);
+  const [totalPage, setTotalPage] = React.useState(0);
   const navigate = useNavigate();
 
+
+    
+
   function refreshUsers() {
-    getAllUser(
+    setIsLoading(true);
+    getAllWithPageUser(
       sessionStorage.getItem("token"),
+      5,
+      page,
       (usersFetched) => {
-        setUsers(usersFetched);
+        setIsLoading(false);
+        setUsers(usersFetched.data);
+        setTotalPage(usersFetched.totalPage);
+       
       },
       (error) => {
         console.error(error);
@@ -21,9 +36,26 @@ const Users = () => {
     );
   }
 
+  function onChangePage(page) {
+    setPage(page);
+  }
+
   React.useEffect(() => {
     refreshUsers();
-  }, []);
+     // eslint-disable-next-line
+  }, [page]);
+
+  let pagination = (
+    <Pagination
+      data={paginations(page, totalPage, 2)}
+      onChangePage={onChangePage}
+      actualPage={page}
+    />  
+  );
+
+  if (isLoading) return <Load />;
+
+
 
   return (
     <div className={styles.Users} data-testid="Users">
@@ -33,14 +65,15 @@ const Users = () => {
             onClickView={() => {
               navigate(`/users/view/${user.id}`);
             }}
+            onClickEdit={() => navigate(`/users/edit/${user.id}`)}
             onClickDelete={() => {
               removeUser(
                 sessionStorage.getItem("token"),
                 user.id,
-                (response) => {
-                  refreshUsers();
-                  console.log(response);
-                }
+                (response) => refreshUsers(this),
+                (error) => console.error(error)
+                
+                
               );
             }}
             key={index}
@@ -48,6 +81,7 @@ const Users = () => {
           />
         ))}
       </TableAdmin>
+      <div className={styles.Pagination_Container}>{pagination}</div>
     </div>
   );
 };

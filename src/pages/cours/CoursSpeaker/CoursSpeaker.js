@@ -8,6 +8,7 @@ import InputSearchComplex from "../../../components/forms/inputs/InputSearchComp
 import BadgeFilterSolid from "../../../components/badges/BadgeFilterSolid/BadgeFilterSolid";
 import CoursCardSpeaker from "../../../components/cours/CoursCardSpeaker/CoursCardSpeaker";
 import { Link } from "react-router-dom";
+import paginations from "../../../modules/Paginations";
 
 const CoursSpeaker = () => (
   <div className={styles.CoursSpeaker} data-testid="CoursSpeaker">
@@ -130,7 +131,11 @@ const CoursSpeaker = () => (
           />
         </div>
         <div className={styles.Body_Bottom}>
-          <Pagination />
+        <Pagination
+          data={paginations(4, 12, 2)}
+          onChangePage={null}
+          actualPage={4}
+        />
         </div>
       </div>
       <div className={styles.Container_Footer}>
