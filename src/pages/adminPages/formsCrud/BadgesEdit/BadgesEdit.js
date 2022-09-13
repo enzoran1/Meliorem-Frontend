@@ -6,6 +6,7 @@ import Load from '../../../../components/Load/Load';
 import FormContainer from '../../../../components/forms/containers/FormContainer/FormContainer';
 import InputText from '../../../../components/forms/inputs/InputText/InputText';
 import ButtonDefaultLogoRigth from '../../../../components/buttons/ButtonDefaultLogoRigth/ButtonDefaultLogoRigth';
+import InputArea from '../../../../components/forms/inputs/InputArea/InputArea';
 
 const BadgesEdit = ({id,navigation}) => 
 {
@@ -61,7 +62,7 @@ return(
           }}
           required
         />
-        <InputText
+        <InputArea
           placeholder="Description"
           type="text"
           value={badges.description}

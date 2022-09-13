@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Pagination from "../../../components/pagination/Pagination/Pagination";
 import paginations from "../../../modules/Paginations";
 import Load from "../../../components/Load/Load";
+import ButtonFixedRigth from "../../../components/buttons/ButtonFixedRigth/ButtonFixedRigth";
 
 const ContactAdmin = (props) => {
   const [contacts, setContacts] = React.useState([]);
@@ -58,7 +59,7 @@ const ContactAdmin = (props) => {
   return (
     <div className={styles.ContactAdmin} data-testid="ContactAdmin">
       <TableAdmin
-        titles={["Prénom", "Nom", "téléphone", "Description", "Type"]}
+        titles={["Prénom", "Nom", "téléphone", "Type"]}
       >
         {contacts.map((contact, index) => (
           <TableBody
@@ -77,13 +78,16 @@ const ContactAdmin = (props) => {
               contact.userInfo.firstname,
               contact.userInfo.name,
               contact.phone,
-              contact.description,
               contact.typeContactName,
             ]}
           />
         ))}
       </TableAdmin>
       <div className={styles.Pagination_Container}>{pagination}</div>
+      <ButtonFixedRigth
+        bgBtn="#ffffff"
+        style={{ backgroundColor: "#4F46E5" }}
+      />
     </div>
   );
 };

@@ -5,22 +5,31 @@ import Load from '../../../../components/Load/Load';
 import ButtonDefaultLogoRigth from '../../../../components/buttons/ButtonDefaultLogoRigth/ButtonDefaultLogoRigth';
 import InputText from '../../../../components/forms/inputs/InputText/InputText';
 import FormContainer from '../../../../components/forms/containers/FormContainer/FormContainer';
+import InputSelect from '../../../../components/forms/inputs/InputSelect/InputSelect';
 
 const UserEdit = ({id, navigation}) => {
 
   const [users, setUsers] = React.useState({});
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [role, setRole] = React.useState("");
+
+  const [role, setRole] = React.useState(null);
+  const[activated, setActivated] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
 
+  const listeRoles = [ 
+    {name: "Intervenant", value : "ROLE_SPEAKER"},
+    {name: "Superadmin", value : "ROLE_SUPERADMIN"},
+    {name: "Etudiant", value : "ROLE_STUDENT"},
+    {name: "Administration", value : "ROLE_ADMINISTRATION"}
+  ];
+
   function onSubmit() {
-    console.log({ name, email, password, role });
+    console.log({ name, email,activated, roles: [role] });
     patchUser(
       sessionStorage.getItem("token"),
       id,
-      { name, email, password, role },
+      { name, email, roles : [role], activated },
       (response) => {
         console.log("Users updated");
 
@@ -34,12 +43,13 @@ const UserEdit = ({id, navigation}) => {
       id,
       sessionStorage.getItem("token"),
       (data) => {
+        setRole(data.roles);
         setIsLoading(false);
         setUsers(data);
         setName(data.name);
         setEmail(data.email);
-        setPassword(data.password);
-        setRole(data.role);
+       
+        setActivated(data.activated);
       },
       (error) => {
         console.log(error);
@@ -69,22 +79,30 @@ return(
             setEmail(e.target.value);
           }}
         />
-        <InputText
-          placeholder="Mot de passe"
-          type="text"
-          value={users.password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <InputText
-          placeholder="Role"
-          type="text"
-          value={users.role}
-          onChange={(e) => {
+       
+        
+        <InputSelect
+        onChange={(e) => {
             setRole(e.target.value);
           }}
-        />
+        >
+          {listeRoles?.map((roleElement,index) => (
+            <option key={index} value={roleElement.value} selected={role.includes(roleElement.value)}>
+              {roleElement.name}
+            </option>
+          ))}
+        </InputSelect>
+        
+        <InputSelect
+        onChange={(e) => {
+           setActivated(e.target.value === "true");
+          }}
+        >
+          <option value="true" selected={users.activated}>Activé</option>
+          <option value="false" selected={!users.activated}>Désactivé</option>
+        </InputSelect>
+
+        
         <ButtonDefaultLogoRigth
           title="Valider"
           onClick={() => {

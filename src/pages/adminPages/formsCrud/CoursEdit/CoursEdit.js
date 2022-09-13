@@ -6,11 +6,14 @@ import FormContainer from "../../../../components/forms/containers/FormContainer
 import InputArea from "../../../../components/forms/inputs/InputArea/InputArea";
 import InputText from "../../../../components/forms/inputs/InputText/InputText";
 import ButtonDefaultLogoRigth from "../../../../components/buttons/ButtonDefaultLogoRigth/ButtonDefaultLogoRigth";
+import InputSelect from "../../../../components/forms/inputs/InputSelect/InputSelect";
 
 const CoursEdit = ({ id, navigation }) => {
   const [courses, setCourses] = React.useState({});
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
+  const [isPublic, setIsPublic] = React.useState("");
+
 
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -37,6 +40,7 @@ const CoursEdit = ({ id, navigation }) => {
         setCourses(data);
         setDescription(data.description);
         setTitle(data.phone);
+        setIsPublic(data.isPublic);
       },
       (error) => {
         console.log(error);
@@ -66,6 +70,19 @@ const CoursEdit = ({ id, navigation }) => {
               setDescription(e.target.value);
             }}
           />
+           <InputSelect
+          titleSelect={courses.isPublic ? "en ligne" : "hors ligne"}
+          onChange={(e) => {
+            setIsPublic(e.target.value);
+          }}
+          >
+            <option value="true">true</option>
+            <option value="false">false</option>
+          </InputSelect>
+
+          
+
+
           <ButtonDefaultLogoRigth onClick={onSubmit} title="Envoyer" />
         </div>
       </FormContainer>

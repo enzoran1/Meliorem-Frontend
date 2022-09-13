@@ -6,24 +6,42 @@ import FormContainer from "../../../../components/forms/containers/FormContainer
 import InputText from "../../../../components/forms/inputs/InputText/InputText";
 import InputArea from "../../../../components/forms/inputs/InputArea/InputArea";
 import ButtonDefaultLogoRigth from "../../../../components/buttons/ButtonDefaultLogoRigth/ButtonDefaultLogoRigth";
+import InputSelect from "../../../../components/forms/inputs/InputSelect/InputSelect";
+import InputsNumber from "../../../../components/forms/inputs/InputsNumber/InputsNumber";
+import { getAllSpeaker } from "../../../../modules/apis/SpeakerAPI";
 
 const QuizEdit = ({ id, navigation }) => {
   const [quiz, setQuiz] = React.useState({});
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
+  const[timeToPerformAll, setTimeToPerformAll] = React.useState("");
+  const [publicQuiz, setPublicQuiz] = React.useState("");
+  const [speakerId, setSpeakerId] = React.useState(0);
+  const [speakers, setSpeakers] = React.useState(null);
 
   const [isLoading, setIsLoading] = React.useState(true);
 
+
+  const SpeakersList = speakers?.map((speaker) => {
+    return {
+      value: speaker.id,
+      label: speaker.userInfo.firstName + " " + speaker.userInfo.name,
+    };
+  });
+
   function onSubmit() {
-    console.log({ description, title });
+    console.log({ description, title, timeToPerformAll, publicQuiz });
     patchQuiz(
       sessionStorage.getItem("token"),
       id,
-      { description, title },
+      { description, title, timeToPerformAll,public : publicQuiz,speakerId },
       (response) => {
         console.log("Quiz updated");
 
         navigation("/quizz");
+      },
+      (error) => {
+        console.log(error);
       }
     );
   }
@@ -37,10 +55,20 @@ const QuizEdit = ({ id, navigation }) => {
         setQuiz(data);
         setDescription(data.description);
         setTitle(data.phone);
+        setTimeToPerformAll(data.timeToPerformAll);
+        setPublicQuiz(data.public);
+
       },
       (error) => {
         console.log(error);
       }
+    );
+    getAllSpeaker( sessionStorage.getItem("token"), (data) => {
+      setSpeakers(data);
+    },
+    (error) => {
+      console.log(error);
+    }
     );
   }, [id]);
 
@@ -65,6 +93,32 @@ const QuizEdit = ({ id, navigation }) => {
               setDescription(e.target.value);
             }}
           />
+          <InputSelect
+          titleSelect="crée par :"
+          onChange={(e) => {
+            setSpeakerId(e.target.value);
+          }}
+          >
+            {SpeakersList?.map(speaker => {
+              return (
+                <option value={speaker.value}>{speaker.label}</option>
+              );
+            })}
+            </InputSelect>
+
+          <InputsNumber
+            value={quiz.timeToPerformAll}
+            onChange={(e) => {
+              setTimeToPerformAll(e.target.value);
+            }}
+          />
+          <InputSelect
+          titleSelect={quiz.public ? "en ligne" : "hors ligne"}
+          onChange={(e) => {
+            setPublicQuiz(e.target.value);
+          }}
+          />
+
           <ButtonDefaultLogoRigth onClick={onSubmit} title="Envoyer" />
         </div>
       </FormContainer>

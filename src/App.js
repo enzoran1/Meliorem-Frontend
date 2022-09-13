@@ -18,6 +18,7 @@ import Users from "./pages/adminPages/Users/Users";
 import Group from "./pages/adminPages/Group/Group";
 import BadgesAdmin from "./pages/adminPages/BadgesAdmin/BadgesAdmin";
 import CrudEdit from "./components/CrudEdit/CrudEdit";
+import CrudAdd from "./components/CrudAdd/CrudAdd";
 
 function App() {
   return (
@@ -49,6 +50,8 @@ function App() {
         <Route path="/liste-cours-etudiant" element={<ListeCoursStudent />} />
         <Route path="/:entity/view/:id" element={<EntityView />} />
         <Route path="/:entity/edit/:id" element={<CrudEdit />} />
+        <Route path="/:entity/add" element={<CrudAdd />} />
+
       </Routes>
     </div>
   );

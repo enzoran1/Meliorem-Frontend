@@ -23,7 +23,7 @@ const CrudEdit = () => {
     EditComponent = <QuizEdit id={id} navigation={navigation}></QuizEdit>;
   else if (entity === "users") 
     EditComponent = <UserEdit id={id} navigation={navigation}></UserEdit>;
-  else if (entity === "groups") 
+  else if (entity === "group") 
     EditComponent = <GroupsEdit id={id} navigation={navigation}></GroupsEdit>; 
   else if (entity === "badges") 
     EditComponent = <BadgesEdit id={id} navigation={navigation}></BadgesEdit>;     

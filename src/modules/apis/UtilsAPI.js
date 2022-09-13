@@ -16,7 +16,7 @@ export function getTokenHeader(token) {
  */
 export function getAll(url, token, success, error) {
   axios
-    .get(`${BASE_URL}/${url}`, getTokenHeader(token))
+    .get(`${BASE_URL}/${url}/`, getTokenHeader(token))
     .then((response) => {
       if (success) success(response.data);
     })
@@ -27,7 +27,7 @@ export function getAll(url, token, success, error) {
 
 export function get(url, token, id, success, error) {
   axios
-    .get(`${BASE_URL}/${url}/${id}`, getTokenHeader(token))
+    .get(`${BASE_URL}/${url}/${id}/`, getTokenHeader(token))
     .then((response) => {
       if (success) success(response.data);
     })
@@ -38,7 +38,7 @@ export function get(url, token, id, success, error) {
 
 export function post(url, token, data, success, error) {
   axios
-    .post(`${BASE_URL}/${url}`, data, getTokenHeader(token))
+    .post(`${BASE_URL}/${url}/`, data, getTokenHeader(token))
     .then((response) => {
       if (success) success(response.data);
     })
@@ -49,7 +49,7 @@ export function post(url, token, data, success, error) {
 
 export function patch(url, token, id, data, success, error) {
   axios
-    .patch(`${BASE_URL}/${url}/${id}`, data, getTokenHeader(token))
+    .patch(`${BASE_URL}/${url}/${id}/`, data, getTokenHeader(token))
     .then((response) => {
       if (success) success(response.data);
     })
@@ -60,7 +60,7 @@ export function patch(url, token, id, data, success, error) {
 
 export function remove(url, token, id, success, error) {
   axios
-    .delete(`${BASE_URL}/${url}/${id}`, getTokenHeader(token))
+    .delete(`${BASE_URL}/${url}/${id}/`, getTokenHeader(token))
     .then((response) => {
       if (success) success(response.data);
     })
@@ -72,7 +72,7 @@ export function remove(url, token, id, success, error) {
 export function getAllWithPage(url, token, elementCount, actualPage, success, error) {
   axios
     .get(
-      `${BASE_URL}/${url}/${elementCount}/${actualPage}`,
+      `${BASE_URL}/${url}/${elementCount}/${actualPage}/`,
       getTokenHeader(token)
     )
     .then((response) => {

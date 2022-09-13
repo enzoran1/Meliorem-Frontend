@@ -7,6 +7,8 @@ import TableBody from "../../../components/tables/TableBody/TableBody";
 import Pagination from "../../../components/pagination/Pagination/Pagination";
 import Load from "../../../components/Load/Load";
 import paginations from "../../../modules/Paginations";
+import BadgeFilterSolid from "../../../components/badges/BadgeFilterSolid/BadgeFilterSolid";
+import ButtonFixedRigth from "../../../components/buttons/ButtonFixedRigth/ButtonFixedRigth";
 
 const Users = () => {
   const [users, setUsers] = React.useState([]);
@@ -59,7 +61,7 @@ const Users = () => {
 
   return (
     <div className={styles.Users} data-testid="Users">
-      <TableAdmin titles={["Nom", "Prénom", "Email", "Rôle"]}>
+      <TableAdmin titles={["Nom", "Prénom", "Email", "Rôle","date","En ligne"]}>
         {users.map((user, index) => (
           <TableBody
             onClickView={() => {
@@ -77,11 +79,24 @@ const Users = () => {
               );
             }}
             key={index}
-            attributes={[user.name, user.firstname, user.email, user.roles[0]]}
+            attributes={[user.name, user.firstname, user.email, user.roles[0],
+              user.createdAt,
+            user.activated ? <BadgeFilterSolid
+            style={{ backgroundColor: "green" }}
+            title="En ligne"
+            /> :
+            <BadgeFilterSolid
+            style={{ backgroundColor: "red" }}
+            title="Hors-ligne"
+            />]}
           />
         ))}
       </TableAdmin>
       <div className={styles.Pagination_Container}>{pagination}</div>
+      <ButtonFixedRigth
+        bgBtn="#ffffff"
+        style={{ backgroundColor: "#4F46E5" }}
+      />
     </div>
   );
 };

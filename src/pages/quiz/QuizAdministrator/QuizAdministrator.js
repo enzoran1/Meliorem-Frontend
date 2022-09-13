@@ -7,6 +7,7 @@ import TableBody from "../../../components/tables/TableBody/TableBody";
 import Load from "../../../components/Load/Load";
 import Pagination from "../../../components/pagination/Pagination/Pagination";
 import paginations from "../../../modules/Paginations";
+import BadgeFilterSolid from "../../../components/badges/BadgeFilterSolid/BadgeFilterSolid";
 
 const QuizAdministrator = () => {
   const [quiz, setquiz] = React.useState([]);
@@ -53,7 +54,7 @@ const QuizAdministrator = () => {
 
   return (
     <div className={styles.QuizAdministrator} data-testid="QuizAdministrator">
-      <TableAdmin titles={["user", "Title", "Description", "Date", "En ligne"]}>
+      <TableAdmin titles={["user", "Title", "Date", "En ligne"]}>
         {quiz.map((quiz, index) => (
           <TableBody
             onClickView={() => {
@@ -70,11 +71,16 @@ const QuizAdministrator = () => {
             }}
             key={index}
             attributes={[
-              "mon user",
+              quiz.speakerName,
               quiz.title,
-              quiz.description,
               quiz.createdAt,
-              quiz.public ? "oui" : "non",
+              quiz.public ? <BadgeFilterSolid
+              style={{ backgroundColor: "green" }}
+              title="en ligne"
+            /> : <BadgeFilterSolid
+            style={{ backgroundColor: "red" }}
+            title="hors ligne"
+          />,
             ]}
           />
         ))}

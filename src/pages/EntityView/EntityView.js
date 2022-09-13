@@ -101,7 +101,8 @@ const EntityView = () => {
           { id: "description", value: badges.description },
         ]);
       });
-    } else {
+    } 
+    else {
       navigation("/");
     }
   }, [entity, id, navigation]);

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Load from "../../../components/Load/Load";
 import Pagination from "../../../components/pagination/Pagination/Pagination";
 import paginations from "../../../modules/Paginations";
+import ButtonFixedRigth from "../../../components/buttons/ButtonFixedRigth/ButtonFixedRigth";
 
 const Group = () => {
   const [groups, setgroups] = React.useState([]);
@@ -54,13 +55,13 @@ const Group = () => {
 
   return (
     <div className={styles.Group} data-testid="Group">
-      <TableAdmin titles={["Nom", "Date"]}>
+      <TableAdmin titles={["Nom", "Nombre d'élèves"]}>
         {groups.map((groups, index) => (
           <TableBody
             onClickView={() => {
-              navigate(`/groups/view/${groups.id}`);
+              navigate(`/group/view/${groups.id}`);
             }}
-            onClickEdit={() => navigate(`/groups/edit/${groups.id}`)}
+            onClickEdit={() => navigate(`/group/edit/${groups.id}`)}
             onClickDelete={() => {
               removeGroup(
                 sessionStorage.getItem("token"),
@@ -71,11 +72,15 @@ const Group = () => {
               );
             }}
             key={index}
-            attributes={[groups.name]}
+            attributes={[groups.name, groups.studentCount]}
           />
         ))}
       </TableAdmin>
       <div className={styles.Pagination_Container}>{pagination}</div>
+      <ButtonFixedRigth
+        bgBtn="#ffffff"
+        style={{ backgroundColor: "#4F46E5" }}
+      />
     </div>
   );
 };

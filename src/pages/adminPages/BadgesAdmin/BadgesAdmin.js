@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./BadgesAdmin.module.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {  getAllWithPageBadge, removeBadge } from "../../../modules/apis/BadgeAPI";
 import TableBody from "../../../components/tables/TableBody/TableBody";
 import TableAdmin from "../../../components/tables/TableAdmin/TableAdmin";
 import Pagination from "../../../components/pagination/Pagination/Pagination";
 import Load from "../../../components/Load/Load";
 import paginations from "../../../modules/Paginations";
+import ButtonFixedRigth from "../../../components/buttons/ButtonFixedRigth/ButtonFixedRigth";
 
 const BadgesAdmin = () => {
   const [badges, setBadges] = React.useState([]);
@@ -54,7 +55,7 @@ const BadgesAdmin = () => {
 
   return (
     <div className={styles.BadgesAdmin} data-testid="BadgesAdmin">
-      <TableAdmin titles={["id", "Nom", "Description"]}>
+      <TableAdmin titles={[ "Nom", "Description"]}>
         {badges.map((badges, index) => (
           <TableBody
             onClickView={() => {
@@ -71,11 +72,17 @@ const BadgesAdmin = () => {
               );
             }}
             key={index}
-            attributes={[badges.id, badges.name, badges.description]}
+            attributes={[ badges.name, badges.description]}
           />
         ))}
       </TableAdmin>
       <div className={styles.Pagination_Container}>{pagination}</div>
+      <Link to="/badges/add">
+      <ButtonFixedRigth
+        bgBtn="#ffffff"
+        style={{ backgroundColor: "#4F46E5" }}
+      />
+      </Link>
     </div>
   );
 };
