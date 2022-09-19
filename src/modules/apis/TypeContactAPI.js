@@ -1,11 +1,11 @@
 import * as UtilsAPI from './UtilsAPI';
 
-export const getAllTypeContact = (token,success,error) => {
-    return UtilsAPI.getAll('type-contact',token,success,error);
+export const getAllTypeContact = (token,success,error,search) => {
+    return UtilsAPI.getAll('type-contact',token,success,error,search);
 }
 
-export const getAllWithPageTypeContact = (token,elementCount,actualPage,success,error) => {
-    return UtilsAPI.getAllWithPage('type-contact',token,elementCount,actualPage,success,error);
+export const getAllWithPageTypeContact = (token,elementCount,actualPage,success,error,search) => {
+    return UtilsAPI.getAllWithPage('type-contact',token,elementCount,actualPage,success,error,search);
 }
 
 export const getTypeContact = (typeContactId,token,success,error) => {

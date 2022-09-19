@@ -1,11 +1,11 @@
 import * as UtilsAPI from './UtilsAPI';
 
-export const getAllSkill = (token,success,error) => {
-    return UtilsAPI.getAll('skill',token,success,error);
+export const getAllSkill = (token,success,error,search) => {
+    return UtilsAPI.getAll('skill',token,success,error,search);
 }
 
-export const getAllWithPageSkill = (token,elementCount,actualPage,success,error) => {
-    return UtilsAPI.getAllWithPage('skill',token,elementCount,actualPage,success,error);
+export const getAllWithPageSkill = (token,elementCount,actualPage,success,error,search) => {
+    return UtilsAPI.getAllWithPage('skill',token,elementCount,actualPage,success,error,search);
 }
 
 export const getSkill = (skillId,token,success,error) => {
