@@ -49,7 +49,7 @@ export function post(url, token, data, success, error) {
 
 export function patch(url, token, id, data, success, error) {
   axios
-    .patch(`${BASE_URL}/${url}/${id}/`, data, getTokenHeader(token))
+    .patch(`${BASE_URL}/${url}/${id}`, data, getTokenHeader(token))
     .then((response) => {
       if (success) success(response.data);
     })
@@ -60,7 +60,7 @@ export function patch(url, token, id, data, success, error) {
 
 export function remove(url, token, id, success, error) {
   axios
-    .delete(`${BASE_URL}/${url}/${id}/`, getTokenHeader(token))
+    .delete(`${BASE_URL}/${url}/${id}`, getTokenHeader(token))
     .then((response) => {
       if (success) success(response.data);
     })

@@ -9,8 +9,57 @@ import BadgeFilterSolid from "../../../components/badges/BadgeFilterSolid/BadgeF
 import CoursCardSpeaker from "../../../components/cours/CoursCardSpeaker/CoursCardSpeaker";
 import { Link } from "react-router-dom";
 import paginations from "../../../modules/Paginations";
+import { getAllWithPageCourse } from "../../../modules/apis/CourseAPI";
+import Load from "../../../components/Load/Load";
 
-const CoursSpeaker = () => (
+const CoursSpeaker = () => 
+{
+  const [cours, setCours] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [page, setPage] = React.useState(1);
+  const [totalPage, setTotalPage] = React.useState(0);
+
+  function refreshCours() {
+    setIsLoading(true);
+    getAllWithPageCourse(
+      sessionStorage.getItem("token"),
+      6,
+      page,
+      (coursFetched) => {
+        setIsLoading(false);
+        setCours(coursFetched.data);
+        setTotalPage(coursFetched.totalPage);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  function onChangePage(page) {
+    setPage(page);
+  }
+
+  React.useEffect(() => {
+    refreshCours();
+    // eslint-disable-next-line
+  }, [page]);
+
+  let pagination = (
+    <Pagination
+      data={paginations(page, totalPage, 1)}
+      onChangePage={onChangePage}
+      actualPage={page}
+    />
+
+  );
+
+  if (isLoading) return <Load />;
+
+
+
+
+return(
   <div className={styles.CoursSpeaker} data-testid="CoursSpeaker">
     <div className={styles.CoursSpeaker_Search}>
       <div className={styles.Search_Top}>
@@ -105,37 +154,20 @@ const CoursSpeaker = () => (
           <p>Nouveau cours</p>
         </div>
         <div className={styles.Body_Center}>
+          {cours.map((cours,index) => ( 
           <CoursCard
-            title="Le titre de mon cours pour le test template de la mort mec des angular"
-            identity="Carlos Roberto"
-            date="12/12/2020"
+            key={index}
+            title={cours.title}
+            identity={cours.speakerName}
+            date={cours.publishDate}
             image={ImageCours}
           />
-          <CoursCard
-            title="Le titre de mon cours pour le test template de la mort mec des angular"
-            identity="Carlos Roberto"
-            date="12/12/2020"
-            image={ImageCours}
-          />
-          <CoursCard
-            title="Le titre de mon cours pour le test template de la mort mec des angular"
-            identity="Carlos Roberto"
-            date="12/12/2020"
-            image={ImageCours}
-          />
-          <CoursCard
-            title="Le titre de mon cours pour le test template de la mort mec des angular"
-            identity="Carlos Roberto"
-            date="12/12/2020"
-            image={ImageCours}
-          />
+          ))}
+          
+         
         </div>
         <div className={styles.Body_Bottom}>
-        <Pagination
-          data={paginations(4, 12, 2)}
-          onChangePage={null}
-          actualPage={4}
-        />
+        {pagination}
         </div>
       </div>
       <div className={styles.Container_Footer}>
@@ -185,6 +217,7 @@ const CoursSpeaker = () => (
     </div>
   </div>
 );
+}
 
 CoursSpeaker.propTypes = {};
 

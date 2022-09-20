@@ -59,7 +59,7 @@ const BadgesAdmin = () => {
         {badges.map((badges, index) => (
           <TableBody
             onClickView={() => {
-              navigate(`/badges-admin/view/${badges.id}`);
+              navigate(`/badges/view/${badges.id}`);
             }}
             onClickEdit={() => navigate(`/badges/edit/${badges.id}`)}
             onClickDelete={() => {

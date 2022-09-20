@@ -18,11 +18,11 @@ const CoursEdit = ({ id, navigation }) => {
   const [isLoading, setIsLoading] = React.useState(true);
 
   function onSubmit() {
-    console.log({ description, title });
+    console.log({ description, title,isPublic});
     patchCourse(
       sessionStorage.getItem("token"),
       id,
-      { description, title },
+      { description, title , isPublic},
       (response) => {
         console.log("Courses updated");
 
@@ -76,8 +76,8 @@ const CoursEdit = ({ id, navigation }) => {
             setIsPublic(e.target.value);
           }}
           >
-            <option value="true">true</option>
-            <option value="false">false</option>
+            <option value={1} selected={courses.isPublic}>true</option>
+            <option value={0} selected={!courses.isPublic}>false</option>
           </InputSelect>
 
           

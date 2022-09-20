@@ -4,6 +4,7 @@
 .ListeCours {
     @include p(10px);
         @include D-Flex-Center-Colums;
+        @include w(100%);
 
         .ListeCours_Search {
                 @include w(100%);

@@ -71,7 +71,7 @@ const QuizAdministrator = () => {
             }}
             key={index}
             attributes={[
-              quiz.speakerName,
+              quiz.speakerInfo.userName,
               quiz.title,
               quiz.createdAt,
               quiz.public ? <BadgeFilterSolid

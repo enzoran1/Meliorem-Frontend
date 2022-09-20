@@ -8,9 +8,60 @@ import ButtonFilterBorder from "../../../components/buttons/ButtonFilterBorder/B
 import ButtonFixedRigth from "../../../components/buttons/ButtonFixedRigth/ButtonFixedRigth";
 import InputSearchComplex from "../../../components/forms/inputs/InputSearchComplex/InputSearchComplex";
 import Pagination from "../../../components/pagination/Pagination/Pagination";
+import { useNavigate } from "react-router-dom";
+import paginations from "../../../modules/Paginations";
 import QuizCardCrud from "../../../components/quiz/QuizCardCrud/QuizCardCrud";
+import Load from "../../../components/Load/Load";
+import { getAllWithPageCourse, removeCourse } from "../../../modules/apis/CourseAPI";
 
-const ListeCours = () => (
+const ListeCours = () => {
+
+  const [cours, setCours] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [page, setPage] = React.useState(1);
+  const [totalPage, setTotalPage] = React.useState(0);
+  const navigate = useNavigate();
+
+  function refreshCours() {
+    setIsLoading(true);
+    getAllWithPageCourse(
+      sessionStorage.getItem("token"),
+      8,
+      page,
+      (coursFetched) => {
+        setIsLoading(false);
+        setCours(coursFetched.data);
+        setTotalPage(coursFetched.totalPage);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  function onChangePage(page) {
+    setPage(page);
+  }
+
+  React.useEffect(() => {
+    refreshCours();
+    // eslint-disable-next-line
+  }, [page]);
+
+  let pagination = (
+    <Pagination
+      data={paginations(page, totalPage, 1)}
+      onChangePage={onChangePage}
+      actualPage={page}
+    />
+  );
+
+  if (isLoading) return <Load />;
+
+
+
+
+return(
   <Fragment>
     <div className={styles.ListeCours} data-testid="ListeCours">
       <div className={styles.ListeCours} data-testid="ListeCours">
@@ -74,174 +125,40 @@ const ListeCours = () => (
           />
         </div>
         <div className={styles.ListeCours_Container}>
+          { cours.map((cours,index) => (
+
           <QuizCardCrud
-            title=" le titre de mon Cours qui est tres long"
+            key={index}
+            title={cours.title}
             badges={
               <BadgeFilterSolid
-                style={{ backgroundColor: "orange", cursor: "pointer" }}
-                title="en cours"
+                style={{ backgroundColor: cours.isPublic ? "green":"orange" }}
+                title= {cours.isPublic ?"Public":"en cours"}
               />
             }
-            description="la description de mon Cours qui est tres longue pour voir comment ca va se comporter"
-            date="12/12/2020"
+            description={cours.description}
+            date={cours.publishDate}
             btnActivity={<ButtonActivity />}
-            btnDelete={<ButtonDelete onClick="test" />}
-            btnEdit={<ButtonEdit onClick="test" />}
+            btnDelete={<ButtonDelete onClick={()=>{
+              removeCourse(
+                sessionStorage.getItem("token"),
+                cours.id,
+                (response) => {
+                  refreshCours();
+                },
+                (error) => {
+                  console.error(error);
+                }
+              );
+            }} />}
+            btnEdit={<ButtonEdit onClick={() => navigate(`/cours/edit/${cours.id}`)} />}
           />
-          <QuizCardCrud
-            title=" le titre de mon Cours qui est tres long"
-            badges={
-              <BadgeFilterSolid
-                style={{ backgroundColor: "orange", cursor: "pointer" }}
-                title="en cours"
-              />
-            }
-            description="la description de mon cCours qui est tres longue pour voir comment ca va se comporter"
-            date="12/12/2020"
-            btnDelete={<ButtonDelete onClick="test" />}
-            btnEdit={<ButtonEdit onClick="test" />}
-          />
-          <QuizCardCrud
-            title=" le titre de mon Cours qui est tres long"
-            badges={
-              <BadgeFilterSolid
-                style={{ backgroundColor: "orange", cursor: "pointer" }}
-                title="en cours"
-              />
-            }
-            description="la description de mon Cours qui est tres longue pour voir comment ca va se comporter"
-            date="12/12/2020"
-            btnActivity={<ButtonActivity />}
-            btnDelete={<ButtonDelete onClick="test" />}
-            btnEdit={<ButtonEdit onClick="test" />}
-          />
-          <QuizCardCrud
-            title=" le titre de mon Cours qui est tres long"
-            badges={
-              <BadgeFilterSolid
-                style={{ backgroundColor: "orange", cursor: "pointer" }}
-                title="en cours"
-              />
-            }
-            description="la description de mon Cours qui est tres longue pour voir comment ca va se comporter"
-            date="12/12/2020"
-            btnDelete={<ButtonDelete onClick="test" />}
-            btnEdit={<ButtonEdit onClick="test" />}
-          />
-          <QuizCardCrud
-            title=" le titre de mon Cours qui est tres long"
-            badges={
-              <BadgeFilterSolid
-                style={{ backgroundColor: "orange", cursor: "pointer" }}
-                title="en cours"
-              />
-            }
-            description="la description de mon Cours qui est tres longue pour voir comment ca va se comporter"
-            date="12/12/2020"
-            btnActivity={<ButtonActivity />}
-            btnDelete={<ButtonDelete onClick="test" />}
-            btnEdit={<ButtonEdit onClick="test" />}
-          />
-          <QuizCardCrud
-            title=" le titre de mon Cours qui est tres long"
-            badges={
-              <BadgeFilterSolid
-                style={{ backgroundColor: "orange", cursor: "pointer" }}
-                title="en cours"
-              />
-            }
-            description="la description de mon Cours qui est tres longue pour voir comment ca va se comporter"
-            date="12/12/2020"
-            btnDelete={<ButtonDelete onClick="test" />}
-            btnEdit={<ButtonEdit onClick="test" />}
-          />
-          <QuizCardCrud
-            title=" le titre de mon Cours qui est tres long"
-            badges={
-              <BadgeFilterSolid
-                style={{ backgroundColor: "orange", cursor: "pointer" }}
-                title="en cours"
-              />
-            }
-            description="la description de mon Cours qui est tres longue pour voir comment ca va se comporter"
-            date="12/12/2020"
-            btnActivity={<ButtonActivity />}
-            btnDelete={<ButtonDelete onClick="test" />}
-            btnEdit={<ButtonEdit onClick="test" />}
-          />
-          <QuizCardCrud
-            title=" le titre de mon Cours qui est tres long"
-            badges={
-              <BadgeFilterSolid
-                style={{ backgroundColor: "orange", cursor: "pointer" }}
-                title="en cours"
-              />
-            }
-            description="la description de mon Cours qui est tres longue pour voir comment ca va se comporter"
-            date="12/12/2020"
-            btnActivity={<ButtonActivity />}
-            btnDelete={<ButtonDelete onClick="test" />}
-            btnEdit={<ButtonEdit onClick="test" />}
-          />
-          <QuizCardCrud
-            title=" le titre de mon Cours qui est tres long"
-            badges={
-              <BadgeFilterSolid
-                style={{ backgroundColor: "orange", cursor: "pointer" }}
-                title="en cours"
-              />
-            }
-            description="la description de mon Cours qui est tres longue pour voir comment ca va se comporter"
-            date="12/12/2020"
-            btnActivity={<ButtonActivity />}
-            btnDelete={<ButtonDelete onClick="test" />}
-            btnEdit={<ButtonEdit onClick="test" />}
-          />
-          <QuizCardCrud
-            title=" le titre de mon Cours qui est tres long"
-            badges={
-              <BadgeFilterSolid
-                style={{ backgroundColor: "orange", cursor: "pointer" }}
-                title="en cours"
-              />
-            }
-            description="la description de mon Cours qui est tres longue pour voir comment ca va se comporter"
-            date="12/12/2020"
-            btnActivity={<ButtonActivity />}
-            btnDelete={<ButtonDelete onClick="test" />}
-            btnEdit={<ButtonEdit onClick="test" />}
-          />
-          <QuizCardCrud
-            title=" le titre de mon cours qui est tres long"
-            badges={
-              <BadgeFilterSolid
-                style={{ backgroundColor: "orange", cursor: "pointer" }}
-                title="en cours"
-              />
-            }
-            description="la description de mon cours qui est tres longue pour voir comment ca va se comporter"
-            date="12/12/2020"
-            btnActivity={<ButtonActivity />}
-            btnDelete={<ButtonDelete onClick="test" />}
-            btnEdit={<ButtonEdit onClick="test" />}
-          />
-          <QuizCardCrud
-            title=" le titre de mon cours qui est tres long"
-            badges={
-              <BadgeFilterSolid
-                style={{ backgroundColor: "orange", cursor: "pointer" }}
-                title="en cours"
-              />
-            }
-            description="la description de mon cours qui est tres longue pour voir comment ca va se comporter"
-            date="12/12/2020"
-            btnActivity={<ButtonActivity />}
-            btnDelete={<ButtonDelete onClick="test" />}
-            btnEdit={<ButtonEdit onClick="test" />}
-          />
+          ))}          
+          
+          
         </div>
         <div className={styles.ListeCours_Pagination}>
-          <Pagination />
+           {pagination}
         </div>
       </div>
     </div>
@@ -253,7 +170,7 @@ const ListeCours = () => (
     </div>
   </Fragment>
 );
-
+}
 ListeCours.propTypes = {};
 
 ListeCours.defaultProps = {};

@@ -30,7 +30,7 @@ const QuizEdit = ({ id, navigation }) => {
   });
 
   function onSubmit() {
-    console.log({ description, title, timeToPerformAll, publicQuiz });
+    console.log({ description, title, timeToPerformAll, "public" : publicQuiz });
     patchQuiz(
       sessionStorage.getItem("token"),
       id,
@@ -57,6 +57,7 @@ const QuizEdit = ({ id, navigation }) => {
         setTitle(data.phone);
         setTimeToPerformAll(data.timeToPerformAll);
         setPublicQuiz(data.public);
+        setSpeakerId(data.speakerInfo.speakerId);
 
       },
       (error) => {
@@ -99,9 +100,9 @@ const QuizEdit = ({ id, navigation }) => {
             setSpeakerId(e.target.value);
           }}
           >
-            {SpeakersList?.map(speaker => {
+            {SpeakersList?.map((speaker,index) => {
               return (
-                <option value={speaker.value}>{speaker.label}</option>
+                <option key={index} value={speaker.value} selected={speaker.value === speakerId} >{speaker.label}</option>
               );
             })}
             </InputSelect>
@@ -116,8 +117,12 @@ const QuizEdit = ({ id, navigation }) => {
           titleSelect={quiz.public ? "en ligne" : "hors ligne"}
           onChange={(e) => {
             setPublicQuiz(e.target.value);
+            console.log("public quiz definie a : " + e.target.value);
           }}
-          />
+          >
+            <option value={1} selected={quiz.public}>en ligne</option>
+            <option value={0} selected={!quiz.public}>hors ligne</option>
+            </InputSelect>
 
           <ButtonDefaultLogoRigth onClick={onSubmit} title="Envoyer" />
         </div>

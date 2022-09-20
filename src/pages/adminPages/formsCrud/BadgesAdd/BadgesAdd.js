@@ -53,7 +53,7 @@ const BadgesAdd = ({navigation}) => {
             }}
           />
           <ButtonDefaultLogoRigth
-            text="Add"
+            title="Add"
             onClick={() => {
               onSubmit();
             }}

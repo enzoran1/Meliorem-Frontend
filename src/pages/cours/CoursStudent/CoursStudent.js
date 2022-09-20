@@ -8,8 +8,58 @@ import Pagination from "../../../components/pagination/Pagination/Pagination";
 import InputSearchComplex from "../../../components/forms/inputs/InputSearchComplex/InputSearchComplex";
 import BadgeFilterSolid from "../../../components/badges/BadgeFilterSolid/BadgeFilterSolid";
 import { Link } from "react-router-dom";
+import Load from "../../../components/Load/Load";
+import { getAllWithPageCourse } from "../../../modules/apis/CourseAPI";
+import paginations from "../../../modules/Paginations";
 
-const CoursStudent = () => (
+const CoursStudent = () => {
+
+  const [cours, setCours] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [page, setPage] = React.useState(1);
+  const [totalPage, setTotalPage] = React.useState(0);
+  
+
+  function refreshCours() {
+    setIsLoading(true);
+    getAllWithPageCourse(
+      sessionStorage.getItem("token"),
+      4,
+      page,
+      (coursFetched) => {
+        setIsLoading(false);
+        setCours(coursFetched.data);
+        setTotalPage(coursFetched.totalPage);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  function onChangePage(page) {
+    setPage(page);
+  }
+
+  React.useEffect(() => {
+    refreshCours();
+    // eslint-disable-next-line
+  }, [page]);
+
+  let pagination = (
+    <Pagination
+      data={paginations(page, totalPage, 1)}
+      onChangePage={onChangePage}
+      actualPage={page}
+    />
+
+  );
+
+  if (isLoading) return <Load />;
+
+
+
+return(
   <div className={styles.CoursStudent} data-testid="CoursStudent">
     <div className={styles.CoursStudent_Search}>
       <div className={styles.Search_Top}>
@@ -108,33 +158,20 @@ const CoursStudent = () => (
           <p>Nouveau cours</p>
         </div>
         <div className={styles.Body_Center}>
+          {cours.map((cours, index) => (
           <CoursCard
-            title="Le titre de mon cours pour le test template de la mort mec des angular"
-            identity="Carlos Roberto"
-            date="12/12/2020"
+          key={index}
+          title={cours.title}
+          identity={cours.speakerName}
+          date={cours.publishDate}
             image={ImageCours}
           />
-          <CoursCard
-            title="Le titre de mon cours pour le test template de la mort mec des angular"
-            identity="Carlos Roberto"
-            date="12/12/2020"
-            image={ImageCours}
-          />
-          <CoursCard
-            title="Le titre de mon cours pour le test template de la mort mec des angular"
-            identity="Carlos Roberto"
-            date="12/12/2020"
-            image={ImageCours}
-          />
-          <CoursCard
-            title="Le titre de mon cours pour le test template de la mort mec des angular"
-            identity="Carlos Roberto"
-            date="12/12/2020"
-            image={ImageCours}
-          />
+          ))}
+        
+          
         </div>
         <div className={styles.Body_Bottom}>
-          <Pagination />
+          {pagination}
         </div>
       </div>
       <div className={styles.Container_Footer}>
@@ -179,6 +216,8 @@ const CoursStudent = () => (
     </div>
   </div>
 );
+
+}
 
 CoursStudent.propTypes = {};
 

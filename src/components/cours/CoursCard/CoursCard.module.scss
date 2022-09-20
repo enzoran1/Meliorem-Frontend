@@ -16,7 +16,7 @@
         }
     }
     .CoursCard_Body{
-        @include h(133px);
+        @include h(120px);
         @include p(10px);
         h3{
             color: $white;
