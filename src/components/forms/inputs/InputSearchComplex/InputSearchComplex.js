@@ -1,7 +1,16 @@
 import React from "react";
 import styles from "./InputSearchComplex.module.scss";
+import PropTypes from "prop-types";
 
-const InputSearchComplex = () => (
+const InputSearchComplex = (props) => {
+  const [searchText, setSearchText] = React.useState("");
+
+  const handleSearch = (e) => {
+    setSearchText(e.target.value);
+  };
+
+  
+  return (
   <div className={styles.InputSearchComplex} data-testid="InputSearchComplex">
     <div className="input-group relative flex flex-wrap items-stretch w-full mb-4">
       <input
@@ -10,11 +19,15 @@ const InputSearchComplex = () => (
         placeholder="Search"
         aria-label="Search"
         aria-describedby="button-addon2"
+        onChange={handleSearch}
       />
       <button
         className="btn inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-70   focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out flex items-center"
         type="button"
         id="button-addon2"
+        onClick={
+          () => props.onSubmit(searchText)
+        }
       >
         <svg
           aria-hidden="true"
@@ -34,6 +47,15 @@ const InputSearchComplex = () => (
       </button>
     </div>
   </div>
-);
+  )
+};
+
+InputSearchComplex.propTypes = {
+  onSubmit: PropTypes.func,
+};
+
+InputSearchComplex.defaultProps = {
+  onSubmit: () => {},
+};
 
 export default InputSearchComplex;

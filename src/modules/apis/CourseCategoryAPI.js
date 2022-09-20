@@ -1,11 +1,11 @@
 import * as UtilsAPI from './UtilsAPI';
 
-export const getAllCourseCategory = (token,success,error) => {
-    return UtilsAPI.getAll('course-category',token,success,error);
+export const getAllCourseCategory = (token,success,error,search) => {
+    return UtilsAPI.getAll('course-category',token,success,error,search);
 }
 
-export const getAllWithPageCourseCategory = (token,elementCount,actualPage,success,error) => {
-    return UtilsAPI.getAllWithPage('course-category',token,elementCount,actualPage,success,error);
+export const getAllWithPageCourseCategory = (token,elementCount,actualPage,success,error,search) => {
+    return UtilsAPI.getAllWithPage('course-category',token,elementCount,actualPage,success,error,search);
 }
 
 export const getCourseCategory = (courseCategoryId,token,success,error) => {

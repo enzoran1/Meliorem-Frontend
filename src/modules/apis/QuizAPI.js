@@ -1,11 +1,11 @@
 import * as UtilsAPI from './UtilsAPI';
 
-export const getAllQuiz = (token,success,error) => {
-    return UtilsAPI.getAll('quiz',token,success,error);
+export const getAllQuiz = (token,success,error,search) => {
+    return UtilsAPI.getAll('quiz',token,success,error,search);
 }
 
-export const getAllWithPageQuiz = (token,elementCount,actualPage,success,error) => {
-    return UtilsAPI.getAllWithPage('quiz',token,elementCount,actualPage,success,error);
+export const getAllWithPageQuiz = (token,elementCount,actualPage,success,error,search) => {
+    return UtilsAPI.getAllWithPage('quiz',token,elementCount,actualPage,success,error,search);
 }
 
 export const getQuiz = (quizId,token,success,error) => {

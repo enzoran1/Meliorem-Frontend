@@ -1,11 +1,11 @@
 import * as UtilsAPI from './UtilsAPI';
 
-export const getAllCoursePart = (token,success,error) => {
-    return UtilsAPI.getAll('course-part',token,success,error);
+export const getAllCoursePart = (token,success,error,search) => {
+    return UtilsAPI.getAll('course-part',token,success,error,search);
 }
 
-export const getAllWithPageCoursePart = (token,elementCount,actualPage,success,error) => {
-    return UtilsAPI.getAllWithPage('course-part',token,elementCount,actualPage,success,error);
+export const getAllWithPageCoursePart = (token,elementCount,actualPage,success,error,search) => {
+    return UtilsAPI.getAllWithPage('course-part',token,elementCount,actualPage,success,error,search);
 }
 
 export const getCoursePart = (coursePartId,token,success,error) => {

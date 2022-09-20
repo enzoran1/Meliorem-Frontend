@@ -3,12 +3,12 @@ import axios from 'axios';
 import config from '../../config'
 export const BASE_URL = config.backURL;
 
-export const getAllUser = (token,success,error) => {
-    return UtilsAPI.getAll('user',token,success,error);
+export const getAllUser = (token,success,error,search) => {
+    return UtilsAPI.getAll('user',token,success,error,search);
 }
 
-export const getAllWithPageUser = (token,elementCount,actualPage,success,error) => {
-    return UtilsAPI.getAllWithPage('user',token,elementCount,actualPage,success,error);
+export const getAllWithPageUser = (token,elementCount,actualPage,success,error,search) => {
+    return UtilsAPI.getAllWithPage('user',token,elementCount,actualPage,success,error,search);
 }
 
 export const getUser = (userId,token,success,error) => {

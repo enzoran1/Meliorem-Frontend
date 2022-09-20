@@ -1,11 +1,11 @@
 import * as UtilsAPI from './UtilsAPI';
 
-export const getAllNotification = (token,success,error) => {
-    return UtilsAPI.getAll('notification',token,success,error);
+export const getAllNotification = (token,success,error,search) => {
+    return UtilsAPI.getAll('notification',token,success,error,search);
 }
 
-export const getAllWithPageNotification = (token,elementCount,actualPage,success,error) => {
-    return UtilsAPI.getAllWithPage('notification',token,elementCount,actualPage,success,error);
+export const getAllWithPageNotification = (token,elementCount,actualPage,success,error,search) => {
+    return UtilsAPI.getAllWithPage('notification',token,elementCount,actualPage,success,error,search);
 }
 
 export const getNotification = (notificationId,token,success,error) => {

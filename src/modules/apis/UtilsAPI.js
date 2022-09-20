@@ -14,9 +14,9 @@ export function getTokenHeader(token) {
  * @example
  * get("users", token, success, error)
  */
-export function getAll(url, token, success, error) {
+export function getAll(url, token, success, error,search) {
   axios
-    .get(`${BASE_URL}/${url}/`, getTokenHeader(token))
+    .get(`${BASE_URL}/${url}/${search?`?search=${search}`:''}`, getTokenHeader(token))
     .then((response) => {
       if (success) success(response.data);
     })
@@ -69,10 +69,10 @@ export function remove(url, token, id, success, error) {
     });
 }
 
-export function getAllWithPage(url, token, elementCount, actualPage, success, error) {
+export function getAllWithPage(url, token, elementCount, actualPage, success, error,search) {
   axios
     .get(
-      `${BASE_URL}/${url}/${elementCount}/${actualPage}/`,
+      `${BASE_URL}/${url}/${elementCount}/${actualPage}/${search?`?search=${search}`:''}`,
       getTokenHeader(token)
     )
     .then((response) => {
