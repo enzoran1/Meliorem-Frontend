@@ -50,7 +50,7 @@ const QuizAdministrator = (props) => {
       (error) => {
         console.error(error);
       }
-      , search==""?null:search
+      , search===""?null:search
     );
   }
   function onChangePage(page) {

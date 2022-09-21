@@ -1,0 +1,20 @@
+@import '../../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../../variables/Variables/Variables.module.scss';
+
+.Status {
+    @include w(160px);
+    @include h(160px);
+    border: 3px solid $purpel_2;
+    border-radius: 14px;
+    @include D-Flex-SpaceAround-Colums;
+
+    .Status_Top{
+        @include fz(135%);
+        font-weight: bold;
+        color: $white;
+
+    }
+    .Status_Bottom{
+
+    }
+}

@@ -1,0 +1,31 @@
+@import '../../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../../variables/Variables/Variables.module.scss';
+
+.AddPage {
+    @include w(330px);
+    @include h(165px);
+    border: 3px solid $purpel_2;
+    border-radius: 14px;
+    @include D-Flex-SpaceAround-Colums;
+
+    .AddPage_Top{
+        @include fz(140%);
+        font-weight: bold;
+        color: $white;
+
+    }
+    .AddPage_Bottom{
+
+    }
+
+    svg{
+        @include w(65px);
+        @include h(65px);
+        transition: 0.3s;
+        &:hover{
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+        
+    }
+}

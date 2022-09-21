@@ -8,7 +8,7 @@ import ButtonFilterBorder from "../../../components/buttons/ButtonFilterBorder/B
 import ButtonFixedRigth from "../../../components/buttons/ButtonFixedRigth/ButtonFixedRigth";
 import InputSearchComplex from "../../../components/forms/inputs/InputSearchComplex/InputSearchComplex";
 import Pagination from "../../../components/pagination/Pagination/Pagination";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import paginations from "../../../modules/Paginations";
 import QuizCardCrud from "../../../components/quiz/QuizCardCrud/QuizCardCrud";
 import Load from "../../../components/Load/Load";
@@ -163,10 +163,12 @@ return(
       </div>
     </div>
     <div className={styles.BtnFixed}>
+      <Link to="/templateAddCours">
       <ButtonFixedRigth
         bgBtn="#ffffff"
         style={{ backgroundColor: "#4F46E5" }}
       />
+      </Link>
     </div>
   </Fragment>
 );

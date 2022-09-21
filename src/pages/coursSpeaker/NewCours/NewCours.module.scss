@@ -1,0 +1,93 @@
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+
+.NewCours {
+    @media(min-width: $screen-sm){
+        @include p(20px);
+    }
+    
+    .NewCours__header{
+        @include D-Flex-Center-Colums;
+        @include mb(20px);
+        @include mt(20px);
+        @media(min-width: $screen-sm){
+            flex-direction: initial;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+       
+
+        .header_Top{
+            @include mb(20px);
+            @media(min-width: $screen-sm){
+                @include mb(0px);
+                @include mr(20px);
+            }
+
+        }
+        .header_Bottom{
+            @include grid-columns(2);
+            gap: 10px;
+            @media(min-width: $screen-sm){
+                @include grid-columns(1);
+            }
+
+        }
+    }
+    .NewCours__body{
+        @include grid-columns(1);
+        gap: 10px;
+        justify-items: center;
+        @media(min-width: $screen-sm){
+            justify-items: flex-start;
+        }
+        overflow-x: scroll;
+        
+        
+        .body_Top{
+                display: grid;
+                grid-auto-flow: column;
+                
+                justify-items: center;
+                
+            
+           
+           
+            
+            .ContainerMap{
+                margin-left: 10px;
+                margin-right: 10px;
+
+           
+            .header{
+                @include grid-columns(1);
+                gap: 20px;
+                margin-bottom: 20px
+
+            }
+            .footer{
+                @include grid-columns(2);
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+            }
+        }
+   
+    }
+    .NewCours__body::-webkit-scrollbar-track{
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            background-color: invisible;
+
+    }
+    .NewCours__body::-webkit-scrollbar{
+        width: 5px;
+        background-color: invisible;
+    }
+    .NewCours__body p::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        background-color: rgb(98, 98, 98);
+        
+    }
+
+}

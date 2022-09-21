@@ -1,0 +1,35 @@
+@import '../../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../../variables/Variables/Variables.module.scss';
+
+.Section {
+    
+    @include w(330px);
+    @include h(165px);
+    border-radius: 14px;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    background-color: $component;
+    padding: 10px;
+
+    .Section_Top{
+        display: flex;
+        justify-content: flex-end;
+
+    }
+    .Section_Body{
+        display: flex;
+        justify-content: center;
+        p{
+            color: $white;
+            font-size: 18px;
+            text-align: justify;
+        }
+
+    }
+    .Section_Bottom{
+        display: flex;
+        justify-content: flex-end;
+
+    }
+}

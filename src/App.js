@@ -19,6 +19,7 @@ import Group from "./pages/adminPages/Group/Group";
 import BadgesAdmin from "./pages/adminPages/BadgesAdmin/BadgesAdmin";
 import CrudEdit from "./components/CrudEdit/CrudEdit";
 import CrudAdd from "./components/CrudAdd/CrudAdd";
+import NewCours from "./pages/coursSpeaker/NewCours/NewCours";
 
 function App() {
   return (
@@ -51,6 +52,8 @@ function App() {
         <Route path="/:entity/view/:id" element={<EntityView />} />
         <Route path="/:entity/edit/:id" element={<CrudEdit />} />
         <Route path="/:entity/add" element={<CrudAdd />} />
+        <Route path="/templateAddCours" element={<NewCours/>} />
+         
 
       </Routes>
     </div>
