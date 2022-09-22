@@ -3,7 +3,7 @@ import ContactAdmin from "../ContactAdmin/ContactAdmin";
 import ContactAutre from "../ContactAutre/ContactAutre";
 
 const Contact = () => {
-  const [role /*, setRole*/] = React.useState(["ROLE_SUPERADMIN"]);
+  const [role /*, setRole*/] = React.useState(["ROLE_SPEAKER"]);
   /* useEffect(() => {
     getMyUser(
       sessionStorage.getItem("token"),

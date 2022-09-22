@@ -5,8 +5,57 @@ import InputSearchComplex from "../../../components/forms/inputs/InputSearchComp
 import BadgeFilterSolid from "../../../components/badges/BadgeFilterSolid/BadgeFilterSolid";
 import CoursCardsProgress from "../../../components/cours/CoursCardsProgress/CoursCardsProgress";
 import Pagination from "../../../components/pagination/Pagination/Pagination";
+import Load from "../../../components/Load/Load";
+import paginations from "../../../modules/Paginations";
+import { getAllWithPageCourse, removeCourse } from "../../../modules/apis/CourseAPI";
 
-const ListeCours = () => (
+const ListeCours = () => {
+
+  const [cours, setCours] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [page, setPage] = React.useState(1);
+  const [totalPage, setTotalPage] = React.useState(0);
+   
+  function refreshCours() {
+    setIsLoading(true);
+    getAllWithPageCourse(
+      sessionStorage.getItem("token"),
+      8,
+      page,
+      (coursFetched) => {
+        setIsLoading(false);
+        setCours(coursFetched.data);
+        setTotalPage(coursFetched.totalPage);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  function onChangePage(page) {
+    setPage(page);
+  }
+
+  React.useEffect(() => {
+    refreshCours();
+    // eslint-disable-next-line
+  }, [page]);
+
+  let pagination = (
+    <Pagination
+      data={paginations(page, totalPage, 1)}
+      onChangePage={onChangePage}
+      actualPage={page}
+    />
+  );
+
+  if (isLoading) return <Load />;
+  
+
+
+
+return(
   <div className={styles.ListeCours} data-testid="ListeCours">
     <div className={styles.ListeCours_Search}>
       <div className={styles.Search_Top}>
@@ -126,10 +175,11 @@ const ListeCours = () => (
       />
     </div>
     <div className={styles.ListeCours_Pagination}>
-      <Pagination/>
+      {pagination}
     </div>
   </div>
-);
+);    
+}
 
 ListeCours.propTypes = {};
 

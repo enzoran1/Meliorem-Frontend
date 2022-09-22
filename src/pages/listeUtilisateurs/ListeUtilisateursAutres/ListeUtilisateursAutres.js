@@ -13,8 +13,62 @@ import GoldClass from "../../../components/medialles/GoldClass/GoldClass";
 import BronzeClass from "../../../components/medialles/BronzeClass/BronzeClass";
 import SilverClass from "../../../components/medialles/SilverClass/SilverClass";
 import Pagination from "../../../components/pagination/Pagination/Pagination";
+import Load from "../../../components/Load/Load";
+import paginations from "../../../modules/Paginations";
+import { getAllUser, getAllWithPageUser } from "../../../modules/apis/UserAPI";
 
-const ListeUtilisateursAutres = () => (
+const ListeUtilisateursAutres = () => {
+
+  const [users, setUsers] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [page, setPage] = React.useState(1);
+  const [totalPage, setTotalPage] = React.useState(0);
+
+  function refreshUsers() {
+    setIsLoading(true);
+    getAllWithPageUser(
+      sessionStorage.getItem("token"),
+      8,
+      page,
+      (usersFetched) => {
+        setIsLoading(false);
+        setUsers(usersFetched.data);
+        setTotalPage(usersFetched.totalPage);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  function onChangePage(page) {
+    setPage(page);
+  }
+
+  React.useEffect(() => {
+    refreshUsers();
+    getAllUser(
+      sessionStorage.getItem("token"),
+      (usersFetched) => {
+        setUsers(usersFetched);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }, [page]);
+
+  let pagination = (
+    <Pagination
+      data={paginations(page, totalPage, 1)}
+      onChangePage={onChangePage}
+      actualPage={page}
+    />
+  );
+
+  if (isLoading) return <Load />;
+
+return(
   <div
     className={styles.ListeUtilisateursAutres}
     data-testid="ListeUtilisateursAutres"
@@ -156,10 +210,11 @@ const ListeUtilisateursAutres = () => (
       />
     </div>
     <div className={styles.ListeUtilisateursAutres_Pagination}>
-      <Pagination />
+      {pagination}
     </div>
   </div>
 );
+}
 
 ListeUtilisateursAutres.propTypes = {};
 

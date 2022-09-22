@@ -7,11 +7,62 @@ import ButtonEdit from "../../../components/buttons/ButtonEdit/ButtonEdit";
 import ButtonFilterBorder from "../../../components/buttons/ButtonFilterBorder/ButtonFilterBorder";
 import ButtonFixedRigth from "../../../components/buttons/ButtonFixedRigth/ButtonFixedRigth";
 import InputSearchComplex from "../../../components/forms/inputs/InputSearchComplex/InputSearchComplex";
-import Pagination from "../../../components/pagination/Pagination/Pagination";
+import Load from "../../../components/Load/Load";
 import QuizCardCrud from "../../../components/quiz/QuizCardCrud/QuizCardCrud";
+import paginations from "../../../modules/Paginations";
 import styles from "./ListeQuiz.module.scss";
+import { getAllWithPageQuiz } from "../../../modules/apis/QuizAPI";
+import Pagination from "../../../components/pagination/Pagination/Pagination";
 
-const ListeQuiz = () => (
+const ListeQuiz = () => {
+
+  const [quiz, setQuiz] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [page, setPage] = React.useState(1);
+  const [totalPage, setTotalPage] = React.useState(0);
+
+
+  function refreshQuiz() {
+    setIsLoading(true);
+    getAllWithPageQuiz(
+      sessionStorage.getItem("token"),
+      8,
+      page,
+      (quizFetched) => {
+        setIsLoading(false);
+        setQuiz(quizFetched.data);
+        setTotalPage(quizFetched.totalPage);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  function onChangePage(page) {
+    setPage(page);
+  }
+
+  React.useEffect(() => {
+    refreshQuiz();
+    // eslint-disable-next-line
+  }, [page]);
+
+  let pagination = (
+    <Pagination
+      data={paginations(page, totalPage, 1)}
+      onChangePage={onChangePage}
+      actualPage={page}
+    />
+  );
+
+  if (isLoading) return <Load />;
+
+
+
+
+
+return(
   <Fragment>
     <div className={styles.ListeQuiz} data-testid="ListeQuiz">
       <div className={styles.ListeQuiz_Search}>
@@ -241,11 +292,11 @@ const ListeQuiz = () => (
         />
       </div>
       <div className={styles.ListeQuiz_Pagination}>
-        <Pagination />
+        {pagination}
       </div>
     </div>
     <div className={styles.BtnFixed}>
-      <Link to="/formulaire-quiz-intervenant">
+      <Link to="/templateAddQuiz">
         <ButtonFixedRigth
           bgBtn="#ffffff"
           style={{ backgroundColor: "#4F46E5" }}
@@ -254,6 +305,7 @@ const ListeQuiz = () => (
     </div>
   </Fragment>
 );
+}
 
 ListeQuiz.propTypes = {};
 

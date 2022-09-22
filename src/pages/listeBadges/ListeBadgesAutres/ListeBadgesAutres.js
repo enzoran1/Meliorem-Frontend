@@ -2,16 +2,62 @@ import React from "react";
 import BadgeFilterSolid from "../../../components/badges/BadgeFilterSolid/BadgeFilterSolid";
 import BadgesSucess from "../../../components/badges/BadgesSucess/BadgesSucess";
 import InputSearchComplex from "../../../components/forms/inputs/InputSearchComplex/InputSearchComplex";
+import Load from "../../../components/Load/Load";
 import Trophy from "../../../components/medialles/Trophy/Trophy";
 import Pagination from "../../../components/pagination/Pagination/Pagination";
 import Badges1 from "../../../images/classement/badge1.png";
 import Badges2 from "../../../images/classement/badge2.png";
 import Badges3 from "../../../images/classement/badge3.png";
 import Badges4 from "../../../images/classement/badge4.png";
+import paginations from "../../../modules/Paginations";
 
 import styles from "./ListeBadgesAutres.module.scss";
+import { getAllWithPageBadge } from "../../../modules/apis/BadgeAPI";
 
 const ListeBadgesAutres = () => {
+
+  const [badges, setBadges] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [page, setPage] = React.useState(1);
+  const [totalPage, setTotalPage] = React.useState(0);
+
+  function refreshBadges() {
+    setIsLoading(true);
+    getAllWithPageBadge(
+      sessionStorage.getItem("token"),
+      8,
+      page,
+      (badgesFetched) => {
+        setIsLoading(false);
+        setBadges(badgesFetched.data);
+        setTotalPage(badgesFetched.totalPage);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  function onChangePage(page) {
+    setPage(page);
+  }
+
+  React.useEffect(() => {
+    refreshBadges();
+    // eslint-disable-next-line
+  }, [page]);
+
+  let pagination = (
+    <Pagination
+      data={paginations(page, totalPage, 1)}
+      onChangePage={onChangePage}
+      actualPage={page}
+    />
+  );
+
+  if (isLoading) return <Load />;
+
+
   
   return (
     <div className={styles.ListeBadgesAutres} data-testid="ListeBadgesAutres">
@@ -81,7 +127,7 @@ const ListeBadgesAutres = () => {
         />
       </div>
       <div className={styles.ListeBadgesAutre_Pagination}>
-        <Pagination />
+        {pagination}
       </div>
     </div>
   );

@@ -53,7 +53,7 @@
         @include grid-columns(3);  
     }
     @media  (min-width: $screen-lg) {
-        @include grid-columns(3);
+        @include grid-columns(4);
        
         
     }

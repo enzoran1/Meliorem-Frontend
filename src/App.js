@@ -20,6 +20,7 @@ import BadgesAdmin from "./pages/adminPages/BadgesAdmin/BadgesAdmin";
 import CrudEdit from "./components/CrudEdit/CrudEdit";
 import CrudAdd from "./components/CrudAdd/CrudAdd";
 import NewCours from "./pages/coursSpeaker/NewCours/NewCours";
+import NewQuiz from "./pages/quizSpeaker/NewQuiz/NewQuiz";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
         <Route path="/:entity/edit/:id" element={<CrudEdit />} />
         <Route path="/:entity/add" element={<CrudAdd />} />
         <Route path="/templateAddCours" element={<NewCours/>} />
+        <Route path="/templateAddQuiz" element={<NewQuiz/>} />
          
 
       </Routes>

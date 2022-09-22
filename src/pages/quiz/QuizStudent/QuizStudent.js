@@ -1,13 +1,68 @@
 import React from "react";
 import BadgeFilterSolid from "../../../components/badges/BadgeFilterSolid/BadgeFilterSolid";
 import InputSearchComplex from "../../../components/forms/inputs/InputSearchComplex/InputSearchComplex";
+import Load from "../../../components/Load/Load";
 import Pagination from "../../../components/pagination/Pagination/Pagination";
+import paginations from "../../../modules/Paginations";
 import QuizView from "../../../components/quiz/QuizView/QuizView";
 import styles from "./QuizStudent.module.scss";
+import { getAllWithPageQuiz } from "../../../modules/apis/QuizAPI";
 
-const QuizStudent = () => (
+const QuizStudent = () => {
+
+  const [quiz, setQuiz] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [page, setPage] = React.useState(1);
+  const [totalPage, setTotalPage] = React.useState(0);
+ 
+
+  function refreshQuiz() {
+    setIsLoading(true);
+    getAllWithPageQuiz(
+      sessionStorage.getItem("token"),
+      8,
+      page,
+    
+      (quizFetched) => {
+        setIsLoading(false);
+        setQuiz(quizFetched.data);
+        setTotalPage(quizFetched.totalPage);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  function onChangePage(page) {
+    setPage(page);
+  }
+
+ 
+
+  React.useEffect(() => {
+    refreshQuiz();
+    // eslint-disable-next-line
+  }, [page]);
+
+  let pagination = (
+    <Pagination
+      data={paginations(page, totalPage, 1)}
+      onChangePage={onChangePage}
+      actualPage={page}
+    />
+  );
+
+  if (isLoading) return <Load />;
+
+
+
+
+
+return(
   <div className={styles.QuizStudent} data-testid="QuizStudent">
     <div className={styles.QuizStudent_Header}>
+      
       <InputSearchComplex />
       <div className={styles.Header_Filter}>
         <BadgeFilterSolid style={{ backgroundColor: "orange", cursor: "pointer" }}
@@ -111,10 +166,11 @@ const QuizStudent = () => (
       />
     </div>
     <div className={styles.QuizStudent_Footer}>
-      <Pagination/>
+      {pagination}
     </div>
   </div>
 );
+}
 
 QuizStudent.propTypes = {};
 
