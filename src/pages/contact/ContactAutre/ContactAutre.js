@@ -50,6 +50,7 @@ const ContactAutre = () => {
         console.error(error);
       }
     );
+    // eslint-disable-next-line
   }, [page]);
 
   let pagination = (

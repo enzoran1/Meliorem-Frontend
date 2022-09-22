@@ -7,7 +7,7 @@ import CoursCardsProgress from "../../../components/cours/CoursCardsProgress/Cou
 import Pagination from "../../../components/pagination/Pagination/Pagination";
 import Load from "../../../components/Load/Load";
 import paginations from "../../../modules/Paginations";
-import { getAllWithPageCourse, removeCourse } from "../../../modules/apis/CourseAPI";
+import { getAllWithPageCourse } from "../../../modules/apis/CourseAPI";
 
 const ListeCours = () => {
 

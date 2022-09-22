@@ -6,6 +6,7 @@ import AddPage from '../../../components/cours/coursCompenentSpeaker/AddPage/Add
 import Resume from '../../../components/cours/coursCompenentSpeaker/Resume/Resume';
 import BadgeFilterSolid from '../../../components/badges/BadgeFilterSolid/BadgeFilterSolid';
 import Section from '../../../components/cours/coursCompenentSpeaker/Section/Section';
+import { Link} from "react-router-dom";
 
 const NewCours = () => (
   <div className={styles.NewCours} data-testid="NewCours">
@@ -42,66 +43,13 @@ const NewCours = () => (
         <Section style={{ backgroundColor: "orange" }} title="La partie mvc numéro 1"/>
         </div>
         <div className={styles.footer}>
+        <Link to="/templateCkeditor">
         <Restriction title="Page"/>
+        </Link>
         <Restriction title="Quiz"/>
         </div>
         </div>
-        <div className={styles.ContainerMap}>
-        <div className={styles.header} >
-        <Section title="La partie mvc numéro 1"/>
-        <Section style={{ backgroundColor: "#556BDA" }} title="La partie mvc numéro 1"/>
-        <Section style={{ backgroundColor: "orange" }} title="La partie mvc numéro 1"/>
-        </div>
-        <div className={styles.footer}>
-        <Restriction title="Page"/>
-        <Restriction title="Quiz"/>
-        </div>
-        </div>
-        <div className={styles.ContainerMap}>
-        <div className={styles.header} >
-        <Section title="La partie mvc numéro 1"/>
-        <Section style={{ backgroundColor: "#556BDA" }} title="La partie mvc numéro 1"/>
-        <Section style={{ backgroundColor: "orange" }} title="La partie mvc numéro 1"/>
-        <Section style={{ backgroundColor: "orange" }} title="La partie mvc numéro 1"/>
-        </div>
-        <div className={styles.footer}>
-        <Restriction title="Page"/>
-        <Restriction title="Quiz"/>
-        </div>
-        </div>
-        <div className={styles.ContainerMap}>
-        <div className={styles.header} >
-        <Section title="La partie mvc numéro 1"/>
-        <Section style={{ backgroundColor: "#556BDA" }} title="La partie mvc numéro 1"/>
-        <Section style={{ backgroundColor: "orange" }} title="La partie mvc numéro 1"/>
-        </div>
-        <div className={styles.footer}>
-        <Restriction title="Page"/>
-        <Restriction title="Quiz"/>
-        </div>
-        </div>
-        <div className={styles.ContainerMap}>
-        <div className={styles.header} >
-        <Section title="La partie mvc numéro 1"/>
-        <Section style={{ backgroundColor: "#556BDA" }} title="La partie mvc numéro 1"/>
-        <Section style={{ backgroundColor: "orange" }} title="La partie mvc numéro 1"/>
-        </div>
-        <div className={styles.footer}>
-        <Restriction title="Page"/>
-        <Restriction title="Quiz"/>
-        </div>
-        </div>
-        <div className={styles.ContainerMap}>
-        <div className={styles.header} >
-        <Section title="La partie mvc numéro 1"/>
-        <Section style={{ backgroundColor: "#556BDA" }} title="La partie mvc numéro 1"/>
-        <Section style={{ backgroundColor: "orange" }} title="La partie mvc numéro 1"/>
-        </div>
-        <div className={styles.footer}>
-        <Restriction title="Page"/>
-        <Restriction title="Quiz"/>
-        </div>
-        </div>
+       
         <AddPage title="Créer une nouvelle partie"/>
        </div>
      
