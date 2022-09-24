@@ -23,3 +23,7 @@ export const patchSpeaker = (token,speakerId,data,success,error) => {
 export const removeSpeaker = (token,speakerId,success,error) => {
     return UtilsAPI.remove('speaker',token,speakerId,success,error);
 }
+
+export const getMyQuiz = (token,success,error) => {
+    return UtilsAPI.getAll('speaker/me/quiz',token,success,error);
+}

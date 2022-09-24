@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./QuizSpeaker.module.scss";
 import CoursCardSpeaker from "../../../components/cours/CoursCardSpeaker/CoursCardSpeaker";
 import QuizView from "../../../components/quiz/QuizView/QuizView";
 import ButtonViewMore from "../../../components/buttons/ButtonViewMore/ButtonViewMore";
 import imageAvatarTest from "../../../images/profil/image_profil.jpg";
 import { Link } from "react-router-dom";
+import { getMyQuiz } from "../../../modules/apis/SpeakerAPI";
+
+const formatDate = (date) => new Date(date).toLocaleDateString("fr-FR");
 
 const QuizSpeaker = () => {
+  const [quiz, setQuiz] = React.useState([]);
+
+  useEffect(() => {
+    getMyQuiz(sessionStorage.getItem("token"), (quiz) => {
+      setQuiz(quiz);
+    });
+  }, []);
+
+  console.log(quiz)
+  let quizPublic = [];
+  let quizPrivate = [];
+  quiz.forEach(quiz =>(quiz.public?quizPublic:quizPrivate).push(quiz));
+  console.log("public : " , quizPublic)
+  console.log("private : " , quizPrivate)
+
+  quizPublic = quizPublic.slice(0, 6);
+  quizPrivate = quizPrivate.slice(0, 6);
+
+
   return (
     <div className={styles.QuizSpeaker} data-testid="QuizSpeaker">
       <div className={styles.QuizSpeaker_Container}>
@@ -15,38 +37,18 @@ const QuizSpeaker = () => {
             <p>En Cours</p>
           </div>
           <div className={styles.Header_Center}>
-            <CoursCardSpeaker
-              title="Le titre de mon quiz voila"
+            {quizPrivate.map((quiz,index) => (
+              <CoursCardSpeaker
+              key={index}
+              title={quiz.title}
               style={{ backgroundColor: "orange" }}
-              style2={{ backgroundColor: "aqua" }}
+              style2={{ backgroundColor: "#556bda" }}
               titleBadge="En cours"
-              titleBadgeMatiere="C++"
-              date="12/12/2020"
+              titleBadgeMatiere={quiz.theme}
+              date={formatDate(quiz.createdAt)}
             />
-            <CoursCardSpeaker
-              title="Le titre de mon quiz voila"
-              style={{ backgroundColor: "orange" }}
-              style2={{ backgroundColor: "red" }}
-              titleBadge="En cours"
-              titleBadgeMatiere="Java"
-              date="12/12/2020"
-            />
-            <CoursCardSpeaker
-              title="Le titre de mon quiz voila"
-              style={{ backgroundColor: "orange" }}
-              style2={{ backgroundColor: "violet" }}
-              titleBadge="En cours"
-              titleBadgeMatiere="Php"
-              date="12/12/2020"
-            />
-            <CoursCardSpeaker
-              title="Le titre de mon quiz voila"
-              style={{ backgroundColor: "orange" }}
-              style2={{ backgroundColor: "blue" }}
-              titleBadge="En cours"
-              titleBadgeMatiere="javascript"
-              date="12/12/2020"
-            />
+            ))}
+            
           </div>
           <div className={styles.Header_Bottom}>
             <Link to="/liste-quiz-intervenant">
@@ -104,38 +106,19 @@ const QuizSpeaker = () => {
             <p>Publié</p>
           </div>
           <div className={styles.Footer_Center}>
-            <CoursCardSpeaker
-              title="Le titre de mon quiz voila"
+            
+          {quizPublic.map((quiz,index) => (
+              <CoursCardSpeaker
+              key={index}
+              title={quiz.title}
               style={{ backgroundColor: "green" }}
-              style2={{ backgroundColor: "aqua" }}
+              style2={{ backgroundColor: "#556bda" }}
               titleBadge="Publié"
-              titleBadgeMatiere="C++"
-              date="12/12/2020"
+              titleBadgeMatiere={quiz.theme}
+              date={formatDate(quiz.createdAt)}
             />
-            <CoursCardSpeaker
-              title="Le titre de mon quiz voila"
-              style={{ backgroundColor: "green" }}
-              style2={{ backgroundColor: "red" }}
-              titleBadge="Publié"
-              titleBadgeMatiere="Java"
-              date="12/12/2020"
-            />
-            <CoursCardSpeaker
-              title="Le titre de mon quiz voila"
-              style={{ backgroundColor: "green" }}
-              style2={{ backgroundColor: "violet" }}
-              titleBadge="Publié"
-              titleBadgeMatiere="Php"
-              date="12/12/2020"
-            />
-            <CoursCardSpeaker
-              title="Le titre de mon quiz voila"
-              style={{ backgroundColor: "green" }}
-              style2={{ backgroundColor: "blue" }}
-              titleBadge="Publié"
-              titleBadgeMatiere="javascript"
-              date="12/12/2020"
-            />
+            ))}
+            
           </div>
 
           <div className={styles.Footer_Bottom}>

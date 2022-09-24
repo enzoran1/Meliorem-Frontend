@@ -79,7 +79,7 @@ const QuizAdministrator = (props) => {
 
   return (
     <div className={styles.QuizAdministrator} data-testid="QuizAdministrator">
-      <TableAdmin titles={["user", "Title", "Date", "En ligne"]} onSearchSubmit={onSearchSubmit}>
+      <TableAdmin titles={["user", "Title", "Theme", "Date", "En ligne"]} onSearchSubmit={onSearchSubmit}>
         {quiz.map((quiz, index) => (
           <TableBody
           
@@ -99,6 +99,7 @@ const QuizAdministrator = (props) => {
             attributes={[
               quiz.speakerInfo.userName,
               quiz.title,
+              quiz.theme,
               formatDate(quiz.createdAt),
               quiz.public ? <BadgeFilterSolid
               style={{ backgroundColor: "green" }}

@@ -69,7 +69,7 @@ const EntityView = () => {
         setData([
           { id: "id intervenant", value: quiz.speakerId },
           { id: "nom intervenant", value: quiz.speakerName },
-
+          { id: "Theme", value: quiz.theme },
           { id: "Id quiz", value: quiz.id },
           { id: "Titre", value: quiz.title },
           { id: "Description", value: quiz.description },
