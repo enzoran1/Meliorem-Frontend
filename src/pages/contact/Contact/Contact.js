@@ -1,30 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Load from "../../../components/Load/Load";
+import { getRoles } from "../../../modules/accountUtils";
 import ContactAdmin from "../ContactAdmin/ContactAdmin";
 import ContactAutre from "../ContactAutre/ContactAutre";
 
-const Contact = () => {
-  const [role /*, setRole*/] = React.useState(["ROLE_SUPERADMIN"]);
-  /* useEffect(() => {
-    getMyUser(
-      sessionStorage.getItem("token"),
-      (user) => {
-        console.log(user.roles);
-        if (
-          !user.roles ||
-          (!user.roles.includes("ROLE_SUPERADMIN") &&
-            !user.roles.includes("ROLE_STUDENT") &&
-            !user.roles.includes("ROLE_SPEAKER"))
-        )
-          navigate("/");
-        setRole(user.roles);
-      },
-      (error) => {}
-    );
-  }, [navigate]);*/
+const Contact = (props) => {
+  const [role , setRole] = React.useState(["ROLE_SPEAKER"]);
+  const [loading, setLoading] = React.useState(true);
+  useEffect(() => {
+    getRoles(sessionStorage.getItem("token"),props.navigation,(role) => {
+      setRole(role);
+      setLoading(false);
+    });
+  }, []);
 
-  if (role.includes("ROLE_SUPERADMIN")) return <ContactAdmin />;
+  if (loading) 
+    return <Load/>;
+
+  if (role.includes("ROLE_SUPERADMIN")) return <ContactAdmin props={props}/>;
   else if (role.includes("ROLE_STUDENT") || role.includes("ROLE_SPEAKER"))
-    return <ContactAutre />;
+    return <ContactAutre props={props}/>;
 };
 
 Contact.propTypes = {};

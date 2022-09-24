@@ -18,6 +18,7 @@ const QuizEdit = ({ id, navigation }) => {
   const [publicQuiz, setPublicQuiz] = React.useState("");
   const [speakerId, setSpeakerId] = React.useState(0);
   const [speakers, setSpeakers] = React.useState(null);
+  const [theme, setTheme] = React.useState("");
 
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -30,11 +31,11 @@ const QuizEdit = ({ id, navigation }) => {
   });
 
   function onSubmit() {
-    console.log({ description, title, timeToPerformAll, "public" : publicQuiz });
+    console.log({ description, title, timeToPerformAll, "public" : publicQuiz,theme });
     patchQuiz(
       sessionStorage.getItem("token"),
       id,
-      { description, title, timeToPerformAll,public : publicQuiz,speakerId },
+      { description, title, timeToPerformAll,public : publicQuiz,speakerId ,theme},
       (response) => {
         console.log("Quiz updated");
 
@@ -58,6 +59,7 @@ const QuizEdit = ({ id, navigation }) => {
         setTimeToPerformAll(data.timeToPerformAll);
         setPublicQuiz(data.public);
         setSpeakerId(data.speakerInfo.speakerId);
+        setTheme(data.theme);
 
       },
       (error) => {
@@ -85,6 +87,14 @@ const QuizEdit = ({ id, navigation }) => {
             value={quiz.title}
             onChange={(e) => {
               setTitle(e.target.value);
+            }}
+          />
+          <InputText
+            placeholder="Theme"
+            type="text"
+            value={quiz.theme}
+            onChange={(e) => {
+              setTheme(e.target.value);
             }}
           />
           <InputArea
