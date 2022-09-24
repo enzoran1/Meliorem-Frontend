@@ -1,0 +1,87 @@
+.AddQuestion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+  
+form{
+    .containerForm{
+        .Container_Reponse{
+           
+
+        
+        .Form_Reponse{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .Sup{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                label{
+                    margin-left: 10px;
+                }
+            }
+        }
+
+    }
+    .Container_NewReponse{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+    }
+    .Container_Question{
+       
+        p{
+            text-align: center;
+            color: gray;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+    }
+    
+    }
+    
+    label{
+        color: white;
+        font-weight: bold;
+        @media(max-width: 768px){
+            font-size: 0.8rem;
+        }
+
+    }
+    textArea{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+   
+    select{
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .Form_Button{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+        button{
+            margin-top: 20px;
+            
+        }
+
+    }
+
+   
+}
+
+
+}

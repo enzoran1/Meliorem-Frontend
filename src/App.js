@@ -22,6 +22,7 @@ import CrudAdd from "./components/CrudAdd/CrudAdd";
 import NewCours from "./pages/coursSpeaker/NewCours/NewCours";
 import NewQuiz from "./pages/quizSpeaker/NewQuiz/NewQuiz";
 import DocumentCkeditor from "./pages/coursSpeaker/DocumentCkeditor/DocumentCkeditor";
+import AddQuestion from "./pages/quizSpeaker/AddQuestion/AddQuestion";
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
         <Route path="/templateAddCours" element={<NewCours/>} />
         <Route path="/templateAddQuiz" element={<NewQuiz/>} />
         <Route path="/templateCkeditor" element={<DocumentCkeditor/>} />
+        <Route path="/NouvelleQuestion" element={<AddQuestion/>} />
          
 
       </Routes>

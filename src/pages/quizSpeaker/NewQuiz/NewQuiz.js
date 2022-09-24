@@ -6,6 +6,9 @@ import Status from '../../../components/cours/coursCompenentSpeaker/Status/Statu
 import Restriction from '../../../components/cours/coursCompenentSpeaker/Restriction/Restriction';
 import Section from '../../../components/cours/coursCompenentSpeaker/Section/Section';
 import AddPage from '../../../components/cours/coursCompenentSpeaker/AddPage/AddPage';
+import FormContainer from '../../../components/forms/containers/FormContainer/FormContainer';
+import InputText from '../../../components/forms/inputs/InputText/InputText';
+import { Link } from 'react-router-dom';
 
 const NewQuiz = () => (
   <div className={styles.NewQuiz} data-testid="NewQuiz">
@@ -58,7 +61,9 @@ const NewQuiz = () => (
         <Section title="La partie mvc numéro 1"/>
         <Section title="La partie mvc numéro 1"/>
         <Section title="La partie mvc numéro 1"/>
-        <div><AddPage title="Créer une nouvelle partie"/></div>
+        <Link to="/NouvelleQuestion">
+          <AddPage title="Créer une nouvelle partie"/>
+        </Link>
         </div>
         
         </div>
@@ -67,6 +72,7 @@ const NewQuiz = () => (
        </div>
      
     </div>
+   
   </div>
 );
 

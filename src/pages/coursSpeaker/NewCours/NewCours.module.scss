@@ -90,4 +90,19 @@
         
     }
 
+    .modalContainer{
+        padding: 0;
+        form{
+            width: 100%;
+
+            .Modal_Button{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    }
+ 
+
 }

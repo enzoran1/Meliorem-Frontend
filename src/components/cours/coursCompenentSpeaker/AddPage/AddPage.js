@@ -3,7 +3,7 @@ import styles from './AddPage.module.scss';
 import ButtonMore from '../../../buttons/ButtonMore/ButtonMore';
 
 const AddPage = (props) => (
-  <div className={styles.AddPage} data-testid="AddPage">
+  <div className={styles.AddPage} style={props.style} data-testid="AddPage">
     <div className={styles.AddPage_Top}>
       {props.title}
     </div>

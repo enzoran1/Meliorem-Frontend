@@ -21,12 +21,51 @@
     @include D-Flex-Center;
     color: $white;
    }
+ 
    p{
     grid-column: 3;
     display: flex;
     justify-content: flex-end;
    
-
    }
+  
     
+}
+
+.ButtonDefaultLogoLeft{
+   @include grid-columns(3);
+   @include w(300px);
+   @include p(10px);
+   @include raduis(5px);
+   align-items: center;
+   
+   background-color: $purpel_2;
+   cursor: pointer;
+   &:hover {
+      background-color: $purpel;
+   }
+   
+
+
+   span{
+    grid-column: 2;
+    @include D-Flex-Center;
+    color: $white;
+   }
+ 
+   p{
+    grid-column: 1;
+    display: flex;
+    justify-content: flex-start;
+    width: 20px;
+      height: 20px;
+
+    svg{
+      
+      
+    }
+   
+   
+   }
+   
 }

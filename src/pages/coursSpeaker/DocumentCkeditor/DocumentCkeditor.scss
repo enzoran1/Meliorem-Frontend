@@ -2,7 +2,22 @@
 @import '../../../variables/Variables/Variables.module.scss';
 
 .DocumentCkeditor {
- padding: 40px;
+ padding: 20px;
+
+ label{
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+ }
+ input{
+    margin-bottom: 20px;
+    margin-top: 20px;
+ }
+ form{
+    width: 100%;
+ }
 
 }
 
