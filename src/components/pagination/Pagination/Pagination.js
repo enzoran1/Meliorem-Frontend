@@ -7,7 +7,8 @@ const Pagination = (props) => {
   props.data.forEach((item, index) => {
     if (item === "...") {
       nav.push(
-        <div className={styles.Chevron}>
+        <div className={styles.Chevron}
+        key={index}>
           <span className="relative inline-flex items-center px-4 py-2">
             ...
           </span>
@@ -16,6 +17,7 @@ const Pagination = (props) => {
     } else {
       nav.push(
         <a
+          key={index}
           href="/#"
           onClick={(e) => {
             e.preventDefault();

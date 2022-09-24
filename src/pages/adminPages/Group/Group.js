@@ -3,18 +3,36 @@ import styles from "./Group.module.scss";
 import { getAllWithPageGroup, removeGroup } from "../../../modules/apis/GroupAPI";
 import TableAdmin from "../../../components/tables/TableAdmin/TableAdmin";
 import TableBody from "../../../components/tables/TableBody/TableBody";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Load from "../../../components/Load/Load";
 import Pagination from "../../../components/pagination/Pagination/Pagination";
 import paginations from "../../../modules/Paginations";
 import ButtonFixedRigth from "../../../components/buttons/ButtonFixedRigth/ButtonFixedRigth";
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
 const Group = () => {
   const [groups, setgroups] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [page, setPage] = React.useState(1);
+  const [search, setSearch] = React.useState("");
   const [totalPage, setTotalPage] = React.useState(0);
   const navigate = useNavigate();
+  let query = useQuery();
+
+  function onSearchSubmit(text){
+    setSearch(text)
+    if (text == "") {
+      navigate("/groups");
+      return;
+    }
+    navigate({
+      pathname: '/groups',
+      search: '?search='+text,
+    })
+  }
 
   function refreshGroup() {
     setIsLoading(true);
@@ -31,6 +49,7 @@ const Group = () => {
       (error) => {
         console.error(error);
       }
+      ,search ===""?null:search
     );
   }
    
@@ -39,9 +58,12 @@ const Group = () => {
   }
 
   React.useEffect(() => {
+    setTimeout(() => {
+      setSearch(query.get("search"));
+    }, 10);
     refreshGroup();
      // eslint-disable-next-line
-  }, [page]);
+  }, [page,search]);
 
   let pagination = (
     <Pagination
@@ -55,7 +77,7 @@ const Group = () => {
 
   return (
     <div className={styles.Group} data-testid="Group">
-      <TableAdmin titles={["Nom", "Nombre d'élèves"]}>
+      <TableAdmin titles={["Nom", "Nombre d'élèves"]} onSearchSubmit={onSearchSubmit}>
         {groups.map((groups, index) => (
           <TableBody
             onClickView={() => {

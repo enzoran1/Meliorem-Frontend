@@ -58,7 +58,7 @@ const ContactAdmin = (props) => {
 
   return (
     <div className={styles.ContactAdmin} data-testid="ContactAdmin">
-      <TableAdmin
+      <TableAdmin disableSearch
         titles={["Prénom", "Nom", "téléphone", "Type"]}
       >
         {contacts.map((contact, index) => (
@@ -85,6 +85,7 @@ const ContactAdmin = (props) => {
       </TableAdmin>
       <div className={styles.Pagination_Container}>{pagination}</div>
       <ButtonFixedRigth
+        onClick={() => navigate("/contact/add")}
         bgBtn="#ffffff"
         style={{ backgroundColor: "#4F46E5" }}
       />

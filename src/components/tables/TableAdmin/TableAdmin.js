@@ -25,7 +25,7 @@ const TableAdmin = (props) => {
                     ))}
                     <div className={styles.TableAdmin_Search}>
                       <th class={`px-6 py-3 text-left font-medium`}>
-                        <InputSearchComplex onSubmit={props.onSearchSubmit}/>
+                        {props.disableSearch ? null :<InputSearchComplex onSubmit={props.onSearchSubmit}/> }
                       </th>
                     </div>
                   </tr>

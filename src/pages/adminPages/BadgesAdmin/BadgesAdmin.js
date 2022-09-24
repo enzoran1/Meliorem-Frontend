@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./BadgesAdmin.module.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {  getAllWithPageBadge, removeBadge } from "../../../modules/apis/BadgeAPI";
 import TableBody from "../../../components/tables/TableBody/TableBody";
 import TableAdmin from "../../../components/tables/TableAdmin/TableAdmin";
@@ -8,13 +8,29 @@ import Pagination from "../../../components/pagination/Pagination/Pagination";
 import Load from "../../../components/Load/Load";
 import paginations from "../../../modules/Paginations";
 import ButtonFixedRigth from "../../../components/buttons/ButtonFixedRigth/ButtonFixedRigth";
-
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 const BadgesAdmin = () => {
   const [badges, setBadges] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [page, setPage] = React.useState(1);
+  const [search, setSearch] = React.useState("");
   const [totalPage, setTotalPage] = React.useState(0);
   const navigate = useNavigate();
+  let query = useQuery();
+
+  function onSearchSubmit(text){
+    setSearch(text)
+    if (text == "") {
+      navigate("/badges-admin");
+      return;
+    }
+    navigate({
+      pathname: '/badges-admin',
+      search: '?search='+text,
+    })
+  }
 
   function refreshBadges() {
     setIsLoading(true);
@@ -31,6 +47,7 @@ const BadgesAdmin = () => {
       (error) => {
         console.error(error);
       }
+      ,search ===""?null:search
     );
   }
 
@@ -39,9 +56,12 @@ const BadgesAdmin = () => {
   }
 
   React.useEffect(() => {
+    setTimeout(() => {
+      setSearch(query.get("search"));
+    }, 10);
     refreshBadges();
      // eslint-disable-next-line
-  }, [page]);
+  }, [page,search]);
 
   let pagination = (
     <Pagination
@@ -55,7 +75,7 @@ const BadgesAdmin = () => {
 
   return (
     <div className={styles.BadgesAdmin} data-testid="BadgesAdmin">
-      <TableAdmin titles={[ "Nom", "Description"]}>
+      <TableAdmin titles={[ "Nom", "Description"]} onSearchSubmit={onSearchSubmit}>
         {badges.map((badges, index) => (
           <TableBody
             onClickView={() => {

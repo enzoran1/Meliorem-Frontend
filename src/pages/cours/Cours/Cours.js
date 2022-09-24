@@ -11,7 +11,7 @@ const Cours = () => {
    * ROLE_SPEAKER
    * ROLE_SUPERADMIN
    */
-  const [role] = React.useState("ROLE_SPEAKER");
+  const [role] = React.useState("ROLE_SUPERADMIN");
 
   if (role === "ROLE_ADMINISTRATION") return <CoursAdministration />;
   else if (role === "ROLE_STUDENT") return <CoursStudent />;

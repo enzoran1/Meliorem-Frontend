@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Users.module.scss";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getAllWithPageUser, removeUser } from "../../../modules/apis/UserAPI";
 import TableAdmin from "../../../components/tables/TableAdmin/TableAdmin";
 import TableBody from "../../../components/tables/TableBody/TableBody";
@@ -10,14 +10,33 @@ import paginations from "../../../modules/Paginations";
 import BadgeFilterSolid from "../../../components/badges/BadgeFilterSolid/BadgeFilterSolid";
 import ButtonFixedRigth from "../../../components/buttons/ButtonFixedRigth/ButtonFixedRigth";
 
+
+const formatDate = (date) => new Date(date).toLocaleDateString("fr-FR");
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
 const Users = () => {
   const [users, setUsers] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [page, setPage] = React.useState(1);
   const [totalPage, setTotalPage] = React.useState(0);
+  const [search, setSearch] = React.useState("");
   const navigate = useNavigate();
+  let query = useQuery();
 
-
+  function onSearchSubmit(text){
+    setSearch(text)
+    if (text == "") {
+      navigate("/users");
+      return;
+    }
+    navigate({
+      pathname: '/users',
+      search: '?search='+text,
+    })
+  }
     
 
   function refreshUsers() {
@@ -35,6 +54,7 @@ const Users = () => {
       (error) => {
         console.error(error);
       }
+      ,search ===""?null:search
     );
   }
 
@@ -43,9 +63,12 @@ const Users = () => {
   }
 
   React.useEffect(() => {
+    setTimeout(() => {
+      setSearch(query.get("search"));
+    }, 10);
     refreshUsers();
      // eslint-disable-next-line
-  }, [page]);
+  }, [page,search]);
 
   let pagination = (
     <Pagination
@@ -59,9 +82,11 @@ const Users = () => {
 
 
 
+
+
   return (
     <div className={styles.Users} data-testid="Users">
-      <TableAdmin titles={["Nom", "Prénom", "Email", "Rôle","date","En ligne"]}>
+      <TableAdmin titles={["Nom", "Prénom", "Email", "Rôle","date","En ligne"]} onSearchSubmit={onSearchSubmit}>
         {users.map((user, index) => (
           <TableBody
             onClickView={() => {
@@ -80,7 +105,7 @@ const Users = () => {
             }}
             key={index}
             attributes={[user.name, user.firstname, user.email, user.roles[0],
-              user.createdAt,
+              formatDate(user.createdAt), 
             user.activated ? <BadgeFilterSolid
             style={{ backgroundColor: "green" }}
             title="En ligne"

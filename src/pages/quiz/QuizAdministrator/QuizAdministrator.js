@@ -22,13 +22,13 @@ const QuizAdministrator = (props) => {
   const navigate = useNavigate();
   let query = useQuery();
   
-  useEffect(() => {
-    setSearch(query.get("search"));
-  }, [])
-
+  const formatDate = (date) => new Date(date).toLocaleDateString("fr-FR");
   function onSearchSubmit(text){
-    console.log("onSearchSubmit : ",text)
     setSearch(text)
+    if (text == "") {
+      navigate("/quizz");
+      return;
+    }
     navigate({
       pathname: '/quizz',
       search: '?search='+text,
@@ -37,20 +37,22 @@ const QuizAdministrator = (props) => {
 
   function refreshQuiz() {
     setIsLoading(true);
-
+    console.log(search)
     getAllWithPageQuiz(
       sessionStorage.getItem("token"),
       5,
       page,
       (quizFetched) => {
         setIsLoading(false);
-        setquiz(quizFetched.data);
+        console.log(quizFetched.data);
+        console.log(quiz);
+        setquiz([...quizFetched.data]);
         setTotalPage(quizFetched.totalPage);
       },
       (error) => {
         console.error(error);
       }
-      , search===""?null:search
+       ,search ===""?null:search
     );
   }
   function onChangePage(page) {
@@ -58,9 +60,12 @@ const QuizAdministrator = (props) => {
   }
 
   React.useEffect(() => {
+    setTimeout(() => {
+      setSearch(query.get("search"));
+    }, 10);
     refreshQuiz();
     // eslint-disable-next-line
-  }, [page]);
+  }, [page,search]);
 
   let pagination = (
     <Pagination
@@ -77,6 +82,8 @@ const QuizAdministrator = (props) => {
       <TableAdmin titles={["user", "Title", "Date", "En ligne"]} onSearchSubmit={onSearchSubmit}>
         {quiz.map((quiz, index) => (
           <TableBody
+          
+            key={index}
             onClickView={() => {
               navigate(`/quiz/view/${quiz.id}`);
             }}
@@ -89,11 +96,10 @@ const QuizAdministrator = (props) => {
                 (error) => console.error(error)
               );
             }}
-            key={index}
             attributes={[
               quiz.speakerInfo.userName,
               quiz.title,
-              quiz.createdAt,
+              formatDate(quiz.createdAt),
               quiz.public ? <BadgeFilterSolid
               style={{ backgroundColor: "green" }}
               title="en ligne"
