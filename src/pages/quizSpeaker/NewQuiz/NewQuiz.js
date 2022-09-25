@@ -33,7 +33,9 @@ return(
       </div>
       <div className={styles.header_Bottom}>
       <Status title="Status" />
+      <Link to="/RestrictionQuiz">
       <Restriction title="Réstriction"/>
+      </Link>
       </div>
 
       </div>

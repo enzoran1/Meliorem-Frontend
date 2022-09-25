@@ -25,6 +25,7 @@ import DocumentCkeditor from "./pages/coursSpeaker/DocumentCkeditor/DocumentCked
 import AddQuestion from "./pages/quizSpeaker/AddQuestion/AddQuestion";
 import { QuizCreationsProvider } from "./contexts/quizCreations";
 import EditQuiz from "./pages/quizSpeaker/EditQuiz/EditQuiz";
+import RestrictionQuiz from "./pages/quizSpeaker/RestrictionQuiz/RestrictionQuiz";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
         <Route path="/templateCkeditor" element={<DocumentCkeditor/>} />
         <Route path="/NouvelleQuestion" element={<AddQuestion/>} />
         <Route path="/EditQuiz" element={<EditQuiz/>} />
+        <Route path="/RestrictionQuiz" element={<RestrictionQuiz/>} />
          
 
         </Routes>
