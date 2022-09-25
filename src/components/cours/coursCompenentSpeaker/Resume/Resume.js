@@ -9,7 +9,6 @@ const Resume = (props) => (
     <div className={styles.Resume_Header}>
       <div className={styles.Header_Left}>
         <h1>{props.title}</h1>
-        <p>{props.name}</p>
       </div>
 
       <div className={styles.Header_Right}>

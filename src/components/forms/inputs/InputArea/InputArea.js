@@ -8,7 +8,7 @@ const InputArea = (props) => (
       type={props.type}
       defaultValue={props.value}
       onChange={props.onChange}
-      class="
+      className="
         form-control
         block
         w-full

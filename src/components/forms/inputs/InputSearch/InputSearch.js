@@ -5,7 +5,7 @@ const InputSearch = (props) => (
   <Fragment className={styles.InputSearch} data-testid="InputSearch">
     <input
       type="search"
-      class="
+      className="
         form-control
         block
         w-full

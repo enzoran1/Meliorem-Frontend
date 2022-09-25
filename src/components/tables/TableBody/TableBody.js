@@ -27,9 +27,9 @@ const TableBody = (props) => {
 
   return (
     <tr className={styles.Table_Tr}>
-      <td class="px-6 py-4 whitespace-no-wrap border-b ">
+      <td className="px-6 py-4 whitespace-no-wrap border-b ">
         <input
-          class="form-checkbox h-4 w-4  transition duration-150 ease-in-out"
+          className="form-checkbox h-4 w-4  transition duration-150 ease-in-out"
           type="checkbox"
         />
       </td>
@@ -44,7 +44,7 @@ const TableBody = (props) => {
       ))}
 
       <td
-        class={`px-6 py-4 whitespace-no-wrap text-right border-b text-sm leading-5 font-medium ${styles.Btn}`}
+        className={`px-6 py-4 whitespace-no-wrap text-right border-b text-sm leading-5 font-medium ${styles.Btn}`}
       >
         {renderButton()}
       </td>

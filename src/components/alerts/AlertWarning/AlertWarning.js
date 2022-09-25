@@ -12,7 +12,7 @@ const AlertWarning = (props) => (
         focusable="false"
         data-prefix="fas"
         data-icon="exclamation-triangle"
-        class="w-4 h-4 mr-2 fill-current"
+        className="w-4 h-4 mr-2 fill-current"
         role="img"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 576 512"

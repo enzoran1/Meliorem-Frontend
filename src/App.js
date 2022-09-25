@@ -23,11 +23,13 @@ import NewCours from "./pages/coursSpeaker/NewCours/NewCours";
 import NewQuiz from "./pages/quizSpeaker/NewQuiz/NewQuiz";
 import DocumentCkeditor from "./pages/coursSpeaker/DocumentCkeditor/DocumentCkeditor";
 import AddQuestion from "./pages/quizSpeaker/AddQuestion/AddQuestion";
+import { QuizCreationsProvider } from "./contexts/quizCreations";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
+        <QuizCreationsProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -56,12 +58,14 @@ function App() {
         <Route path="/:entity/edit/:id" element={<CrudEdit />} />
         <Route path="/:entity/add" element={<CrudAdd />} />
         <Route path="/templateAddCours" element={<NewCours/>} />
+        
         <Route path="/templateAddQuiz" element={<NewQuiz/>} />
         <Route path="/templateCkeditor" element={<DocumentCkeditor/>} />
         <Route path="/NouvelleQuestion" element={<AddQuestion/>} />
          
 
-      </Routes>
+        </Routes>
+      </QuizCreationsProvider>
     </div>
   );
 }

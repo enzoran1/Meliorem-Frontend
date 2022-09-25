@@ -59,9 +59,9 @@ const NewCours = () => (
        </div>
      
     </div>
-    <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
-  <div class="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
-    <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto  bg-clip-padding  outline-none text-current">
+    <div className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
+  <div className="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
+    <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto  bg-clip-padding  outline-none text-current">
       
       <div className={`modal-body relative p-4 ${styles.modalContainer}`}>
         <FormContainer>
@@ -69,12 +69,12 @@ const NewCours = () => (
           <div
         className={styles.Modal_Button}>
         <button type="button"
-          class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+          className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
           data-bs-dismiss="modal">
           Close
         </button>
         <button type="button"
-          class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+          className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
           Save changes
         </button>
       </div>

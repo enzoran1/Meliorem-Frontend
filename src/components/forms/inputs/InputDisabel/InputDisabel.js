@@ -4,7 +4,7 @@ const InputDisabel = (props) => (
   <Fragment>
     <input
       type="text"
-      class="
+      className="
         form-control
         block
         w-full
