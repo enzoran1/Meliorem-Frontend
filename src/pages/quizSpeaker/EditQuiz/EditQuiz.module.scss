@@ -1,0 +1,29 @@
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+
+.EditQuiz {
+    @include D-Flex-Center;
+    @include mt(30px);
+    @include mb(30px);
+    @include h(90vh);
+
+   form{
+    label{
+        color: $white;
+        font-weight: bold;
+    }
+    input{
+        @include mt(10px);
+        @include mb(10px);
+    }
+    textarea{
+        @include mt(10px);
+        @include mb(10px);
+    }
+    button{
+        @include mt(30px);
+        
+    }
+   }
+   
+}

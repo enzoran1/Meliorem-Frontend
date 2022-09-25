@@ -8,13 +8,19 @@ import Section from '../../../components/cours/coursCompenentSpeaker/Section/Sec
 import AddPage from '../../../components/cours/coursCompenentSpeaker/AddPage/AddPage';
 import FormContainer from '../../../components/forms/containers/FormContainer/FormContainer';
 import InputText from '../../../components/forms/inputs/InputText/InputText';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import ButtonPencils from '../../../components/buttons/ButtonPencils/ButtonPencils';
 
-const NewQuiz = () => (
+const NewQuiz = () => {
+
+const navigate = useNavigate();
+
+return(
   <div className={styles.NewQuiz} data-testid="NewQuiz">
      <div className={styles.NewQuiz__header}>
       <div className={styles.header_Top}>
     <Resume
+    onClickPencil={() => navigate('/EditQuiz')}
     title="Titre de mon cours"
     name="Nom intervenant"
     badges1= {<BadgeFilterSolid
@@ -27,7 +33,9 @@ const NewQuiz = () => (
         style={{ backgroundColor: "blue" }}
         title="php"
        />}
-    />
+    >
+      
+    </Resume>
     </div>
     <div className={styles.header_Bottom}>
     <Status title="Status"/>
@@ -74,7 +82,7 @@ const NewQuiz = () => (
     </div>
    
   </div>
-);
+);}
 
 NewQuiz.propTypes = {};
 
