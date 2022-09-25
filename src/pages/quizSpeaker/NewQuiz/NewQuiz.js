@@ -9,27 +9,27 @@ import AddPage from '../../../components/cours/coursCompenentSpeaker/AddPage/Add
 import FormContainer from '../../../components/forms/containers/FormContainer/FormContainer';
 import InputText from '../../../components/forms/inputs/InputText/InputText';
 import { Link, useNavigate } from 'react-router-dom';
+import ButtonPencils from '../../../components/buttons/ButtonPencils/ButtonPencils';
 import { quizCreationsContext } from '../../../contexts/quizCreations';
-import { useEffect } from 'react';
 
 const NewQuiz = (props) => {
   const quizContext = React.useContext(quizCreationsContext);
+const navigate = useNavigate();
 
-  
-  
-  return (
-    <div className={styles.NewQuiz} data-testid="NewQuiz">
-      <div className={styles.NewQuiz__header}>
-        <div className={styles.header_Top}>
-      <Resume
-      title={quizContext.quizInfo.title ?? "non renseigné"}
-      description={quizContext.quizInfo.description ?? "non renseigné"}
-      date={new Date().toLocaleDateString("fr-FR")}
-        badges2= {<BadgeFilterSolid
-          style={{ backgroundColor: "#495eca" }}
-          title="php"
-        />}
-      />
+return(
+  <div className={styles.NewQuiz} data-testid="NewQuiz">
+     <div className={styles.NewQuiz__header}>
+      <div className={styles.header_Top}>
+    <Resume
+    onClickPencil={() => navigate('/EditQuiz')}
+    title={quizContext.quizInfo.title ?? "non renseigné"}
+     description={quizContext.quizInfo.description ?? "non renseigné"}
+     date={new Date().toLocaleDateString("fr-FR")}
+      badges2= {<BadgeFilterSolid
+        style={{ backgroundColor: "#495eca" }}
+        title="php"
+       />}
+    />
       </div>
       <div className={styles.header_Bottom}>
       <Status title="Status" />

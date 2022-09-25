@@ -26,7 +26,7 @@ const Resume = (props) => (
         
       </div>
       <div className={styles.Footer_Right}>
-        <ButtonPencils/>
+        <ButtonPencils onClick={props.onClickPencil}/>
       </div>
 
     </div>
