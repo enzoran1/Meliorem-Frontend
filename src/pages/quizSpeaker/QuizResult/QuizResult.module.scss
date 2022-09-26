@@ -2,22 +2,109 @@
 @import '../../../variables/Variables/Variables.module.scss';
 
 .QuizResult {
+    @include D-Flex-Center;
+    @include mt(30px);
     .QuizResult_Container{
+        
+        @include p(10px);
+        border-radius: 13px;
         .Container_Header{
-
+            h1{
+                color: $white;
+                font-weight: bold;
+                font-size: 24px;
+            }
         }
         .Container_Body{
-            .Body_Left{
+            @include mt(20px);
+            @include mb(20px);
 
+            @include grid-columns(3);
+            justify-items: center;
+            width: 100%;
+            @media (min-width: $screen-sm) {
+                 justify-items: flex-start;
+                 width: 330px;
+            }
+
+
+            .Body_Left{
+                @include w(100px);
+                @include h(100px);
+                border-radius: 13px;
+                background-color: $component;
+                @include D-Flex-Center-Colums;
+                
+                p{
+                    color: $white;
+                    font-weight: bold;
+                    font-size: 16px;
+                    @include mb(10px);
+
+                }
+                span{
+                    color: $purpel;
+                    font-weight: bold;
+                    font-size: 16px;
+                    
+                }
+              
             }
             .Body_Center{
+                @extend .Body_Left;
+               p{
 
+               }
+               img{
+
+               }
             }
             .Body_Right{
+                @extend .Body_Left;
+              p{
 
+              }
+              img{
+
+              }
             }
         }
         .Container_Footer{
+            .Footer_Header{
+                @include mb(40px);
+                @include mt(40px);
+                .Header_Question{
+                    @include D-Flex;
+                    @include mb(20px);
+                    @include mt(20px);
+                        
+                        span{
+                            
+                            color: $purpel;
+                            font-weight: bold;
+                            @include mr(10px);  
+    
+                        }
+                    
+                   
+                    p{
+                        color: $white;
+                        font-weight: bold;
+                    }
+
+                }
+                .Header_Reponse{
+                    input{
+                        @include mb(10px);
+                        @include mt(10px);
+                    }
+                    label{
+                        @include mb(10px);
+                        @include mt(10px);
+                    }
+
+                }
+            }
 
         }
         .Container_Button{
