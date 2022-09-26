@@ -36,8 +36,10 @@ return(
         />  
       </div>
       <div className={styles.header_Bottom}>
-        <Status title="Status" value={quizContext.quizInfo.public ?? false} onChange={(e)=>{quizContext.quizInfo.public = e.target.value}}/>
-        <Restriction title="Réstriction"/>
+        <Status title="Status" value={quizContext.quizInfo.public ?? false} onChange={(e)=>{quizContext.quizInfo.public = e.target.value}}/> 
+        <Link to="/RestrictionQuiz">
+          <Restriction title="Réstriction"/>
+        </Link>
       </div>
     </div>
     <div className={styles.NewQuiz__body}>

@@ -1,0 +1,42 @@
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+
+.ButtonAdd {
+    @include w(300px);
+    @include D-Flex-SpaceBetween ;
+    align-items: center;
+
+    span{
+        color: $white;
+        font-weight: bold;
+        font-size: 0.8rem;
+
+    }
+    p{
+        
+        svg{
+            @include w(20px);
+            @include h(20px);
+            transition:0.3s ;
+
+            &:hover{
+                transform: scale(1.2);
+                transition: 0.3s;
+            }
+        }
+        img{
+            @include w(20px);
+            @include h(20px);
+            transition:0.3s ;
+            cursor: pointer;
+
+            &:hover{
+                transform: scale(1.2);
+                transition: 0.3s;
+            }
+
+        }
+    }
+
+
+}
