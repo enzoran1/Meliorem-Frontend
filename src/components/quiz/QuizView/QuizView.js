@@ -58,7 +58,7 @@ const QuizView = (props) => {
             </div>
           </div>
           <div className={styles.Footer_Content_Left}>
-            <ButtonArrowSolid />
+            <ButtonArrowSolid onClick={props.onClickArrowButton} />
           </div>
         </div>
       </div>

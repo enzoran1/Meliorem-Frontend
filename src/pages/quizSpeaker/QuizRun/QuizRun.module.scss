@@ -1,0 +1,117 @@
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+
+.QuizRun {
+    @include D-Flex-Center;
+    @include mt(30px);
+
+    .QuizRun_Container{
+        background-color: $component;
+        @include w(330px);
+        @include p(10px);
+        border-radius: 13px;
+        @media (min-width: $screen-sm) {
+            @include w($screen-sm);
+        }
+        @media (min-width: $screen-md) {
+            @include w($screen-md);
+        }
+        .Container_Header{
+           
+            .Header_Left{
+                @include D-Flex;
+                justify-content: space-around;
+                align-items: center;
+                
+                p{
+                    color: $white;
+                    font-size: 11px;
+                    font-weight: bold;
+                    @include ml(10px);
+                    @media (min-width: $screen-sm) {
+                        font-size: 16px;
+                    }
+                    @media (min-width: $screen-md) {
+                        font-size: 20px;
+                    }
+                }
+
+            }
+            .Header_Right{
+              p{
+                color: $purpel;
+                font-size: 13px;
+                font-weight: bold;
+                @include mt(20px);
+                @include mb(20px);
+                @media (min-width: $screen-sm) {
+                    font-size: 16px;
+                }
+                @media (min-width: $screen-md) {
+                    font-size: 20px;
+                }
+              }
+            }
+        }
+        .Container_ProgressBar{
+            @include mt(20px);
+            @include mb(20px);
+
+            @media (min-width: $screen-sm) {
+                @include mt(30px);
+                @include mb(30px);
+            }
+
+        }
+        .Container_Body{
+            @include h(170px);
+            overflow-y: scroll;
+            @include mb(20px);
+            input{
+                @include mb(20px);
+
+            }
+            label{
+                @include mb(20px);
+                color: $white;
+                font-size: 11px;
+                font-weight: bold;
+                @media (min-width: $screen-sm) {
+                    font-size: 16px;
+                }
+                @media (min-width: $screen-md) {
+                    font-size: 18px;
+                }
+            }
+
+        }
+        .Container_Body::-webkit-scrollbar-track{
+            -webkit-box-shadow: inset 0 0 6px rgba(92, 41, 222, 0.925);
+                border-radius: 10px;
+                
+    
+        }
+        .Container_Body::-webkit-scrollbar{
+            width: 10px;
+            
+        }
+        .Container_Body p::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            background-color: rgb(252, 2, 2);
+            
+        }
+        .Container_Footer{
+            
+            width: 100%;    
+            button{
+            @include D-Flex;
+            justify-content: center;
+                width: 100%;
+                @media (min-width: $screen-sm) {
+                    justify-content: flex-end;
+                }
+            }
+
+        }
+    }
+}

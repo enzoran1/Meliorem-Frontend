@@ -4,13 +4,14 @@ import CoursCardSpeaker from "../../../components/cours/CoursCardSpeaker/CoursCa
 import QuizView from "../../../components/quiz/QuizView/QuizView";
 import ButtonViewMore from "../../../components/buttons/ButtonViewMore/ButtonViewMore";
 import imageAvatarTest from "../../../images/profil/image_profil.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getMyQuiz } from "../../../modules/apis/SpeakerAPI";
 
 const formatDate = (date) => new Date(date).toLocaleDateString("fr-FR");
 
 const QuizSpeaker = () => {
   const [quiz, setQuiz] = React.useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getMyQuiz(sessionStorage.getItem("token"), (quiz) => {
@@ -69,6 +70,7 @@ const QuizSpeaker = () => {
               titleBadge="Expert"
               styleBadge={{ backgroundColor: "red", cursor: "pointer" }}
               avatar={imageAvatarTest}
+              onClickArrowButton={() => navigate("/StartQuiz/1")}
             />
             <QuizView
               title="Le titre de mon quiz pour le test template"
