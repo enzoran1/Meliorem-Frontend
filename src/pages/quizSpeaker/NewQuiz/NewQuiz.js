@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './NewQuiz.module.scss';
 import BadgeFilterSolid from '../../../components/badges/BadgeFilterSolid/BadgeFilterSolid';
 import Resume from '../../../components/cours/coursCompenentSpeaker/Resume/Resume';
@@ -14,47 +14,47 @@ import { quizCreationsContext } from '../../../contexts/quizCreations';
 
 const NewQuiz = (props) => {
   const quizContext = React.useContext(quizCreationsContext);
-const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  if (quizContext.quizInfo.quizParts === undefined)
+      quizContext.quizInfo.quizParts = [];
+
 
 return(
   <div className={styles.NewQuiz} data-testid="NewQuiz">
-     <div className={styles.NewQuiz__header}>
+    <div className={styles.NewQuiz__header}>
       <div className={styles.header_Top}>
-    <Resume
-    onClickPencil={() => navigate('/EditQuiz')}
-    title={quizContext.quizInfo.title ?? "non renseigné"}
-     description={quizContext.quizInfo.description ?? "non renseigné"}
-     date={new Date().toLocaleDateString("fr-FR")}
-      badges2= {<BadgeFilterSolid
-        style={{ backgroundColor: "#495eca" }}
-        title="php"
-       />}
-    />
+        <Resume
+        onClickPencil={() => navigate('/EditQuiz')}
+        title={quizContext.quizInfo.title ?? "non renseigné"}
+        description={quizContext.quizInfo.description ?? "non renseigné"}
+        date={new Date().toLocaleDateString("fr-FR")}
+          badges2= {<BadgeFilterSolid
+            style={{ backgroundColor: "#495eca" }}
+            title={quizContext.quizInfo.theme ?? "non renseigné"}
+          />}
+        />  
       </div>
       <div className={styles.header_Bottom}>
-      <Status title="Status" />
-      <Restriction title="Réstriction"/>
+        <Status title="Status" value={quizContext.quizInfo.public ?? false} onChange={(e)=>{quizContext.quizInfo.public = e.target.value}}/>
+        <Restriction title="Réstriction"/>
       </div>
-
-      </div>
-      <div className={styles.NewQuiz__body}>
-        <div className={styles.body_Top}>
-          <div className={styles.ContainerMap}>
-          <div className={styles.header} >
-          <Section title="La partie mvc numéro 1"/>
-          <Link to="/NouvelleQuestion">
-            <AddPage title="Créer une nouvelle partie"/>
-          </Link>
-          </div>
-          
-          </div>
-        
-          
-        </div>
-      
-      </div>
-    
     </div>
+    <div className={styles.NewQuiz__body}>
+      <div className={styles.body_Top}>
+        <div className={styles.ContainerMap}>
+          <div className={styles.header} >
+            {quizContext.quizInfo.quizParts.map((quizPart, index) => (
+              <Section key={index} title={quizPart.question}/>
+            ))}
+            <Link to="/NouvelleQuestion">
+              <AddPage title="Créer une nouvelle partie"/>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 )};
 
 NewQuiz.propTypes = {};

@@ -8,12 +8,52 @@ import ButtonDefaultLogoRigth from '../../../components/buttons/ButtonDefaultLog
 import AddPage from '../../../components/cours/coursCompenentSpeaker/AddPage/AddPage';
 
 import ButtonCross from '../../../components/buttons/ButtonCross/ButtonCross';
+import { quizCreationsContext } from '../../../contexts/quizCreations';
+import Load from '../../../components/Load/Load';
+import InputText from '../../../components/forms/inputs/InputText/InputText';
+import { useNavigate } from 'react-router-dom';
+import { getAllSkill } from '../../../modules/apis/SkillAPI';
 
-
-const AddQuestion = () => {
-
-  const [step, setStep] = React.useState(0);
+const AddQuestion = (props) => { // add or edit a question
+  const [step, setStep] = React.useState(1);
   const [types, setTypes] = React.useState(0);
+  const [id, setId] = React.useState(-1);
+  const [executed] = React.useState([false]);
+  const [skills, setSkills] = React.useState([]);
+
+
+  const quizContext = React.useContext(quizCreationsContext);
+  let navigate = useNavigate()
+
+  const getData = () => {return quizContext.quizInfo.quizParts[id]}
+
+
+  if (quizContext.quizInfo.quizParts === undefined)
+    quizContext.quizInfo.quizParts = [];
+
+  React.useEffect(() => {
+    if (executed[0] == true)return;
+    executed[0] = true;
+    let localId = quizContext.quizInfo.quizParts.length;
+    quizContext.quizInfo.quizParts[localId] = {
+      id : localId,
+      question: "",
+      skill: "",
+      answers: [],
+    };
+    setId(localId);
+    
+    getAllSkill(sessionStorage.getItem('token'),(data) => {
+        setSkills(data);
+      },(error) => {
+        console.log(error);
+      }
+    );
+  }, []);
+
+  if (quizContext.quizInfo.quizParts[id] == undefined)
+    return <Load></Load>;
+
 
     let form;
     if (step === 1)
@@ -21,22 +61,28 @@ const AddQuestion = () => {
       <FormContainer>
         <div className={styles.containerForm}>
         <label>Question</label>
-        <InputArea/>
-        <label>Thémes</label>
-        <InputSelect>
-        </InputSelect>
+        <InputArea value={getData().question} onChange={e=>{getData().question = e.target.value}}/>
+        <label>Themes</label>
+        <InputText value={getData().theme} />
         <label>Type</label>
-        <InputSelect>
+        <InputSelect onChange={(e)=> getData().skill = e.target.value}>
+        {skills.map((skill) => (
+          <option value={skill.id} selected={getData().skill == skill.id}>{skill.name}</option>
+        ))}
         </InputSelect>
         <div className={styles.Form_Button}>
-        <ButtonDefaultLogoRigth title="Suivant"/>
+        <ButtonDefaultLogoRigth onClick={()=>{setStep(0)}} title="Suivant"/>
+        <ButtonDefaultLogoRigth 
+        onClick={()=>{
+          quizContext.quizInfo.quizParts.splice(id, 1)
+          navigate("/templateAddQuiz")
+        }} 
+        isLeft title="Annuler"/>
         </div>
         </div>
-      </FormContainer>
-      );
-      else
+      </FormContainer>);
+    else
       form = (
-      
         <FormContainer>
           <div className={styles.containerForm}>
             <div className={styles.Container_Question}>
@@ -101,7 +147,7 @@ const AddQuestion = () => {
           <div className={styles.Form_Button}>
           <ButtonDefaultLogoRigth style={{width: "100%"}} title="Valider"/>
           
-          <ButtonDefaultLogoRigth style={{width: "100%"}} title="Retour" isLeft/>
+          <ButtonDefaultLogoRigth style={{width: "100%"}} onClick={()=>{setStep(1)}} title="Retour" isLeft/>
           
           
           
