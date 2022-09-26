@@ -13,6 +13,11 @@ const QuizResult = () => (
         <div className={styles.Body_Center}></div>
         <div className={styles.Body_Right}></div>
       </div>
+      <div className={styles.Container_Footer}>
+        
+      </div>
+      <div className={styles.Container_Button}></div>
+
   </div>
   </div>
 );
