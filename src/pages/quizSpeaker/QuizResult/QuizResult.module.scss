@@ -4,8 +4,12 @@
 .QuizResult {
     @include D-Flex-Center;
     @include mt(30px);
+    @media (min-width: $screen-sm) {
+       justify-content: flex-start;
+       margin-left: 20px;
+    }
     .QuizResult_Container{
-        
+        @include w(100%);
         @include p(10px);
         border-radius: 13px;
         .Container_Header{
@@ -108,6 +112,13 @@
 
         }
         .Container_Button{
+            @include D-Flex;
+            justify-content: center;
+            @include mb(20px);
+            @media (min-width: $screen-sm) {
+                justify-content: flex-end;
+                @include mr(100px);
+            }
 
         }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './QuizResult.module.scss';
 import InputCheck from '../../../components/quiz/InputCheck/InputCheck';
+import ButtonDefaultLogoRigth from '../../../components/buttons/ButtonDefaultLogoRigth/ButtonDefaultLogoRigth';
 
 const QuizResult = () => (
   <div className={styles.QuizResult} data-testid="QuizResult">
@@ -89,7 +90,9 @@ const QuizResult = () => (
           </div>
         </div>
       </div>
-      <div className={styles.Container_Button}></div>
+      <div className={styles.Container_Button}>
+          <ButtonDefaultLogoRigth title="Suivant"/>
+      </div>
 
   </div>
   </div>
