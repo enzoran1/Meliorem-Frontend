@@ -1,0 +1,15 @@
+.InputCheck {
+    .FormCheck{
+        display: flex;
+        
+        
+        width: 100%;
+        input{
+            min-height: 20px;
+            min-width: 20px;
+        }
+        label{
+            font-weight: bold;
+        }
+    }
+}

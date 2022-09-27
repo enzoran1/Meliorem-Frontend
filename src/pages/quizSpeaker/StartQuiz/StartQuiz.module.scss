@@ -1,0 +1,55 @@
+@import '../../../mixins/Mixins/Mixins.module.scss';
+@import '../../../variables/Variables/Variables.module.scss';
+
+.StartQuiz {
+    @include D-Flex-Center;
+    @include h(90vh);
+    .StartQuiz_Container{
+         background-color: $component;
+         @include w(330px);
+         @include h(280px);
+         border-radius: 13px;
+         @include p(10px);
+         @include D-Flex-SpaceAround-Colums;
+
+        .Container_Title{
+
+            p{
+                @include fz(15px);
+                color: $white;
+                font-weight: bold;
+                text-align: left;
+                
+            }
+
+        }
+
+        .Container_Infos{
+            @include D-Flex-SpaceBetween;
+            @include w(100%);
+            p{
+                @include fz(13px);
+                color: $purpel;
+                font-weight: bold;
+            }
+            span{
+                @include fz(13px);
+                color: $white;
+                font-weight: bold;
+            }
+
+        }
+
+        .Container_Button{
+            @include mt(10px);
+
+            button{
+                @include mt(10px);
+                @include mb(10px);
+            }
+
+
+        }
+
+    }
+}
