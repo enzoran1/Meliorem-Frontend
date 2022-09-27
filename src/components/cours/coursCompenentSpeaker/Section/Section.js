@@ -14,7 +14,7 @@ const Section = (props) =>
       <p>{props.title}</p>
     </div>
     <div className={styles.Section_Bottom}>
-      <ButtonPencils/>
+      <ButtonPencils onClick={props.onClickPencil}/>
     </div>
   </div>
 );

@@ -47,7 +47,7 @@ return(
         <div className={styles.ContainerMap}>
           <div className={styles.header} >
             {quizContext.quizInfo.quizParts.map((quizPart, index) => (
-              <Section key={index} title={quizPart.question}/>
+              <Section key={index} title={quizPart.question} onClickPencil={()=>{navigate(`/NouvelleQuestion/${quizPart.id}`)}}/>
             ))}
             <Link to="/NouvelleQuestion">
               <AddPage title="Créer une nouvelle partie"/>

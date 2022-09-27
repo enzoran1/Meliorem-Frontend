@@ -7,6 +7,7 @@ const InputArea = (props) => (
       placeholder={props.placeholder}
       type={props.type}
       defaultValue={props.value}
+      value={props.valueModel}
       onChange={props.onChange}
       className="
         form-control

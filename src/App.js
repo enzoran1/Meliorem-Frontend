@@ -63,6 +63,7 @@ function App() {
         
         <Route path="/templateAddQuiz" element={<NewQuiz/>} />
         <Route path="/templateCkeditor" element={<DocumentCkeditor/>} />
+        <Route path="/NouvelleQuestion/:idQuestion" element={<AddQuestion/>} />
         <Route path="/NouvelleQuestion" element={<AddQuestion/>} />
         <Route path="/EditQuiz" element={<EditQuiz/>} />
         <Route path="/RestrictionQuiz" element={<RestrictionQuiz/>} />
