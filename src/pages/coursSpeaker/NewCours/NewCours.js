@@ -65,6 +65,7 @@ const NewCours = () => (
       
       <div className={`modal-body relative p-4 ${styles.modalContainer}`}>
         <FormContainer>
+          <label>Titre</label>
           <InputText></InputText>
           <div
         className={styles.Modal_Button}>
@@ -84,6 +85,7 @@ const NewCours = () => (
     </div>
   </div>
 </div>
+     
   </div>
 );
 

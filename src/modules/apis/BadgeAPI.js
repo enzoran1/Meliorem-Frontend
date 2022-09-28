@@ -1,5 +1,7 @@
 import * as UtilsAPI from './UtilsAPI';
 
+
+
 export const getAllBadge = (token,success,error,search) => {
     return UtilsAPI.getAll('badge',token,success,error,search);
 }

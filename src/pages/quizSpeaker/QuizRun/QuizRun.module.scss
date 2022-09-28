@@ -4,6 +4,7 @@
 .QuizRun {
     @include D-Flex-Center;
     @include mt(30px);
+    @include mb(30px);
 
     .QuizRun_Container{
         background-color: $component;
@@ -38,19 +39,55 @@
 
             }
             .Header_Right{
-              p{
-                color: $purpel;
-                font-size: 13px;
-                font-weight: bold;
-                @include mt(20px);
-                @include mb(20px);
-                @media (min-width: $screen-sm) {
-                    font-size: 16px;
+                
+                .Header_Right_Top{
+                    @include D-Flex-SpaceBetween;
+                    align-items: center;
+                    p{
+                        color: $purpel;
+                        font-size: 13px;
+                        font-weight: bold;
+                        @include mt(20px);
+                        @include mb(20px);
+                        @media (min-width: $screen-sm) {
+                            font-size: 16px;
+                        }
+                        @media (min-width: $screen-md) {
+                            font-size: 20px;
+                        }
+                      }
+                    span{
+
+                        color: $purpel;
+                        font-size: 13px;
+                        font-weight: bold;
+                        @include mt(20px);
+                        @include mb(20px);
+                        @media (min-width: $screen-sm) {
+                            font-size: 16px;
+                        }
+                        @media (min-width: $screen-md) {
+                            font-size: 20px;
+                        }
+                        
+
+                      }
                 }
-                @media (min-width: $screen-md) {
-                    font-size: 20px;
+                .Header_Right_Bottom{
+                    p{
+                        color: $white;
+                        font-size: 11px;
+                        font-weight: bold;
+                       
+                        @media (min-width: $screen-sm) {
+                            font-size: 16px;
+                        }
+                        @media (min-width: $screen-md) {
+                            font-size: 16px;
+                        }
+                    }
                 }
-              }
+              
             }
         }
         .Container_ProgressBar{
@@ -86,8 +123,8 @@
 
         }
         .Container_Body::-webkit-scrollbar-track{
-            -webkit-box-shadow: inset 0 0 6px rgba(92, 41, 222, 0.925);
-                border-radius: 10px;
+             background-color: rgba(0, 0, 0, 0.283);
+             border-radius: 12px;
                 
     
         }
@@ -95,9 +132,10 @@
             width: 10px;
             
         }
-        .Container_Body p::-webkit-scrollbar-thumb{
+        .Container_Body::-webkit-scrollbar-thumb{
             border-radius: 10px;
-            background-color: rgb(252, 2, 2);
+            background-color: $purpel;
+            border: 2px solid $purpel_2;
             
         }
         .Container_Footer{

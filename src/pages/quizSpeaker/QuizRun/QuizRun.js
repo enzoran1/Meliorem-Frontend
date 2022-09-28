@@ -21,7 +21,13 @@ return(
            <p>La question du quiz pour le teste du quiz de ta mére en slip la chauve devant la télé ton pére le plombié qui à la ré ouverte ?</p>
         </div>
         <div className={styles.Header_Right}>
+          <div className={styles.Header_Right_Top}>
           <p>Question 1/10</p>
+          <span>Temps global : 350s</span>
+          </div>
+          <div className={styles.Header_Right_Bottom}>
+            <p>temps question : 15s</p>
+          </div>
         </div>
       </div>
       <div className={styles.Container_ProgressBar}>

@@ -94,12 +94,26 @@
         padding: 0;
         form{
             width: 100%;
+            label{
+                color: $white;
+                font-weight: bold;
+                
+            }
+            input{
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
 
             .Modal_Button{
                 width: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+
+                button{
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
             }
         }
     }

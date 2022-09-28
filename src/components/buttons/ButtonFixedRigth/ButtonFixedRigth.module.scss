@@ -1,4 +1,4 @@
-.ButtonFixedRigth {
+.ButtonFixedRigth__bottom {
     position: fixed;
         bottom: 0;
         right: 0;
@@ -11,6 +11,34 @@
         &:hover{
             transform: scale(1.1);
             transition: .2s;
+        }
+        
+}
+
+.ButtonFixedRigth__top {
+    position: fixed;
+        top: 0;
+        right: 0;
+        margin: 1rem;
+        margin-top: 80px;
+        z-index: 1000;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: .2s;
+        padding: 20px;
+
+        &:hover{
+            transform: scale(1.1);
+            transition: .2s;
+        }
+        @media (max-width: 768px) {
+            bottom: 0;
+            top: unset;
+            margin-top: initial;
+        }
+        img{
+            width: 40px;
+            height: 40px;
         }
         
 }

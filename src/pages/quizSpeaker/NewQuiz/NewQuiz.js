@@ -11,6 +11,8 @@ import InputText from '../../../components/forms/inputs/InputText/InputText';
 import { Link, useNavigate } from 'react-router-dom';
 import ButtonPencils from '../../../components/buttons/ButtonPencils/ButtonPencils';
 import { quizCreationsContext } from '../../../contexts/quizCreations';
+import ButtonDefaultLogoRigth from '../../../components/buttons/ButtonDefaultLogoRigth/ButtonDefaultLogoRigth';
+import ButtonFixedRigth from '../../../components/buttons/ButtonFixedRigth/ButtonFixedRigth';
 
 const NewQuiz = (props) => {
   const [refresh, setRefresh] = React.useState(false);
@@ -27,6 +29,7 @@ const NewQuiz = (props) => {
 
       console.log(quizContext.quizInfo.quizParts);
 return(
+  <>
   <div className={styles.NewQuiz} data-testid="NewQuiz">
     <div className={styles.NewQuiz__header}>
       <div className={styles.header_Top}>
@@ -42,7 +45,8 @@ return(
         />  
       </div>
       <div className={styles.header_Bottom}>
-        <Status title="Status" value={quizContext.quizInfo.public ?? false} onChange={(e)=>{quizContext.quizInfo.public = e.target.value}}/> 
+        <Status title="Status" value={quizContext.quizInfo.public ?? false} onChange={(e)=>{quizContext.quizInfo.public = e.target.value}}/>
+        <Restriction title="Réstriction"/> 
       </div>
     </div>
     <div className={styles.NewQuiz__body}>
@@ -59,7 +63,12 @@ return(
         </div>
       </div>
     </div>
+    
   </div>
+
+<ButtonFixedRigth top bgBtn="#ffffff"
+style={{ backgroundColor: "#4F46E5" }}/>
+</>
 )};
 
 NewQuiz.propTypes = {};
