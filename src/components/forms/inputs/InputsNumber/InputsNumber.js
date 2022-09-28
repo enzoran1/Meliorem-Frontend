@@ -22,6 +22,7 @@ const InputsNumber = (props) => (
     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
   "
   id="exampleNumber0"
+  placeholder={props.placeholder}
   defaultValue={props.value}
   onChange={props.onChange}
 />

@@ -14,6 +14,7 @@ import InputText from '../../../components/forms/inputs/InputText/InputText';
 import { useNavigate, useParams} from 'react-router-dom';
 import { getAllSkill } from '../../../modules/apis/SkillAPI';
 import AlertWarning from '../../../components/alerts/AlertWarning/AlertWarning';
+import InputsNumber from '../../../components/forms/inputs/InputsNumber/InputsNumber';
 
 
 
@@ -22,6 +23,7 @@ const AddQuestion = (props) => { // add or edit a question
   const [id, setId] = React.useState(-1);
   const [executed] = React.useState([false]);
   const [skills, setSkills] = React.useState([]);
+  const [initial, setInitial] = React.useState({});
   const [error, setError] = React.useState("");
   const [refresh, setRefresh] = React.useState(false);
 
@@ -38,7 +40,28 @@ const AddQuestion = (props) => { // add or edit a question
   if (quizContext.quizInfo.quizParts === undefined)
     quizContext.quizInfo.quizParts = [];
 
-  function valider() {
+  function isEmptyQuestion() {
+    return new Promise((resolve, reject) => {
+      getData().responses.forEach(element => {
+        if (element === undefined || element.text === "")
+          resolve(true);
+          
+      });
+      resolve(false);
+    })
+  }
+
+  function haveGoodAnswer() {
+    return new Promise((resolve, reject) => {
+      getData().responses.forEach(element => {
+        if (element.valid)
+          resolve(true);
+      });
+      resolve(false);
+    })
+  }
+
+  async function valider() {
     if (getData().question === undefined || getData().question === "") {
       setError("Veuillez renseigner une question");
       return;
@@ -47,16 +70,22 @@ const AddQuestion = (props) => { // add or edit a question
       setError("Veuillez renseigner une compétence");
       return;
     }
-    getData().responses.forEach(element => {
-      if (element === undefined || element.text === "") {
-        setError("Vous n'avez pas renseigné toutes les réponses");
-        return;
-      }
-    });
+    let isEmpty = await isEmptyQuestion();
+    if (isEmpty){
+      setError("Vous n'avez pas renseigné toutes les réponses");
+      return;
+    }
+    let haveGood = await haveGoodAnswer();
+    if (!haveGood){
+      setError("il n'y a aucune bonne réponse, veuillez en renseigner au moins une");
+      return;
+    }
+
     if (getData().responses.length < 2) {
       setError("Vous devez renseigner au moins 2 réponses");
       return;
     }
+
     setError("");
     navigate("/templateAddQuiz");
 
@@ -64,9 +93,21 @@ const AddQuestion = (props) => { // add or edit a question
   React.useEffect(() => {
 
     if (executed[0] == true)return;
-
+    executed[0] = true;
+    let localId = quizContext.quizInfo.quizParts.length;
+    if (idQuestion !== undefined) {
+      setInitial({
+        id : quizContext.quizInfo.quizParts[idQuestion].id,
+        question: quizContext.quizInfo.quizParts[idQuestion].question,
+        skill: quizContext.quizInfo.quizParts[idQuestion].skill,
+        responses: quizContext.quizInfo.quizParts[idQuestion].responses,
+        timeMaxToResponse: quizContext.quizInfo.quizParts[idQuestion].time,
+        choice: quizContext.quizInfo.quizParts[idQuestion].choice,
+      })
+    }
     getAllSkill(sessionStorage.getItem('token'),(data) => {
         setSkills(data);
+        quizContext.quizInfo.quizParts[idQuestion ?? localId].skill = data[0].id;
       },(error) => {
         console.log(error);
       }
@@ -76,12 +117,13 @@ const AddQuestion = (props) => { // add or edit a question
         setId(idQuestion);
         return;
     }
-    executed[0] = true;
-    let localId = quizContext.quizInfo.quizParts.length;
+    
     quizContext.quizInfo.quizParts[localId] = {
       id : localId,
       question: "",
       skill: "",
+      choice: "radio",
+      timeMaxToResponse: 0,
       responses: [],
     };
     setId(localId);
@@ -107,15 +149,23 @@ const AddQuestion = (props) => { // add or edit a question
         ))}
         </InputSelect>
         <label>Types</label>
-        <InputSelect onChange={(e)=> getData().type = e.target.value}>
-          <option value="radio" selected={getData().type === "radio"}>Choix unique (une bonne reponse)</option>
-          <option value="checkbox" selected={getData().type === "checkbox"}>Choix multiple (une ou plus de bonne reponse)</option>
+        <InputSelect onChange={(e)=> getData().choice = e.target.value}>
+          <option value="radio" selected={getData().choice === "radio"}>Choix unique (une bonne reponse)</option>
+          <option value="checkbox" selected={getData().choice === "checkbox"}>Choix multiple (une ou plus de bonne reponse)</option>
         </InputSelect>
+        <label>Temps de réponse (0s pour aucun temps)</label>
+        <InputsNumber placeholder="10 (secondes)"  value={getData().timeMaxToResponse} onChange={(e)=>{getData().timeMaxToResponse = e.target.value }} />
         <div className={styles.Form_Button}>
         <ButtonDefaultLogoRigth onClick={()=>{setStep(0)}} title="Suivant"/>
         <ButtonDefaultLogoRigth 
         onClick={()=>{
-          quizContext.quizInfo.quizParts.splice(id, 1)
+          if (idQuestion == undefined)
+          {
+            quizContext.quizInfo.quizParts.splice(id, 1)
+            navigate("/templateAddQuiz")
+            return
+          }
+          quizContext.quizInfo.quizParts[id] = initial;
           navigate("/templateAddQuiz")
         }} 
         isLeft title="Annuler"/>
@@ -142,7 +192,7 @@ const AddQuestion = (props) => { // add or edit a question
                     }}/>
                   <label htmlFor="">Réponse {count++}</label>
                 </div>
-                {(getData().type === "radio") 
+                {(getData().choice === "radio") 
                 ? 
                   <div className="form-check">
                     <input checked={response.valid} onChange={(e)=>{response.valid = e.target.checked;setRefresh(!refresh);}} className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>

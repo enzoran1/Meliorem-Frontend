@@ -13,13 +13,19 @@ import ButtonPencils from '../../../components/buttons/ButtonPencils/ButtonPenci
 import { quizCreationsContext } from '../../../contexts/quizCreations';
 
 const NewQuiz = (props) => {
+  const [refresh, setRefresh] = React.useState(false);
   const quizContext = React.useContext(quizCreationsContext);
   const navigate = useNavigate();
+
+  function deleteQuizParts(index){
+    quizContext.quizInfo.quizParts.splice(index, 1);
+    setRefresh(!refresh);
+  }
 
   if (quizContext.quizInfo.quizParts === undefined)
       quizContext.quizInfo.quizParts = [];
 
-
+      console.log(quizContext.quizInfo.quizParts);
 return(
   <div className={styles.NewQuiz} data-testid="NewQuiz">
     <div className={styles.NewQuiz__header}>
@@ -37,9 +43,6 @@ return(
       </div>
       <div className={styles.header_Bottom}>
         <Status title="Status" value={quizContext.quizInfo.public ?? false} onChange={(e)=>{quizContext.quizInfo.public = e.target.value}}/> 
-        <Link to="/RestrictionQuiz">
-          <Restriction title="Réstriction"/>
-        </Link>
       </div>
     </div>
     <div className={styles.NewQuiz__body}>
@@ -47,7 +50,7 @@ return(
         <div className={styles.ContainerMap}>
           <div className={styles.header} >
             {quizContext.quizInfo.quizParts.map((quizPart, index) => (
-              <Section key={index} title={quizPart.question} onClickPencil={()=>{navigate(`/NouvelleQuestion/${quizPart.id}`)}}/>
+              <Section onClickCross={()=>deleteQuizParts(index)} key={index} title={quizPart.question} onClickPencil={()=>{navigate(`/NouvelleQuestion/${index}`)}}/>
             ))}
             <Link to="/NouvelleQuestion">
               <AddPage title="Créer une nouvelle partie"/>

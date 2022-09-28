@@ -8,7 +8,7 @@ const Section = (props) =>
 (
   <div className={styles.Section} style={props.style} data-testid="Section">
     <div className={styles.Section_Top}>
-      <ButtonCross/>
+      <ButtonCross onClick={props.onClickCross}/>
     </div>
     <div className={styles.Section_Body}>
       <p>{props.title}</p>
