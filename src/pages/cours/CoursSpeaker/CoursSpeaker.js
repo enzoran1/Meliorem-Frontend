@@ -23,7 +23,7 @@ const CoursSpeaker = () =>
     setIsLoading(true);
     getAllWithPageCourse(
       sessionStorage.getItem("token"),
-      6,
+      4,
       page,
       (coursFetched) => {
         setIsLoading(false);

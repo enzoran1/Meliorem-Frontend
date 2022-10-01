@@ -51,7 +51,7 @@ function App() {
         <Route path="/liste-quiz-intervenant" element={<ListeQuiz />} />
         <Route path="/liste-cours-intervenant" element={<ListeCours />} />
         <Route
-          path="/liste-quiz-globaly-intervenant"
+          path="/liste-quiz-globaly"
           element={<GlobalyQuiz />}
         />
         <Route

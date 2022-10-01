@@ -6,6 +6,7 @@ import ButtonViewMore from "../../../components/buttons/ButtonViewMore/ButtonVie
 import imageAvatarTest from "../../../images/profil/image_profil.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { getMyQuiz } from "../../../modules/apis/SpeakerAPI";
+import { getAllPublishWithPage } from "../../../modules/apis/QuizAPI";
 
 const formatDate = (date) => new Date(date).toLocaleDateString("fr-FR");
 
@@ -17,7 +18,12 @@ const QuizSpeaker = () => {
     getMyQuiz(sessionStorage.getItem("token"), (quiz) => {
       setQuiz(quiz);
     });
+    getAllPublishWithPage( sessionStorage.getItem("token"), 4, 1, (quizFetched) => {
+      setQuiz([...quizFetched.data]);
+    });
   }, []);
+
+
 
   console.log(quiz)
   let quizPublic = [];
@@ -62,43 +68,24 @@ const QuizSpeaker = () => {
             <p>Quiz</p>
           </div>
           <div className={styles.Body_Center}>
+
+
+            {quizPublic.map((quiz,index) => (
             <QuizView
-              title="Le titre de mon quiz pour le test template"
-              identity="Carlos Roberto"
-              date="12/12/2020"
+              key={index}
+              title={quiz.title}
+              identity={quiz.speakerInfo.userName}
+              date={formatDate(quiz.createdAt)}
               numberQuestion="10"
-              titleBadge="Expert"
-              styleBadge={{ backgroundColor: "red", cursor: "pointer" }}
               avatar={imageAvatarTest}
               onClickArrowButton={() => navigate("/StartQuiz/1")}
+
             />
-            <QuizView
-              title="Le titre de mon quiz pour le test template"
-              identity="Carlos Roberto"
-              date="12/12/2020"
-              numberQuestion="10"
-              titleBadge="Expert"
-              styleBadge={{ backgroundColor: "red", cursor: "pointer" }}
-            />
-            <QuizView
-              title="Le titre de mon quiz pour le test template"
-              identity="Carlos Roberto"
-              date="12/12/2020"
-              numberQuestion="10"
-              titleBadge="Expert"
-              styleBadge={{ backgroundColor: "red", cursor: "pointer" }}
-            />
-            <QuizView
-              title="Le titre de mon quiz pour le test template"
-              identity="Carlos Roberto"
-              date="12/12/2020"
-              numberQuestion="10"
-              titleBadge="Expert"
-              styleBadge={{ backgroundColor: "red", cursor: "pointer" }}
-            />
+            ))}
+            
           </div>
           <div className={styles.Body_Bottom}>
-            <Link to="/liste-quiz-globaly-intervenant">
+            <Link to="/liste-quiz-globaly">
               <ButtonViewMore />
             </Link>
           </div>

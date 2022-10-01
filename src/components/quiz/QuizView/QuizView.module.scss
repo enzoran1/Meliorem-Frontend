@@ -65,7 +65,13 @@
             .Footer_Content_Right{
                 @include D-Flex-Align;
                 .Footer_Right_Avatar{
-                    @include mr(10px)
+                    @include mr(10px);
+                    img{
+                        min-width: 50px;
+                        min-height: 50px;
+                        max-width: 50px;
+                        max-height: 50px;
+                    }
                 }
                 .Footer_Right_IdentityAndDate{
                     h4{

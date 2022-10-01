@@ -11,7 +11,7 @@ const QuizView = (props) => {
     <div className={styles.QuizView} data-testid="QuizView">
       <div className={styles.QuizView_Header}>
         <h3> {props.title} </h3>
-        <BadgeFilterSolid style={props.styleBadge} title={props.titleBadge} />
+      
       </div>
       <div className={styles.QuizView_Number_Question}>
         <p>Questions : {props.numberQuestion}</p>
