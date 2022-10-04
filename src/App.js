@@ -29,53 +29,46 @@ import RestrictionQuiz from "./pages/quizSpeaker/RestrictionQuiz/RestrictionQuiz
 import StartQuiz from "./pages/quizSpeaker/StartQuiz/StartQuiz";
 import QuizRun from "./pages/quizSpeaker/QuizRun/QuizRun";
 import QuizResult from "./pages/quizSpeaker/QuizResult/QuizResult";
+import { PerformQuizProvider } from "./contexts/performQuizContext";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-        <QuizCreationsProvider>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/cours" element={<Cours />} />
-        <Route path="/quizz" element={<Quiz />}/>
-        <Route path="/contacts" element={<Contact />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/groups" element={<Group />} />
-        <Route path="/badges-admin" element={<BadgesAdmin />} />
-
-        <Route path="/liste-badges" element={<ListeBadges />} />
-        <Route path="/liste-utilisateurs" element={<ListeUtilisateurs />} />
-        <Route path="/liste-quiz-intervenant" element={<ListeQuiz />} />
-        <Route path="/liste-cours-intervenant" element={<ListeCours />} />
-        <Route
-          path="/liste-quiz-globaly"
-          element={<GlobalyQuiz />}
-        />
-        <Route
-          path="/formulaire-quiz-intervenant"
-          element={<ListeCoursStudent />}
-        />
-        <Route path="/liste-cours-etudiant" element={<ListeCoursStudent />} />
-        <Route path="/:entity/view/:id" element={<EntityView />} />
-        <Route path="/:entity/edit/:id" element={<CrudEdit />} />
-        <Route path="/:entity/add" element={<CrudAdd />} />
-        <Route path="/templateAddCours" element={<NewCours/>} />
-        
-        <Route path="/templateAddQuiz" element={<NewQuiz/>} />
-        <Route path="/templateCkeditor" element={<DocumentCkeditor/>} />
-        <Route path="/NouvelleQuestion/:idQuestion" element={<AddQuestion/>} />
-        <Route path="/NouvelleQuestion" element={<AddQuestion/>} />
-        <Route path="/EditQuiz" element={<EditQuiz/>} />
-        <Route path="/RestrictionQuiz" element={<RestrictionQuiz/>} />
-        <Route path="/StartQuiz/:id" element={<StartQuiz/>} />
-        <Route path="/RunQuiz" element={<QuizRun/>} />
-        <Route path="/QuizResult" element={<QuizResult/>} />
-         
-
-        </Routes>
+      <QuizCreationsProvider>
+        <PerformQuizProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/cours" element={<Cours />} />
+            <Route path="/quizz" element={<Quiz />}/>
+            <Route path="/contacts" element={<Contact />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/groups" element={<Group />} />
+            <Route path="/badges-admin" element={<BadgesAdmin />} />
+            <Route path="/liste-badges" element={<ListeBadges />} />
+            <Route path="/liste-utilisateurs" element={<ListeUtilisateurs />} />
+            <Route path="/liste-quiz-intervenant" element={<ListeQuiz />} />
+            <Route path="/liste-cours-intervenant" element={<ListeCours />} />
+            <Route path="/liste-quiz-globaly" element={<GlobalyQuiz />} />
+            <Route path="/formulaire-quiz-intervenant" element={<ListeCoursStudent />}/>
+            <Route path="/liste-cours-etudiant" element={<ListeCoursStudent />} />
+            <Route path="/:entity/view/:id" element={<EntityView />} />
+            <Route path="/:entity/edit/:id" element={<CrudEdit />} />
+            <Route path="/:entity/add" element={<CrudAdd />} />
+            <Route path="/templateAddCours" element={<NewCours/>} />
+            <Route path="/templateAddQuiz" element={<NewQuiz/>} />
+            <Route path="/templateCkeditor" element={<DocumentCkeditor/>} />
+            <Route path="/NouvelleQuestion/:idQuestion" element={<AddQuestion/>} />
+            <Route path="/NouvelleQuestion" element={<AddQuestion/>} />
+            <Route path="/EditQuiz" element={<EditQuiz/>} />
+            <Route path="/RestrictionQuiz" element={<RestrictionQuiz/>} />
+            <Route path="/StartQuiz/:id" element={<StartQuiz/>} />
+            <Route path="/RunQuiz" element={<QuizRun/>} />
+            <Route path="/QuizResult" element={<QuizResult/>} />
+          </Routes>
+        </PerformQuizProvider>
       </QuizCreationsProvider>
     </div>
   );

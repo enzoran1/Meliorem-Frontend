@@ -1,23 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import DashboardAdmin from "../DashboardAdministrator/DashboardAdministrator";
 import DashboardStudent from "../DashboardStudent/DashboardStudent";
 import DashboardSpeaker from "../DashboardSpeaker/DashboardSpeaker";
 import DashboardAdministration from "../DashboardAdministration/DashboardAdministration";
+import { getRoles } from "../../../modules/accountUtils";
+import Load from "../../../components/Load/Load";
 
-const Dashboard = () => {
-  /*
-   * ROLE_ADMINISTRATION
-   * ROLE_STUDENT
-   * ROLE_SPEAKER
-   * ROLE_SUPERADMIN
-   */
-  const [role] = React.useState("ROLE_SPEAKER");
+const Dashboard = (props) => {
+  
+  const [role , setRole] = React.useState(["ROLE_SPEAKER"]);
+  const [loading, setLoading] = React.useState(true);
+  useEffect(() => {
+    getRoles(sessionStorage.getItem("token"),props.navigation,(role) => {
+      setRole(role);
+      setLoading(false);
+    });
+  }, []);
 
-  if (role === "ROLE_ADMINISTRATION") return <DashboardAdministration />;
-  else if (role === "ROLE_STUDENT") return <DashboardStudent />;
-  else if (role === "ROLE_SPEAKER") return <DashboardSpeaker />;
-  else if (role === "ROLE_SUPERADMIN") return <DashboardAdmin />;
+  if (loading) 
+    return <Load/>;
+
+  if (role.includes("ROLE_ADMINISTRATION")) return <DashboardAdministration />;
+  else if (role.includes("ROLE_STUDENT")) return <DashboardStudent />;
+  else if (role.includes("ROLE_SPEAKER")) return <DashboardSpeaker />;
+  else if (role.includes("ROLE_SUPERADMIN")) return <DashboardAdmin />;
 };
 
 Dashboard.propTypes = {};

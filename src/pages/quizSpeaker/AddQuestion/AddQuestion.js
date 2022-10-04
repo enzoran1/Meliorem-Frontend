@@ -86,7 +86,6 @@ const AddQuestion = (props) => { // add or edit a question
       return;
     }
 
-    setError("");
     navigate("/templateAddQuiz");
 
   }
@@ -121,7 +120,7 @@ const AddQuestion = (props) => { // add or edit a question
     quizContext.quizInfo.quizParts[localId] = {
       id : localId,
       question: "",
-      skill: "",
+      skill: 0,
       choice: "radio",
       timeMaxToResponse: 0,
       responses: [],

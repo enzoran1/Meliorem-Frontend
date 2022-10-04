@@ -13,11 +13,51 @@ import ButtonPencils from '../../../components/buttons/ButtonPencils/ButtonPenci
 import { quizCreationsContext } from '../../../contexts/quizCreations';
 import ButtonDefaultLogoRigth from '../../../components/buttons/ButtonDefaultLogoRigth/ButtonDefaultLogoRigth';
 import ButtonFixedRigth from '../../../components/buttons/ButtonFixedRigth/ButtonFixedRigth';
+import { postQuiz } from '../../../modules/apis/QuizAPI';
+import { getMyUser } from '../../../modules/apis/UserAPI';
+import { postQuizPart } from '../../../modules/apis/QuizPartAPI';
 
 const NewQuiz = (props) => {
   const [refresh, setRefresh] = React.useState(false);
   const quizContext = React.useContext(quizCreationsContext);
   const navigate = useNavigate();
+
+  function whenSubmit() {
+    if (quizContext.quizInfo.title === '' ||
+      quizContext.quizInfo.description === '' ||
+      quizContext.quizInfo.theme === '' ||
+      quizContext.quizInfo.timeToPerformAll === 0 ||
+      quizContext.quizInfo.quizParts === undefined || quizContext.quizInfo.quizParts.length === 0) { 
+      alert("Veuillez remplir tous les champs");
+      return;
+    }
+    getMyUser(sessionStorage.getItem('token'), (user) => {
+      postQuiz(sessionStorage.getItem('token'), {
+        title : quizContext.quizInfo.title,
+        theme : quizContext.quizInfo.theme,
+        public : quizContext.quizInfo.public,
+        description : quizContext.quizInfo.description,
+        timeToPerformAll : quizContext.quizInfo.timeToPerformAll,
+        speakerId : user.speaker.id,
+      }, (response) => {
+        quizContext.quizInfo.quizParts.forEach((element,index) => {
+          postQuizPart(sessionStorage.getItem('token'), {
+            question : element.question,
+            answer : JSON.stringify(element.responses),
+            quizId : response.id,
+            timeMaxToResponse : element.timeMaxToResponse,
+            quizOrder : index,
+            choice : element.choice,
+            skillId : element.skill,
+        });
+        navigate('/liste-quiz-intervenant');
+      }, (error) => {
+        console.error("Une erreur est survenue lors de la création du quiz");
+      });
+    }, (error) => {
+      console.error(error);
+    });
+  })}
 
   function deleteQuizParts(index){
     quizContext.quizInfo.quizParts.splice(index, 1);
@@ -66,8 +106,10 @@ return(
     
   </div>
 
-<ButtonFixedRigth top bgBtn="#ffffff"
-style={{ backgroundColor: "#4F46E5" }}/>
+  <ButtonFixedRigth top bgBtn="#ffffff"
+  style={{ backgroundColor: "#4F46E5" }}
+  onClick={whenSubmit}
+  />
 </>
 )};
 

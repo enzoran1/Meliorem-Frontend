@@ -12,11 +12,12 @@ const formatDate = (date) => new Date(date).toLocaleDateString("fr-FR");
 
 const QuizSpeaker = () => {
   const [quiz, setQuiz] = React.useState([]);
+  const [personnalQuiz, setPersonnalQuiz] = React.useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     getMyQuiz(sessionStorage.getItem("token"), (quiz) => {
-      setQuiz(quiz);
+      setPersonnalQuiz(quiz);
     });
     getAllPublishWithPage( sessionStorage.getItem("token"), 4, 1, (quizFetched) => {
       setQuiz([...quizFetched.data]);
@@ -28,7 +29,7 @@ const QuizSpeaker = () => {
   console.log(quiz)
   let quizPublic = [];
   let quizPrivate = [];
-  quiz.forEach(quiz =>(quiz.public?quizPublic:quizPrivate).push(quiz));
+  personnalQuiz.forEach(quiz =>(quiz.public?quizPublic:quizPrivate).push(quiz));
   console.log("public : " , quizPublic)
   console.log("private : " , quizPrivate)
 
@@ -70,16 +71,15 @@ const QuizSpeaker = () => {
           <div className={styles.Body_Center}>
 
 
-            {quizPublic.map((quiz,index) => (
+            {quiz.map((quiz,index) => (
             <QuizView
               key={index}
               title={quiz.title}
               identity={quiz.speakerInfo.userName}
               date={formatDate(quiz.createdAt)}
-              numberQuestion="10"
+              numberQuestion={quiz.quizPartsCount}
               avatar={imageAvatarTest}
-              onClickArrowButton={() => navigate("/StartQuiz/1")}
-
+              onClickArrowButton={() => navigate("/StartQuiz/" + quiz.id)}
             />
             ))}
             
